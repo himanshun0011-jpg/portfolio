@@ -30,8 +30,8 @@ export const HERO_IMAGES = [
     alt: "Classified top secret wireframe drop",
   },
   {
-    url: "https://images.unsplash.com/photo-1787276140535-d626c2fd1495?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1MTN8MHwxfHNlYXJjaHw0fHxtaW5pbWFsaXN0JTIwbW9kZXJuJTIwZ3JhcGhpYyUyMGRlc2lnbiUyMHBvcnRmb2xpbyUyMGFydHdvcmslMjBVSSUyMDNEJTIwbW90aW9ufGVufDB8fHx8MTc5MjY0NjAxMXww&ixlib=rb-4.1.0&q=85",
-    alt: "Data visualization 3D interface",
+    url: "https://customer-assets-gfyr7b9c.emergentagent.net/job_loop-studio-web/artifacts/e5a75d367b24b64e_Untitled%20-%20February%2027%2C%202026%20at%2012.35.40-4.png",
+    alt: "FIZZ & BLOOM lavender lemon campaign portrait",
   },
 ];
 
@@ -79,6 +79,26 @@ export const SERVICES = [
 ];
 
 export const PROJECTS = [
+  {
+    id: "fizz-bloom",
+    title: "FIZZ & BLOOM",
+    category: "Brand Identity / Packaging",
+    filter: "branding",
+    year: "2026",
+    client: "Fizz & Bloom Beverage Co.",
+    description:
+      "Botanical soda brand brought to life end-to-end — a full packaging system across flavours, portrait-led campaign photography, and a Times Square out-of-home takeover.",
+    image:
+      "https://customer-assets-gfyr7b9c.emergentagent.net/job_loop-studio-web/artifacts/954dd8dd07818e8c_Untitled%20-%20February%2027%2C%202026%20at%2012.35.40-3.png",
+    gallery: [
+      "https://customer-assets-gfyr7b9c.emergentagent.net/job_loop-studio-web/artifacts/954dd8dd07818e8c_Untitled%20-%20February%2027%2C%202026%20at%2012.35.40-3.png",
+      "https://customer-assets-gfyr7b9c.emergentagent.net/job_loop-studio-web/artifacts/e5a75d367b24b64e_Untitled%20-%20February%2027%2C%202026%20at%2012.35.40-4.png",
+      "https://customer-assets-gfyr7b9c.emergentagent.net/job_loop-studio-web/artifacts/daad80a309e21edf_Untitled%20-%20February%2027%2C%202026%20at%2012.35.40-1.png",
+      "https://customer-assets-gfyr7b9c.emergentagent.net/job_loop-studio-web/artifacts/a5ea965dc00c1499_Untitled.png",
+      "https://customer-assets-gfyr7b9c.emergentagent.net/job_loop-studio-web/artifacts/8b178d033d943581_Untitled%20-%20February%2027%2C%202026%20at%2012.35.40-2.png",
+    ],
+    tags: ["Packaging", "Brand Identity", "Art Direction", "OOH Campaign"],
+  },
   {
     id: "vivid-labs",
     title: "VIVID LABS Cyberkit",
@@ -169,6 +189,7 @@ export const PROJECTS = [
 ];
 
 export const CLIENTS = [
+  "FIZZ & BLOOM",
   "VIVID LABS",
   "BEAUVOIR",
   "PARAMOUNT",
