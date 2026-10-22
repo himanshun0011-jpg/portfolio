@@ -10,24 +10,24 @@ export const BRAND = {
 
 export const HERO_IMAGES = [
   {
-    url: "https://images.unsplash.com/photo-1622547748225-3fc4abd2cca0?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1MTN8MHwxfHNlYXJjaHwxfHxtaW5pbWFsaXN0JTIwbW9kZXJuJTIwZ3JhcGhpYyUyMGRlc2lnbiUyMHBvcnRmb2xpbyUyMGFydHdvcmslMjBVSSUyMDNEJTIwbW90aW9ufGVufDB8fHx8MTc5MjY0NjAxMXww&ixlib=rb-4.1.0&q=85",
-    alt: "3D kinetic circular sculpture",
+    url: "https://customer-assets-gfyr7b9c.emergentagent.net/job_loop-studio-web/artifacts/02f534457ce7e529_%5BRESTRICTED%20FILE%20%E2%80%93%20SERIAL%20ACCESS%20ONLY%5DEngraved.%20Serialized.%20Finite.%20No%20restocks.%20No%20clones.%20No%20s.jpg",
+    alt: "VIVID LABS Cyberkit hardware engineering",
   },
   {
-    url: "https://images.pexels.com/photos/30004070/pexels-photo-30004070.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-    alt: "Twisting geometric 3D artwork",
+    url: "https://customer-assets-gfyr7b9c.emergentagent.net/job_loop-studio-web/artifacts/27f054ecf6dabc9a_1.png",
+    alt: "BEAUVOIR luxury editorial campaign",
   },
   {
-    url: "https://images.pexels.com/photos/13187052/pexels-photo-13187052.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-    alt: "Abstract neon curves in motion",
+    url: "https://customer-assets-gfyr7b9c.emergentagent.net/job_loop-studio-web/artifacts/43a28d87a5ac1ccd_%5BCLEARANCE%20SEQUENCE%20ACTIVE%20%E2%80%93%2075_%20COMPLETE%5D%20Containment%20breach%20in%20progress.%20Operatives%2C%20maintain%20.jpg",
+    alt: "Cybernetic blueprint schematic 75%",
   },
   {
-    url: "https://images.unsplash.com/photo-1627037558426-c2d07beda3af?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1MTN8MHwxfHNlYXJjaHwyfHxtaW5pbWFsaXN0JTIwbW9kZXJuJTIwZ3JhcGhpYyUyMGRlc2lnbiUyMHBvcnRmb2xpbyUyMGFydHdvcmslMjBVSSUyMDNEJTIwbW90aW9ufGVufDB8fHx8MTc5MjY0NjAxMXww&ixlib=rb-4.1.0&q=85",
-    alt: "Stacked pastel discs art direction",
+    url: "https://customer-assets-gfyr7b9c.emergentagent.net/job_loop-studio-web/artifacts/f978f80684460092_5.png",
+    alt: "BEAUVOIR hair extension editorial typography",
   },
   {
-    url: "https://images.pexels.com/photos/18069693/pexels-photo-18069693.png?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-    alt: "Futuristic digital canvas and typography",
+    url: "https://customer-assets-gfyr7b9c.emergentagent.net/job_loop-studio-web/artifacts/2d3c99ed645cd86d_%5BFILE%20DROP%20002-%20CLASSIFIED%5D%20Unauthorized%20schematics%20detected.%20Encryption%20status-%2072_%20decrypted%E2%80%A6%20.jpg",
+    alt: "Classified top secret wireframe drop",
   },
   {
     url: "https://images.unsplash.com/photo-1787276140535-d626c2fd1495?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1MTN8MHwxfHNlYXJjaHw0fHxtaW5pbWFsaXN0JTIwbW9kZXJuJTIwZ3JhcGhpYyUyMGRlc2lnbiUyMHBvcnRmb2xpbyUyMGFydHdvcmslMjBVSSUyMDNEJTIwbW90aW9ufGVufDB8fHx8MTc5MjY0NjAxMXww&ixlib=rb-4.1.0&q=85",
@@ -40,7 +40,7 @@ export const SERVICES = [
     number: "01",
     main: "Digital Art",
     accent: "Direction",
-    image: HERO_IMAGES[4].url,
+    image: HERO_IMAGES[0].url,
     description:
       "Setting visual direction, creative concepts, and high-impact design language for visionary brands across every digital touchpoint.",
   },
@@ -48,7 +48,7 @@ export const SERVICES = [
     number: "02",
     main: "UI / UX",
     accent: "Design",
-    image: HERO_IMAGES[5].url,
+    image: HERO_IMAGES[1].url,
     description:
       "Architecting friction-free digital products, complex web applications, and immersive websites with obsessive focus on micro-details.",
   },
@@ -56,7 +56,7 @@ export const SERVICES = [
     number: "03",
     main: "3D &",
     accent: "Motion",
-    image: HERO_IMAGES[1].url,
+    image: HERO_IMAGES[2].url,
     description:
       "Crafting kinetic visual identities, 3D product renders, and fluid web animations that turn passive viewers into engaged advocates.",
   },
@@ -72,13 +72,48 @@ export const SERVICES = [
     number: "05",
     main: "Creative",
     accent: "Technology",
-    image: HERO_IMAGES[2].url,
+    image: HERO_IMAGES[4].url,
     description:
       "Blending WebGL, interactive canvas, and smooth scroll mechanics with modern frontend engineering for memorable digital experiences.",
   },
 ];
 
 export const PROJECTS = [
+  {
+    id: "vivid-labs",
+    title: "VIVID LABS Cyberkit",
+    category: "3D / Industrial Art",
+    filter: "motion",
+    year: "2026",
+    client: "Vivid Labs [Internal Drop]",
+    description:
+      "High-clearance cybernetic hardware schematics, serialized chassis design, and kinetic HUD identity exploring restricted technical aesthetics and finite engineering drops.",
+    image:
+      "https://customer-assets-gfyr7b9c.emergentagent.net/job_loop-studio-web/artifacts/02f534457ce7e529_%5BRESTRICTED%20FILE%20%E2%80%93%20SERIAL%20ACCESS%20ONLY%5DEngraved.%20Serialized.%20Finite.%20No%20restocks.%20No%20clones.%20No%20s.jpg",
+    gallery: [
+      "https://customer-assets-gfyr7b9c.emergentagent.net/job_loop-studio-web/artifacts/02f534457ce7e529_%5BRESTRICTED%20FILE%20%E2%80%93%20SERIAL%20ACCESS%20ONLY%5DEngraved.%20Serialized.%20Finite.%20No%20restocks.%20No%20clones.%20No%20s.jpg",
+      "https://customer-assets-gfyr7b9c.emergentagent.net/job_loop-studio-web/artifacts/43a28d87a5ac1ccd_%5BCLEARANCE%20SEQUENCE%20ACTIVE%20%E2%80%93%2075_%20COMPLETE%5D%20Containment%20breach%20in%20progress.%20Operatives%2C%20maintain%20.jpg",
+      "https://customer-assets-gfyr7b9c.emergentagent.net/job_loop-studio-web/artifacts/2d3c99ed645cd86d_%5BFILE%20DROP%20002-%20CLASSIFIED%5D%20Unauthorized%20schematics%20detected.%20Encryption%20status-%2072_%20decrypted%E2%80%A6%20.jpg",
+    ],
+    tags: ["3D CAD", "Cyberpunk", "Art Direction", "Graphic Identity"],
+  },
+  {
+    id: "beauvoir-hair",
+    title: "BEAUVOIR Editorial",
+    category: "Brand Identity / Editorial",
+    filter: "branding",
+    year: "2025",
+    client: "BEAUVOIR Paris",
+    description:
+      "Tactile luxury editorial campaign and digital storytelling for premium haircare extensions, blending serene typography, macro textures, and refined art direction.",
+    image:
+      "https://customer-assets-gfyr7b9c.emergentagent.net/job_loop-studio-web/artifacts/f978f80684460092_5.png",
+    gallery: [
+      "https://customer-assets-gfyr7b9c.emergentagent.net/job_loop-studio-web/artifacts/f978f80684460092_5.png",
+      "https://customer-assets-gfyr7b9c.emergentagent.net/job_loop-studio-web/artifacts/27f054ecf6dabc9a_1.png",
+    ],
+    tags: ["Luxury Editorial", "Typography", "Art Direction", "Social Campaign"],
+  },
   {
     id: "aetheria",
     title: "Aetheria Ecosystem",
@@ -131,53 +166,27 @@ export const PROJECTS = [
       "https://images.pexels.com/photos/18069693/pexels-photo-18069693.png?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
     tags: ["AI Tools", "Design System", "Product UI"],
   },
-  {
-    id: "lumina",
-    title: "Lumina Monolith",
-    category: "Brand Identity / 3D",
-    filter: "branding",
-    year: "2025",
-    client: "Lumina Architecture",
-    description:
-      "Comprehensive brand architecture and digital showroom for an award-winning studio, where every render is lit like a gallery piece.",
-    image:
-      "https://images.pexels.com/photos/13187052/pexels-photo-13187052.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-    tags: ["Branding", "3D Architecture", "Web"],
-  },
-  {
-    id: "nova",
-    title: "NOVA Soundlab",
-    category: "UI-UX / Interactive",
-    filter: "motion",
-    year: "2024",
-    client: "Nova Studio",
-    description:
-      "Browser-based sound design synthesizer and audio visualizer with a high-density grid control — an instrument disguised as a website.",
-    image:
-      "https://images.unsplash.com/photo-1622547748225-3fc4abd2cca0?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1MTN8MHwxfHNlYXJjaHwxfHxtaW5pbWFsaXN0JTIwbW9kZXJuJTIwZ3JhcGhpYyUyMGRlc2lnbiUyMHBvcnRmb2xpbyUyMGFydHdvcmslMjBVSSUyMDNEJTIwbW90aW9ufGVufDB8fHx8MTc5MjY0NjAxMXww&ixlib=rb-4.1.0&q=85",
-    tags: ["Web Audio", "Interface", "Motion"],
-  },
 ];
 
 export const CLIENTS = [
+  "VIVID LABS",
+  "BEAUVOIR",
   "PARAMOUNT",
   "TIKTOK",
   "SCHOOLHOUSE",
   "SPOTIFY",
   "NIKE LAB",
-  "HYPERFRAME",
-  "SYNTHETIX",
   "KINETIX",
   "AETHERIA",
 ];
 
 export const ABOUT_IMAGES = [
   {
-    url: "https://images.unsplash.com/photo-1765539160785-e7953620488f?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA2MTJ8MHwxfHNlYXJjaHwxfHxkZXNpZ25lciUyMHBvcnRyYWl0JTIwYWJzdHJhY3QlMjAzZCUyMG5lb24lMjBraW5ldGljJTIwdHlwb2dyYXBoeSUyMHN0dWRpbyUyMHdvcmtzcGFjZXxlbnwwfHx8fDE3OTI2NDYwMjF8MA&ixlib=rb-4.1.0&q=85",
-    description: "Studio workspace and creative environment",
+    url: "https://customer-assets-gfyr7b9c.emergentagent.net/job_loop-studio-web/artifacts/02f534457ce7e529_%5BRESTRICTED%20FILE%20%E2%80%93%20SERIAL%20ACCESS%20ONLY%5DEngraved.%20Serialized.%20Finite.%20No%20restocks.%20No%20clones.%20No%20s.jpg",
+    description: "VIVID LABS Cyberkit engineering drop",
   },
   {
-    url: "https://images.unsplash.com/photo-1636406204684-c16640e3a1c4?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2NzZ8MHwxfHNlYXJjaHwxfHxlZGl0b3JpYWwlMjBkZXNpZ24lMjBtYWdhemluZSUyMGxheW91dCUyMHR5cG9ncmFwaHklMjBhcmNoaXRlY3R1cmUlMjBzdHVkaW98ZW58MHx8fHwxNzkyNjQ2MDExfDA&ixlib=rb-4.1.0&q=85",
-    description: "Editorial print and tactile design process",
+    url: "https://customer-assets-gfyr7b9c.emergentagent.net/job_loop-studio-web/artifacts/f978f80684460092_5.png",
+    description: "BEAUVOIR luxury editorial process",
   },
 ];

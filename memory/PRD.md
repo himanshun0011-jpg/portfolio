@@ -49,7 +49,9 @@ Goal: recreate the Studio Loop-style portfolio structure and vibe as an original
 - Name: Himanshu Nautiyal (brand wordmark "HIMANSHU®"); email himanshun0011@gmail.com wired into all mailto links and footer.
 - Logo mark redrawn as "H" (nav, footer, preloader, favicon.svg). Location line "[ from india to everywhere ]", footer clock switched to Asia/Kolkata ("New Delhi"). Socials still placeholders (user hasn't provided links).
 
-## Branded preloader (2026-07-22)
+- Added first batch of 5 real project images uploaded by Himanshu: VIVID LABS Cyberkit (3D cyberpunk hardware series, 3 artifacts) and BEAUVOIR Editorial (luxury haircare campaign, 2 artifacts).
+- Integrated across the floating hero collage, the selected-work grid, capability hover previews, about section, client ticker, and added a multi-artifact project gallery to case pages.
+- Verified via screenshots: hero floating collage, work grid, case pages for both projects with artifacts gallery.
 - First-visit-per-session preloader (sessionStorage flag `duarte_intro`): ink panel with masked tagline + wordmark reveal, giant 0→100 counter (framer-motion tween), acid progress hairline, scroll locked while loading; exits with an upward curtain lift that hands off to the hero reveal via a `duarte:intro-done` window event gating hero animations.
 - Verified: counter mid-run, lift, hero revealed after, scroll/Lenis resumed, repeat visit skips preloader.
 
