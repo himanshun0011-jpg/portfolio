@@ -1,0 +1,119 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+    margin: 0;
+    font-family: "Plus Jakarta Sans", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background: #F6F5F2;
+    color: #121212;
+}
+
+@layer base {
+    :root {
+        --background: 45 14% 96%;
+        --foreground: 0 0% 7%;
+        --card: 0 0% 100%;
+        --card-foreground: 0 0% 7%;
+        --popover: 0 0% 100%;
+        --popover-foreground: 0 0% 7%;
+        --primary: 0 0% 7%;
+        --primary-foreground: 45 14% 96%;
+        --secondary: 40 11% 92%;
+        --secondary-foreground: 0 0% 7%;
+        --muted: 40 11% 92%;
+        --muted-foreground: 0 0% 36%;
+        --accent: 72 100% 50%;
+        --accent-foreground: 0 0% 7%;
+        --destructive: 356 77% 56%;
+        --destructive-foreground: 0 0% 98%;
+        --border: 0 0% 7%;
+        --input: 0 0% 89.8%;
+        --ring: 0 0% 7%;
+        --radius: 0.5rem;
+    }
+}
+
+@layer base {
+    * {
+        @apply border-border;
+    }
+    body {
+        @apply bg-background text-foreground;
+    }
+}
+
+/* Lenis smooth scroll */
+html.lenis, html.lenis body { height: auto; }
+.lenis.lenis-smooth { scroll-behavior: auto !important; }
+.lenis.lenis-smooth [data-lenis-prevent] { overscroll-behavior: contain; }
+.lenis.lenis-stopped { overflow: hidden; }
+
+/* Kinetic marquees */
+@keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+}
+.animate-marquee { animation: marquee 38s linear infinite; }
+.animate-marquee-slow { animation: marquee 58s linear infinite; }
+
+/* Outlined display text */
+.text-outline {
+    -webkit-text-stroke: 1.5px rgba(18, 18, 18, 0.8);
+    color: transparent;
+}
+.text-outline-paper {
+    -webkit-text-stroke: 1.5px rgba(246, 245, 242, 0.8);
+    color: transparent;
+}
+
+/* Selection + scrollbar */
+::selection { background: #CCFF00; color: #121212; }
+html { scrollbar-width: thin; scrollbar-color: #121212 #F6F5F2; }
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: #F6F5F2; }
+::-webkit-scrollbar-thumb { background: #121212; border-radius: 99px; }
+
+/* Film grain overlay */
+.grain::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: 80;
+    pointer-events: none;
+    opacity: 0.045;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+@layer base {
+    [data-debug-wrapper="true"] {
+        display: contents !important;
+    }
+    [data-debug-wrapper="true"] > * {
+        margin-left: inherit;
+        margin-right: inherit;
+        margin-top: inherit;
+        margin-bottom: inherit;
+        padding-left: inherit;
+        padding-right: inherit;
+        padding-top: inherit;
+        padding-bottom: inherit;
+        column-gap: inherit;
+        row-gap: inherit;
+        gap: inherit;
+        border-left-width: inherit;
+        border-right-width: inherit;
+        border-top-width: inherit;
+        border-bottom-width: inherit;
+        border-left-style: inherit;
+        border-right-style: inherit;
+        border-top-style: inherit;
+        border-bottom-style: inherit;
+        border-left-color: inherit;
+        border-right-color: inherit;
+        border-top-color: inherit;
+        border-bottom-color: inherit;
+    }
+}

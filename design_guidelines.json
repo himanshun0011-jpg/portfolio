@@ -1,0 +1,219 @@
+{
+  "project_name": "DUARTE — Studio Loop Inspired Creative Portfolio",
+  "brand_identity": {
+    "name": "DUARTE",
+    "tagline": "Creativity as a service",
+    "location_badge": "[ from brasil to everywhere ]",
+    "year": "2026",
+    "discipline": "Digital Art Direction, UI/UX & Motion Design",
+    "archetype": "Swiss & Light Editorial (Authority, Tactile Typography, Bold Asymmetry)"
+  },
+  "color_palette": {
+    "theme": "Light Editorial with High Contrast Charcoal & Acid Electric Accent",
+    "background": "#F6F5F2",
+    "background_secondary": "#EFECE6",
+    "surface": "#FFFFFF",
+    "text_primary": "#121212",
+    "text_secondary": "#5A5A58",
+    "text_muted": "#8C8C88",
+    "border_subtle": "rgba(18, 18, 18, 0.12)",
+    "border_strong": "#121212",
+    "accent_primary": "#000000",
+    "accent_highlight": "#CCFF00",
+    "accent_vermilion": "#E63946",
+    "card_bg": "#FAF9F5"
+  },
+  "typography": {
+    "font_family_heading": "Syne, 'Clash Display', 'Cabinet Grotesk', sans-serif",
+    "font_family_body": "'Plus Jakarta Sans', 'Inter', sans-serif",
+    "font_family_mono": "'JetBrains Mono', monospace",
+    "hierarchy": {
+      "hero_title": "text-5xl sm:text-7xl lg:text-8xl tracking-tight font-black uppercase leading-[0.9]",
+      "section_title": "text-3xl sm:text-5xl lg:text-6xl tracking-tight font-extrabold uppercase leading-none",
+      "huge_wordmark": "text-[14vw] font-black uppercase leading-none tracking-tighter text-neutral-900 select-none",
+      "card_title": "text-xl sm:text-2xl font-bold tracking-tight",
+      "subtitle": "text-base sm:text-lg font-medium text-neutral-600 leading-relaxed",
+      "mono_label": "text-xs font-mono uppercase tracking-[0.2em] text-neutral-500"
+    }
+  },
+  "spacing_and_layout": {
+    "container_padding": "px-4 sm:px-8 lg:px-16",
+    "section_vertical_spacing": "py-20 sm:py-32 lg:py-40",
+    "bento_grid_gap": "gap-6 sm:gap-10",
+    "max_width": "max-w-[1700px] mx-auto"
+  },
+  "hero_kinetic_marquee": {
+    "title": "CREATIVITY AS A SERVICE",
+    "sub_label": "[ FROM BRASIL TO EVERYWHERE ]",
+    "year": "2026",
+    "marquee_images": [
+      {
+        "url": "https://images.unsplash.com/photo-1622547748225-3fc4abd2cca0?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1MTN8MHwxfHNlYXJjaHwxfHxtaW5pbWFsaXN0JTIwbW9kZXJuJTIwZ3JhcGhpYyUyMGRlc2lnbiUyMHBvcnRmb2xpbyUyMGFydHdvcmslMjBVSSUyMDNEJTIwbW90aW9ufGVufDB8fHx8MTc5MjY0NjAxMXww&ixlib=rb-4.1.0&q=85",
+        "alt": "3D Kinetic Circular Sculpture",
+        "aspect_ratio": "aspect-[4/5]"
+      },
+      {
+        "url": "https://images.pexels.com/photos/30004070/pexels-photo-30004070.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "alt": "Twisting Geometric 3D Artwork",
+        "aspect_ratio": "aspect-[4/5]"
+      },
+      {
+        "url": "https://images.pexels.com/photos/13187052/pexels-photo-13187052.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "alt": "Abstract Neon Curves Motion",
+        "aspect_ratio": "aspect-[4/5]"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1627037558426-c2d07beda3af?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1MTN8MHwxfHNlYXJjaHwyfHxtaW5pbWFsaXN0JTIwbW9kZXJuJTIwZ3JhcGhpYyUyMGRlc2lnbiUyMHBvcnRmb2xpbyUyMGFydHdvcmslMjBVSSUyMDNEJTIwbW90aW9ufGVufDB8fHx8MTc5MjY0NjAxMXww&ixlib=rb-4.1.0&q=85",
+        "alt": "Stacked Pastel Discs Art Direction",
+        "aspect_ratio": "aspect-[4/5]"
+      },
+      {
+        "url": "https://images.pexels.com/photos/18069693/pexels-photo-18069693.png?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "alt": "Futuristic Digital Canvas & Typography",
+        "aspect_ratio": "aspect-[4/5]"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1787276140535-d626c2fd1495?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1MTN8MHwxfHNlYXJjaHw0fHxtaW5pbWFsaXN0JTIwbW9kZXJuJTIwZ3JhcGhpYyUyMGRlc2lnbiUyMHBvcnRmb2xpbyUyMGFydHdvcmslMjBVSSUyMDNEJTIwbW90aW9ufGVufDB8fHx8MTc5MjY0NjAxMXww&ixlib=rb-4.1.0&q=85",
+        "alt": "Data Visualization 3D Interface",
+        "aspect_ratio": "aspect-[4/5]"
+      }
+    ]
+  },
+  "selected_projects": [
+    {
+      "id": "project-01",
+      "title": "Aetheria Ecosystem",
+      "category": "Web Design / UI-UX",
+      "year": "2026",
+      "client": "Aetheria Labs",
+      "description": "Next-generation decentralized finance protocol interface focused on spatial fluid interaction.",
+      "image": "https://images.unsplash.com/photo-1787276140535-d626c2fd1495?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1MTN8MHwxfHNlYXJjaHw0fHxtaW5pbWFsaXN0JTIwbW9kZXJuJTIwZ3JhcGhpYyUyMGRlc2lnbiUyMHBvcnRmb2xpbyUyMGFydHdvcmslMjBVSSUyMDNEJTIwbW90aW9ufGVufDB8fHx8MTc5MjY0NjAxMXww&ixlib=rb-4.1.0&q=85",
+      "tags": ["UI/UX", "WebGL", "System Design"],
+      "link": "#"
+    },
+    {
+      "id": "project-02",
+      "title": "KINETIX Motion System",
+      "category": "3D / Motion",
+      "year": "2025",
+      "client": "Kinetix Global",
+      "description": "Dynamic visual identity and kinetic typography system for international sports and culture summit.",
+      "image": "https://images.pexels.com/photos/30004070/pexels-photo-30004070.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "tags": ["3D Animation", "Art Direction", "Identity"],
+      "link": "#"
+    },
+    {
+      "id": "project-03",
+      "title": "CEREAL Magazine Digital",
+      "category": "Editorial / Web",
+      "year": "2025",
+      "client": "Cereal Media",
+      "description": "Interactive digital publication experience emphasizing serene negative space and tactile typography.",
+      "image": "https://images.pexels.com/photos/4271611/pexels-photo-4271611.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "tags": ["Digital Publication", "Editorial", "UX"],
+      "link": "#"
+    },
+    {
+      "id": "project-04",
+      "title": "VORTEX Neural Canvas",
+      "category": "AI / Product Design",
+      "year": "2026",
+      "client": "Vortex AI",
+      "description": "Generative canvas application designed for motion directors and visual artists.",
+      "image": "https://images.pexels.com/photos/18069693/pexels-photo-18069693.png?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "tags": ["AI Tools", "Design System", "Product UI"],
+      "link": "#"
+    },
+    {
+      "id": "project-05",
+      "title": "Lumina Monolith",
+      "category": "Brand Identity / 3D",
+      "year": "2025",
+      "client": "Lumina Architecture",
+      "description": "Comprehensive brand architecture and digital showroom for award-winning studio.",
+      "image": "https://images.pexels.com/photos/13187052/pexels-photo-13187052.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "tags": ["Branding", "3D Architecture", "Web"],
+      "link": "#"
+    },
+    {
+      "id": "project-06",
+      "title": "NOVA Soundlab",
+      "category": "UI-UX / Interactive",
+      "year": "2024",
+      "client": "Nova Studio",
+      "description": "Browser-based sound design synthesizer and audio visualizer with high-density grid control.",
+      "image": "https://images.unsplash.com/photo-1622547748225-3fc4abd2cca0?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1MTN8MHwxfHNlYXJjaHwxfHxtaW5pbWFsaXN0JTIwbW9kZXJuJTIwZ3JhcGhpYyUyMGRlc2lnbiUyMHBvcnRmb2xpbyUyMGFydHdvcmslMjBVSSUyMDNEJTIwbW90aW9ufGVufDB8fHx8MTc5MjY0NjAxMXww&ixlib=rb-4.1.0&q=85",
+      "tags": ["Web Audio", "Interface", "Motion"],
+      "link": "#"
+    }
+  ],
+  "numbered_services": [
+    {
+      "number": "01",
+      "title": "Digital Art Direction",
+      "description": "Setting visual direction, creative concepts, and high-impact design language for visionary brands across digital touchpoints."
+    },
+    {
+      "number": "02",
+      "title": "UI / UX Design",
+      "description": "Architecting friction-free digital products, complex web applications, and immersive websites with obsessive focus on micro-details."
+    },
+    {
+      "number": "03",
+      "title": "3D & Motion Graphics",
+      "description": "Crafting kinetic visual identities, 3D product renders, and fluid web animations that turn passive viewers into engaged advocates."
+    },
+    {
+      "number": "04",
+      "title": "Design Systems",
+      "description": "Building modular, scalable tokenized UI component libraries that maintain structural integrity and brand visual rhythm at scale."
+    },
+    {
+      "number": "05",
+      "title": "Creative Technology",
+      "description": "Blending WebGL, interactive canvas elements, and smooth scroll mechanics with modern frontend engineering for memorable digital experiences."
+    }
+  ],
+  "about_studio_images": [
+    {
+      "url": "https://images.unsplash.com/photo-1765539160785-e7953620488f?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA2MTJ8MHwxfHNlYXJjaHwxfHxkZXNpZ25lciUyMHBvcnRyYWl0JTIwYWJzdHJhY3QlMjAzZCUyMG5lb24lMjBraW5ldGljJTIwdHlwb2dyYXBoeSUyMHN0dWRpbyUyMHdvcmtzcGFjZXxlbnwwfHx8fDE3OTI2NDYwMjF8MA&ixlib=rb-4.1.0&q=85",
+      "description": "DUARTE Studio Workspace and Creative Environment"
+    },
+    {
+      "url": "https://images.unsplash.com/photo-1636406204684-c16640e3a1c4?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2NzZ8MHwxfHNlYXJjaHwxfHxlZGl0b3JpYWwlMjBkZXNpZ24lMjBtYWdhemluZSUyMGxheW91dCUyMHR5cG9ncmFwaHklMjBhcmNoaXRlY3R1cmUlMjBzdHVkaW98ZW58MHx8fHwxNzkyNjQ2MDExfDA&ixlib=rb-4.1.0&q=85",
+      "description": "Editorial Print & Tactile Design Process"
+    }
+  ],
+  "client_wordmarks": [
+    "PARAMOUNT", "TIKTOK", "SCHOOLHOUSE", "SPOTIFY", "NIKE LAB", "HYPERFRAME", "SYNTHETIX", "KINETIX", "AETHERIA"
+  ],
+  "key_features_to_build": [
+    "Masked line-by-line text reveal on Hero load using framer-motion",
+    "Infinite kinetic horizontal marquee strip of project visual stills in Hero",
+    "Header nav with studio logo, section links, filter status, and direct CTA with glassmorphism blur",
+    "Who We Are studio narrative section with high-contrast editorial grid",
+    "Numbered Services Accordion / Expanded Index (01–05) with interactive hover reveals",
+    "Filterable Selected Work Grid (All, UI-UX, 3D/Motion, Branding) with hover preview overlays & detail modal",
+    "Giant scrolling Wordmark section ('CREATIVITY AS A SERVICE')",
+    "Client marquee with monochrome high-contrast typography",
+    "Newsletter Subscription card with validation and instant visual feedback (sonner toast)",
+    "Contact CTA Banner ('LET'S MAKE SOMETHING WORTH') + Detailed Footer with social handles & live time clock in Brasilia time"
+  ],
+  "technical_stack_rules": {
+    "file_extension": ".js files (NOT .tsx)",
+    "icons": "lucide-react",
+    "animations": "framer-motion",
+    "toasts": "sonner",
+    "smooth_scroll": "custom Lenis engine or CSS smooth scroll fallback with requestAnimationFrame",
+    "test_ids": "Mandatory data-testid on every interactive button, input, link, filter, modal, and key metric"
+  },
+  "instructions_to_main_agent": [
+    "Build a single-page high-end editorial portfolio for designer brand 'DUARTE'.",
+    "Ensure the hero features the signature Studio Loop headline reveal, bracketed location pill, and kinetic image strip.",
+    "Implement project filter buttons with active pill states and smooth grid transitions.",
+    "Create interactive project detail modal when clicking project cards.",
+    "Add interactive services drawer/accordion with smooth expand animation.",
+    "Ensure all interactive elements have data-testid attributes for automated testing.",
+    "Keep background crisp (#F6F5F2) with sharp solid borders and zero mud."
+  ]
+}
