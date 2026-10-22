@@ -110,16 +110,7 @@ export default function Hero() {
           </h1>
         </motion.div>
 
-        <div className="mt-8 sm:mt-10 flex flex-col sm:flex-row sm:items-end justify-between gap-6">
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: go ? 1 : 0, y: go ? 0 : 20 }}
-            transition={{ delay: 1.1, duration: 0.8, ease: EASE }}
-            className="max-w-md text-sm sm:text-base text-smoke leading-relaxed"
-            data-testid="hero-subtitle"
-          >
-            Independent designer crafting interfaces, identities and kinetic systems for brands that refuse to be ignored.
-          </motion.p>
+        <div className="mt-8 sm:mt-10 flex flex-col sm:flex-row sm:items-end justify-end gap-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: go ? 1 : 0, y: go ? 0 : 20 }}
