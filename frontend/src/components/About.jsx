@@ -1,8 +1,35 @@
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, Asterisk } from "lucide-react";
 import { ABOUT_IMAGES } from "../data/content";
 import { Reveal } from "./Reveal";
+
+const STATEMENT =
+  "A multi-craft practice with one goal — being responsive to everyday creative needs. By merging audiovisual spheres in every delivery, creativity plus art become a powerful problem solver.";
+
+const Word = ({ progress, range, children }) => {
+  const opacity = useTransform(progress, range, [0.12, 1]);
+  return (
+    <motion.span style={{ opacity }} className="inline-block mr-[0.28em]">
+      {children}
+    </motion.span>
+  );
+};
+
+const ScrollWords = ({ text, className }) => {
+  const ref = useRef(null);
+  const { scrollYProgress } = useScroll({ target: ref, offset: ["start 0.9", "start 0.3"] });
+  const words = text.split(" ");
+  return (
+    <p ref={ref} className={className} data-testid="about-paragraph">
+      {words.map((w, i) => (
+        <Word key={i} progress={scrollYProgress} range={[i / words.length, (i + 1) / words.length]}>
+          {w}
+        </Word>
+      ))}
+    </p>
+  );
+};
 
 export default function About() {
   const ref = useRef(null);
@@ -11,7 +38,24 @@ export default function About() {
   const y2 = useTransform(scrollYProgress, [0, 1], [110, -110]);
 
   return (
-    <section id="studio" ref={ref} data-testid="about-section" className="bg-ink text-paper overflow-hidden">
+    <section id="studio" ref={ref} data-testid="about-section" className="relative bg-ink text-paper overflow-hidden">
+      <motion.div
+        className="absolute top-24 right-[12%] text-vermilion/50"
+        animate={{ rotate: 360, y: [0, -18, 0] }}
+        transition={{ rotate: { duration: 24, repeat: Infinity, ease: "linear" }, y: { duration: 6, repeat: Infinity, ease: "easeInOut" } }}
+        aria-hidden="true"
+      >
+        <Asterisk className="w-10 h-10" />
+      </motion.div>
+      <motion.div
+        className="absolute bottom-32 left-[6%] text-acid/40"
+        animate={{ rotate: -360, y: [0, 16, 0] }}
+        transition={{ rotate: { duration: 30, repeat: Infinity, ease: "linear" }, y: { duration: 7, repeat: Infinity, ease: "easeInOut" } }}
+        aria-hidden="true"
+      >
+        <Asterisk className="w-7 h-7" />
+      </motion.div>
+
       <div className="max-w-[1700px] mx-auto px-4 sm:px-8 lg:px-16 py-20 sm:py-32 lg:py-40">
         <span className="font-mono text-xs uppercase tracking-[0.25em] text-paper/50" data-testid="about-label">
           [ who we are ]
@@ -20,22 +64,24 @@ export default function About() {
           <Reveal>One designer.</Reveal>
           <Reveal delay={0.08}>Every craft</Reveal>
           <Reveal delay={0.16}>
-            <span className="text-acid">in the loop.</span>
+            <span className="font-serif italic normal-case font-normal text-acid">in the loop.</span>
           </Reveal>
         </h2>
 
         <div className="mt-14 sm:mt-20 grid lg:grid-cols-2 gap-12 lg:gap-20 items-start">
           <div>
-            <p className="text-paper/70 text-base sm:text-lg leading-relaxed max-w-xl" data-testid="about-paragraph">
-              DUARTE is an independent design practice merging UI/UX, art direction and motion into a single responsive
-              service. No hand-offs, no telephone game — the person you brief is the person who designs, animates and
-              ships. One goal: being responsive to everyday creative needs, from Brasil to everywhere.
+            <ScrollWords
+              text={STATEMENT}
+              className="font-display font-bold text-2xl sm:text-3xl lg:text-4xl leading-snug tracking-tight max-w-xl"
+            />
+            <p className="mt-8 text-paper/50 text-sm sm:text-base leading-relaxed max-w-md">
+              No hand-offs, no telephone game — the person you brief is the person who designs, animates and ships.
             </p>
             <a
               href="#work"
               onClick={(e) => {
                 e.preventDefault();
-                document.querySelector("#work")?.scrollIntoView({ behavior: "smooth" });
+                window.__lenis?.scrollTo("#work", { offset: -70, duration: 1.4 });
               }}
               data-testid="about-cta-link"
               className="mt-8 inline-flex items-center gap-2 font-mono text-xs uppercase tracking-[0.2em] border border-paper/25 rounded-full px-6 py-3 hover:bg-acid hover:text-ink hover:border-acid transition-colors duration-300 group"

@@ -30,6 +30,15 @@ Goal: recreate the Studio Loop-style portfolio structure and vibe as an original
 - Fixed: framer-motion whileInView not firing → hand-rolled IntersectionObserver Reveal; hero headline overflow on small screens.
 - Verified: backend health + newsletter (ok/dup/invalid) via curl; full page flows via screenshots at 1366/768/375.
 
+## Motion upgrade pass (2026-07-22, after user feedback vs reference animations)
+- Velocity-reactive marquees (framer-motion useVelocity + skew + direction flip) for hero strip and client marquee.
+- Hero: mouse-parallax on headline and strip, per-image bob/drift float, Lenis-driven anchor scrolling.
+- Services: staggered row offsets, sibling dimming on hover, cursor-following floating image preview, mixed Syne + Instrument Serif italic vermilion accents, dashed dividers.
+- About: scroll-linked word-by-word statement highlighting, drifting asterisk marks.
+- Wordmark: letter-by-letter stagger reveal + scroll drift. Work cards: internal image parallax.
+- Custom blend-mode cursor (desktop, fine pointers only) + nav hides on scroll down / shows on scroll up.
+- Verified via screenshots: hero, services hover state, about partial/full highlight, wordmark, work grid, clients marquee.
+
 ## Backlog
 - P0: Swap placeholder brand "DUARTE" for user's real name/brand; replace placeholder projects with user's real work; real email + social links (content.js).
 - P1: Individual case-study pages per project; contact form with email delivery (Resend); about page with story/process.

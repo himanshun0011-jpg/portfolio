@@ -11,7 +11,8 @@ module.exports = {
       fontFamily: {
         display: ["Syne", "sans-serif"],
         body: ["Plus Jakarta Sans", "sans-serif"],
-        mono: ["JetBrains Mono", "monospace"]
+        mono: ["JetBrains Mono", "monospace"],
+        serif: ["Instrument Serif", "serif"]
       },
       colors: {
         paper: "#F6F5F2",

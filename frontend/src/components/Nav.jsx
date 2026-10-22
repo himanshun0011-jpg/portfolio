@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { useState } from "react";
+import { motion, AnimatePresence, useScroll, useMotionValueEvent } from "framer-motion";
 import { Menu, X, ArrowUpRight } from "lucide-react";
 import LogoMark from "./LogoMark";
 import { BRAND } from "../data/content";
@@ -14,22 +14,30 @@ const LINKS = [
 const go = (e, href, after) => {
   e.preventDefault();
   after && after();
-  document.querySelector(href)?.scrollIntoView({ behavior: "smooth" });
+  if (window.__lenis) {
+    window.__lenis.scrollTo(href, { offset: -70, duration: 1.4 });
+  } else {
+    document.querySelector(href)?.scrollIntoView({ behavior: "smooth" });
+  }
 };
 
 export default function Nav() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [hidden, setHidden] = useState(false);
+  const { scrollY } = useScroll();
 
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 40);
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
+  useMotionValueEvent(scrollY, "change", (latest) => {
+    const prev = scrollY.getPrevious() ?? 0;
+    setScrolled(latest > 40);
+    setHidden(latest > prev && latest > 160 && !open);
+  });
 
   return (
-    <header
+    <motion.header
       data-testid="site-nav"
+      animate={{ y: hidden ? "-100%" : "0%" }}
+      transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
       className={`fixed top-0 left-0 right-0 z-50 transition-[background-color,border-color] duration-500 ${
         scrolled ? "bg-paper/85 backdrop-blur-xl border-b border-ink/10" : "bg-transparent border-b border-transparent"
       }`}
@@ -49,7 +57,7 @@ export default function Nav() {
               href={l.href}
               onClick={(e) => go(e, l.href)}
               data-testid={`nav-link-${l.label.toLowerCase()}`}
-              className="font-mono text-xs uppercase tracking-[0.2em] text-smoke hover:text-ink transition-colors duration-300"
+              className="u-link font-mono text-xs uppercase tracking-[0.2em] text-smoke hover:text-ink transition-colors duration-300"
             >
               {l.label}
             </a>
@@ -84,16 +92,19 @@ export default function Nav() {
             data-testid="nav-mobile-menu"
           >
             <div className="px-6 py-6 flex flex-col gap-5">
-              {LINKS.map((l) => (
-                <a
+              {LINKS.map((l, i) => (
+                <motion.a
                   key={l.href}
                   href={l.href}
                   onClick={(e) => go(e, l.href, () => setOpen(false))}
                   data-testid={`nav-mobile-link-${l.label.toLowerCase()}`}
+                  initial={{ opacity: 0, x: -24 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.08 + i * 0.06, duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
                   className="font-display font-bold uppercase tracking-tight text-3xl"
                 >
                   {l.label}
-                </a>
+                </motion.a>
               ))}
               <a
                 href="#contact"
@@ -107,6 +118,6 @@ export default function Nav() {
           </motion.div>
         )}
       </AnimatePresence>
-    </header>
+    </motion.header>
   );
 }

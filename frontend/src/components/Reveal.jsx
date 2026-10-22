@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 
-export const Reveal = ({ children, delay = 0, className = "" }) => {
+export const useOnceInView = (threshold = 0.1) => {
   const ref = useRef(null);
   const [shown, setShown] = useState(false);
 
@@ -15,11 +15,17 @@ export const Reveal = ({ children, delay = 0, className = "" }) => {
           io.disconnect();
         }
       },
-      { threshold: 0.1 }
+      { threshold }
     );
     io.observe(el);
     return () => io.disconnect();
-  }, []);
+  }, [threshold]);
+
+  return [ref, shown];
+};
+
+export const Reveal = ({ children, delay = 0, className = "" }) => {
+  const [ref, shown] = useOnceInView(0.1);
 
   return (
     <span ref={ref} className={`block overflow-hidden ${className}`}>

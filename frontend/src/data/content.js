@@ -37,31 +37,41 @@ export const HERO_IMAGES = [
 export const SERVICES = [
   {
     number: "01",
-    title: "Digital Art Direction",
+    main: "Digital Art",
+    accent: "Direction",
+    image: HERO_IMAGES[4].url,
     description:
       "Setting visual direction, creative concepts, and high-impact design language for visionary brands across every digital touchpoint.",
   },
   {
     number: "02",
-    title: "UI / UX Design",
+    main: "UI / UX",
+    accent: "Design",
+    image: HERO_IMAGES[5].url,
     description:
       "Architecting friction-free digital products, complex web applications, and immersive websites with obsessive focus on micro-details.",
   },
   {
     number: "03",
-    title: "3D & Motion Graphics",
+    main: "3D &",
+    accent: "Motion",
+    image: HERO_IMAGES[1].url,
     description:
       "Crafting kinetic visual identities, 3D product renders, and fluid web animations that turn passive viewers into engaged advocates.",
   },
   {
     number: "04",
-    title: "Design Systems",
+    main: "Design",
+    accent: "Systems",
+    image: HERO_IMAGES[3].url,
     description:
       "Building modular, scalable tokenized UI component libraries that keep structural integrity and brand rhythm intact at scale.",
   },
   {
     number: "05",
-    title: "Creative Technology",
+    main: "Creative",
+    accent: "Technology",
+    image: HERO_IMAGES[2].url,
     description:
       "Blending WebGL, interactive canvas, and smooth scroll mechanics with modern frontend engineering for memorable digital experiences.",
   },

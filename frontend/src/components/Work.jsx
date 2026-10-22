@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { useState, useRef } from "react";
+import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion";
 import { ArrowUpRight, X } from "lucide-react";
 import { PROJECTS } from "../data/content";
 import { Reveal } from "./Reveal";
@@ -10,6 +10,48 @@ const FILTERS = [
   { id: "motion", label: "Motion & 3D" },
   { id: "branding", label: "Branding" },
 ];
+
+const ProjectCard = ({ p, i, onOpen }) => {
+  const ref = useRef(null);
+  const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "end start"] });
+  const y = useTransform(scrollYProgress, [0, 1], ["-7%", "7%"]);
+
+  return (
+    <motion.article
+      layout
+      initial={{ opacity: 0, y: 30 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, scale: 0.96 }}
+      transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1], delay: i * 0.05 }}
+      className="group cursor-pointer"
+      data-testid={`project-card-${p.id}`}
+      data-cursor
+      onClick={() => onOpen(p)}
+    >
+      <div ref={ref} className="relative overflow-hidden aspect-[4/5] bg-paper2">
+        <motion.img
+          src={p.image}
+          alt={p.title}
+          loading="lazy"
+          style={{ y }}
+          className="w-full h-[116%] object-cover scale-105 transition-transform duration-700 ease-out group-hover:scale-110"
+        />
+        <div className="absolute inset-0 bg-ink/0 group-hover:bg-ink/35 transition-colors duration-500 flex items-center justify-center">
+          <span className="opacity-0 group-hover:opacity-100 translate-y-3 group-hover:translate-y-0 transition-all duration-500 bg-acid text-ink font-mono text-xs uppercase tracking-[0.2em] px-5 py-2.5 rounded-full inline-flex items-center gap-2">
+            View case <ArrowUpRight className="w-3.5 h-3.5" />
+          </span>
+        </div>
+        <span className="absolute top-4 left-4 font-mono text-[10px] uppercase tracking-[0.2em] bg-paper/90 backdrop-blur px-3 py-1.5 rounded-full">
+          {p.category}
+        </span>
+      </div>
+      <div className="mt-4 flex items-start justify-between gap-4">
+        <h3 className="font-display font-bold text-xl sm:text-2xl tracking-tight leading-tight">{p.title}</h3>
+        <span className="font-mono text-xs text-smoke mt-1.5 shrink-0">{p.year}</span>
+      </div>
+    </motion.article>
+  );
+};
 
 export default function Work() {
   const [filter, setFilter] = useState("all");
@@ -41,38 +83,7 @@ export default function Work() {
       <motion.div layout className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
         <AnimatePresence mode="popLayout">
           {visible.map((p, i) => (
-            <motion.article
-              layout
-              key={p.id}
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.96 }}
-              transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1], delay: i * 0.05 }}
-              className="group cursor-pointer"
-              data-testid={`project-card-${p.id}`}
-              onClick={() => setActive(p)}
-            >
-              <div className="relative overflow-hidden aspect-[4/5] bg-paper2">
-                <img
-                  src={p.image}
-                  alt={p.title}
-                  loading="lazy"
-                  className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.05]"
-                />
-                <div className="absolute inset-0 bg-ink/0 group-hover:bg-ink/35 transition-colors duration-500 flex items-center justify-center">
-                  <span className="opacity-0 group-hover:opacity-100 translate-y-3 group-hover:translate-y-0 transition-all duration-500 bg-acid text-ink font-mono text-xs uppercase tracking-[0.2em] px-5 py-2.5 rounded-full inline-flex items-center gap-2">
-                    View case <ArrowUpRight className="w-3.5 h-3.5" />
-                  </span>
-                </div>
-                <span className="absolute top-4 left-4 font-mono text-[10px] uppercase tracking-[0.2em] bg-paper/90 backdrop-blur px-3 py-1.5 rounded-full">
-                  {p.category}
-                </span>
-              </div>
-              <div className="mt-4 flex items-start justify-between gap-4">
-                <h3 className="font-display font-bold text-xl sm:text-2xl tracking-tight leading-tight">{p.title}</h3>
-                <span className="font-mono text-xs text-smoke mt-1.5 shrink-0">{p.year}</span>
-              </div>
-            </motion.article>
+            <ProjectCard key={p.id} p={p} i={i} onOpen={setActive} />
           ))}
         </AnimatePresence>
       </motion.div>
