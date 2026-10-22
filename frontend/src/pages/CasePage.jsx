@@ -6,6 +6,7 @@ import { PROJECTS } from "../data/content";
 import TransitionPage from "../components/TransitionPage";
 
 const EASE = [0.16, 1, 0.3, 1];
+const isVideo = (url) => url.endsWith(".mp4");
 
 export default function CasePage() {
   const { id } = useParams();
@@ -82,7 +83,11 @@ export default function CasePage() {
             className="relative overflow-hidden aspect-[16/10] sm:aspect-[21/9]"
             data-testid="case-hero-image"
           >
-            <motion.img src={p.image} alt={p.title} style={{ y: yImg }} className="w-full h-[120%] object-cover" />
+            {isVideo(p.image) ? (
+              <motion.video src={p.image} poster={p.poster} style={{ y: yImg }} autoPlay muted loop playsInline className="w-full h-[120%] object-cover" />
+            ) : (
+              <motion.img src={p.image} alt={p.title} style={{ y: yImg }} className="w-full h-[120%] object-cover" />
+            )}
           </motion.div>
         </div>
 
@@ -123,7 +128,15 @@ export default function CasePage() {
             <div className="mt-8 grid md:grid-cols-2 gap-6 sm:gap-8">
               {gallery.map((imgUrl, i) => (
                 <div key={i} className="aspect-[4/5] overflow-hidden bg-paper2" data-testid={`case-gallery-item-${i}`}>
-                  <img src={imgUrl} alt={`${p.title} view ${i + 1}`} className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" />
+                  {isVideo(imgUrl) ? (
+                    <video src={imgUrl} autoPlay muted loop playsInline controls className="w-full h-full object-cover" />
+                  ) : (
+                    <img
+                      src={imgUrl}
+                      alt={`${p.title} view ${i + 1}`}
+                      className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
+                    />
+                  )}
                 </div>
               ))}
             </div>

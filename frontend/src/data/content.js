@@ -80,6 +80,24 @@ export const SERVICES = [
 
 export const PROJECTS = [
   {
+    id: "ai-motion-ads",
+    title: "AI Motion Ads",
+    category: "AI Video / Motion",
+    filter: "motion",
+    year: "2026",
+    client: "Spec Campaigns",
+    description:
+      "A series of AI-directed motion graphic ads — beauty and apparel spots generated, art-directed and cut for social-first campaigns.",
+    image: "/media/beauty-product-ad.mp4",
+    poster: "/media/beauty-product-ad-poster.jpg",
+    gallery: [
+      "/media/beauty-product-ad.mp4",
+      "/media/beauty-ad.mp4",
+      "/media/tshirt-ad.mp4",
+    ],
+    tags: ["AI Video", "Motion Graphics", "Ad Creative", "Social Campaign"],
+  },
+  {
     id: "fizz-bloom",
     title: "FIZZ & BLOOM",
     category: "Brand Identity / Packaging",
