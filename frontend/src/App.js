@@ -3,7 +3,6 @@ import "@/App.css";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
 import Lenis from "lenis";
-import { Toaster } from "sonner";
 import Cursor from "@/components/Cursor";
 import Nav from "@/components/Nav";
 import Preloader from "@/components/Preloader";
@@ -49,7 +48,6 @@ export default function App() {
 
   return (
     <div className="grain bg-paper text-ink font-body antialiased overflow-x-clip" data-testid="app-root">
-      <Toaster position="bottom-center" />
       <BrowserRouter>
         <Cursor />
         <Nav />

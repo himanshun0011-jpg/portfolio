@@ -6,6 +6,8 @@ import LogoMark from "./LogoMark";
 
 export default function Contact() {
   const [time, setTime] = useState("");
+  const [sent, setSent] = useState(false);
+  const [sending, setSending] = useState(false);
 
   useEffect(() => {
     const tick = () =>
@@ -21,6 +23,30 @@ export default function Contact() {
     const id = setInterval(tick, 1000);
     return () => clearInterval(id);
   }, []);
+
+  const submit = async (e) => {
+    e.preventDefault();
+    const fd = new FormData(e.currentTarget);
+    const data = { name: fd.get("name"), email: fd.get("email"), message: fd.get("message") };
+    if (BRAND.formspree) {
+      setSending(true);
+      try {
+        const res = await fetch(BRAND.formspree, {
+          method: "POST",
+          headers: { "Content-Type": "application/json", Accept: "application/json" },
+          body: JSON.stringify(data),
+        });
+        if (res.ok) setSent(true);
+      } finally {
+        setSending(false);
+      }
+    } else {
+      const subject = encodeURIComponent(`New project brief — ${data.name}`);
+      const body = encodeURIComponent(`${data.message}\n\n— ${data.name} (${data.email})`);
+      window.location.href = `mailto:${BRAND.email}?subject=${subject}&body=${body}`;
+      setSent(true);
+    }
+  };
 
   return (
     <footer id="contact" data-testid="contact-section" className="bg-ink text-paper">
@@ -61,6 +87,50 @@ export default function Contact() {
             {BRAND.email}
           </a>
         </p>
+
+        <div className="mt-14 sm:mt-20 border border-paper/15 rounded-2xl p-6 sm:p-10 bg-white/[0.03]" data-testid="contact-form-card">
+          <span className="font-mono text-xs uppercase tracking-[0.25em] text-paper/50">[ or drop a brief ]</span>
+          {sent ? (
+            <p className="mt-6 font-display font-bold text-2xl sm:text-3xl tracking-tight" data-testid="contact-form-status">
+              Brief received. I reply within 24 hours.
+            </p>
+          ) : (
+            <form onSubmit={submit} className="mt-8 grid sm:grid-cols-2 gap-4" data-testid="contact-form">
+              <input
+                name="name"
+                required
+                placeholder="Your name"
+                data-testid="contact-name-input"
+                className="bg-transparent border border-paper/25 rounded-full px-6 py-4 font-mono text-sm placeholder:text-paper/35 focus:outline-none focus:border-acid transition-colors"
+              />
+              <input
+                name="email"
+                type="email"
+                required
+                placeholder="Your email"
+                data-testid="contact-email-input"
+                className="bg-transparent border border-paper/25 rounded-full px-6 py-4 font-mono text-sm placeholder:text-paper/35 focus:outline-none focus:border-acid transition-colors"
+              />
+              <textarea
+                name="message"
+                required
+                placeholder="Tell me about your brand and what you need"
+                data-testid="contact-message-input"
+                className="sm:col-span-2 bg-transparent border border-paper/25 rounded-2xl px-6 py-4 font-mono text-sm placeholder:text-paper/35 focus:outline-none focus:border-acid transition-colors min-h-[130px] resize-y"
+              />
+              <div className="sm:col-span-2 flex justify-end">
+                <button
+                  type="submit"
+                  disabled={sending}
+                  data-testid="contact-submit-button"
+                  className="bg-acid text-ink font-mono text-xs uppercase tracking-[0.2em] px-8 py-4 rounded-full hover:bg-paper transition-colors duration-300 disabled:opacity-50"
+                >
+                  {sending ? "Sending…" : "Send the brief"}
+                </button>
+              </div>
+            </form>
+          )}
+        </div>
 
         <div className="mt-20 sm:mt-28 border-t border-paper/15 pt-10 grid md:grid-cols-3 gap-10">
           <div>

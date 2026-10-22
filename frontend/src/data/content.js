@@ -6,6 +6,7 @@ export const BRAND = {
   year: "2026",
   email: "himanshun0011@gmail.com",
   role: "Social Media · Content · Design",
+  formspree: "",
 };
 
 export const HERO_IMAGES = [

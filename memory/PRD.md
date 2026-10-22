@@ -66,6 +66,12 @@ Goal: recreate the Studio Loop-style portfolio structure and vibe as an original
 - CTA: "LET'S MAKE SOMETHING WORTH SHARING." + Book a call (mailto fallback) + WhatsApp button (PLACEHOLDER link — needs real number); newsletter removed per user request.
 - New Proof section: Top Rated Plus on Upwork badge card (PLACEHOLDER upwork.com link — needs real profile URL) + 3 testimonial cards (PLACEHOLDER quotes — user to send real ones).
 - Verified via screenshots: hero (desktop+mobile), services, about, proof, contact.
+## Static-only conversion (2026-07-22, user-directed)
+- Frontend is now 100% static: zero axios/API calls remain (grep-verified), sonner Toaster removed.
+- New "drop a brief" contact form (name/email/message) in Contact: posts to Formspree when `BRAND.formspree` endpoint is set in content.js, otherwise mailto compose fallback with prefilled subject/body; inline success state. Verified via form fill + submit.
+- /app/frontend/vercel.json handles SPA rewrites; deploys to Vercel as frontend-only (root dir `frontend`). Backend folder unused by the site.
+
+## Backlog
 - P0: Swap placeholder brand "DUARTE" for user's real name/brand; replace placeholder projects with user's real work; real email + social links (content.js).
 - P1: Individual case-study pages per project; contact form with email delivery (Resend); about page with story/process.
 - P2: Dark/light toggle; custom cursor; page transitions; WebGL hero object; blog/notes section; SEO + OG images; analytics.
