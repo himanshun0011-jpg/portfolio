@@ -1,4 +1,4 @@
-# PRD — DUARTE® Portfolio
+# PRD — Himanshu Nautiyal® Portfolio
 
 ## Original problem statement
 "using this reference build me exact same portfolio for me https://www.studioloop.com.br/?ref=a1.gallery"
@@ -53,6 +53,8 @@ Goal: recreate the Studio Loop-style portfolio structure and vibe as an original
 - Integrated across the floating hero collage, the selected-work grid, capability hover previews, about section, client ticker, and added a multi-artifact project gallery to case pages.
 - Verified via screenshots: hero floating collage, work grid, case pages for both projects with artifacts gallery.
 - Batch 2 (2026-07-22): FIZZ & BLOOM botanical soda branding (5 artifacts: packaging six-packs, two flavour campaign portraits, Times Square OOH takeover). Added as first project in the grid (branding filter), hero collage portrait, client ticker. Verified grid, case page, gallery, branding filter.
+- Batch 3 (2026-07-22): three AI motion graphic ads (2 beauty spots + 1 t-shirt ad). Grouped as "AI Motion Ads" project (motion filter) with video support across work cards, case hero and artifact gallery. Videos transcoded/remuxed to H.264 faststart, self-hosted at /media/*.mp4 (beauty-product-ad 11.6MB → 1.4MB); poster frame extracted. NOTE: headless test browser lacks H.264 codec — playback verified via codec/container inspection + serving checks (200 video/mp4), not visually.
+- Batch 4 (2026-07-22): two VIVID LABS videos (SKYBREACH transmission + ENGINEERING LOG_08) added to the vivid-labs case gallery, remuxed faststart at /media/vivid-skybreach.mp4 and /media/vivid-engineering-log.mp4. Verified: 200 video/mp4 serving + 5 gallery items / 2 video elements in DOM.
 - First-visit-per-session preloader (sessionStorage flag `duarte_intro`): ink panel with masked tagline + wordmark reveal, giant 0→100 counter (framer-motion tween), acid progress hairline, scroll locked while loading; exits with an upward curtain lift that hands off to the hero reveal via a `duarte:intro-done` window event gating hero animations.
 - Verified: counter mid-run, lift, hero revealed after, scroll/Lenis resumed, repeat visit skips preloader.
 

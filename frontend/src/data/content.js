@@ -132,6 +132,8 @@ export const PROJECTS = [
       "https://customer-assets-gfyr7b9c.emergentagent.net/job_loop-studio-web/artifacts/02f534457ce7e529_%5BRESTRICTED%20FILE%20%E2%80%93%20SERIAL%20ACCESS%20ONLY%5DEngraved.%20Serialized.%20Finite.%20No%20restocks.%20No%20clones.%20No%20s.jpg",
       "https://customer-assets-gfyr7b9c.emergentagent.net/job_loop-studio-web/artifacts/43a28d87a5ac1ccd_%5BCLEARANCE%20SEQUENCE%20ACTIVE%20%E2%80%93%2075_%20COMPLETE%5D%20Containment%20breach%20in%20progress.%20Operatives%2C%20maintain%20.jpg",
       "https://customer-assets-gfyr7b9c.emergentagent.net/job_loop-studio-web/artifacts/2d3c99ed645cd86d_%5BFILE%20DROP%20002-%20CLASSIFIED%5D%20Unauthorized%20schematics%20detected.%20Encryption%20status-%2072_%20decrypted%E2%80%A6%20.jpg",
+      "/media/vivid-skybreach.mp4",
+      "/media/vivid-engineering-log.mp4",
     ],
     tags: ["3D CAD", "Cyberpunk", "Art Direction", "Graphic Identity"],
   },
