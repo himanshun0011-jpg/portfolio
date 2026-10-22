@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useCallback, useEffect, useState } from "react";
 import "@/App.css";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
@@ -6,6 +6,7 @@ import Lenis from "lenis";
 import { Toaster } from "sonner";
 import Cursor from "@/components/Cursor";
 import Nav from "@/components/Nav";
+import Preloader from "@/components/Preloader";
 import Home from "@/pages/Home";
 import CasePage from "@/pages/CasePage";
 
@@ -22,6 +23,14 @@ function AnimatedRoutes() {
 }
 
 export default function App() {
+  const [showIntro, setShowIntro] = useState(() => sessionStorage.getItem("duarte_intro") !== "1");
+
+  const handleIntroDone = useCallback(() => {
+    sessionStorage.setItem("duarte_intro", "1");
+    window.dispatchEvent(new Event("duarte:intro-done"));
+    setShowIntro(false);
+  }, []);
+
   useEffect(() => {
     const lenis = new Lenis({ duration: 1.15, smoothWheel: true });
     window.__lenis = lenis;
@@ -46,6 +55,7 @@ export default function App() {
         <Nav />
         <AnimatedRoutes />
       </BrowserRouter>
+      <AnimatePresence>{showIntro && <Preloader onDone={handleIntroDone} />}</AnimatePresence>
     </div>
   );
 }

@@ -45,6 +45,10 @@ Goal: recreate the Studio Loop-style portfolio structure and vibe as an original
 - Curtain route transitions (ink panel wipe via AnimatePresence mode="wait"); nav is route-aware (navigates home then scrolls to section); project cards now navigate to case pages (modal removed).
 - Verified via screenshots: collage hero (1366 + 375), mid-transition curtain, case page, next-case chain (lumina → nova), back-to-home.
 
+## Branded preloader (2026-07-22)
+- First-visit-per-session preloader (sessionStorage flag `duarte_intro`): ink panel with masked tagline + wordmark reveal, giant 0→100 counter (framer-motion tween), acid progress hairline, scroll locked while loading; exits with an upward curtain lift that hands off to the hero reveal via a `duarte:intro-done` window event gating hero animations.
+- Verified: counter mid-run, lift, hero revealed after, scroll/Lenis resumed, repeat visit skips preloader.
+
 ## Backlog
 - P0: Swap placeholder brand "DUARTE" for user's real name/brand; replace placeholder projects with user's real work; real email + social links (content.js).
 - P1: Individual case-study pages per project; contact form with email delivery (Resend); about page with story/process.

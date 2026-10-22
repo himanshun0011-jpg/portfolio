@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { motion, useMotionValue, useSpring, useScroll, useTransform } from "framer-motion";
 import { BRAND, HERO_IMAGES } from "../data/content";
 
@@ -14,14 +14,14 @@ const COLLAGE = [
   { img: 5, pos: "right-[45%] top-[4%] w-20 sm:w-32 lg:w-40", depth: 1.6, drift: 7.5, delay: 1.75 },
 ];
 
-const CollageItem = ({ cfg, img, mx, my }) => {
+const CollageItem = ({ cfg, img, mx, my, go }) => {
   const x = useTransform(mx, (v) => v * cfg.depth);
   const y = useTransform(my, (v) => v * cfg.depth);
   return (
     <motion.div style={{ x, y }} className={`absolute ${cfg.pos} z-0`} aria-hidden="true" data-testid={`hero-collage-item-${cfg.img}`}>
       <motion.div
         initial={{ opacity: 0, scale: 0.6, y: 60 }}
-        animate={{ opacity: 1, scale: 1, y: 0 }}
+        animate={go ? { opacity: 1, scale: 1, y: 0 } : { opacity: 0, scale: 0.6, y: 60 }}
         transition={{ delay: cfg.delay, duration: 1, ease: EASE }}
       >
         <motion.div
@@ -42,6 +42,15 @@ export default function Hero() {
   const yTitle = useTransform(scrollYProgress, [0, 1], [0, 180]);
   const yCollage = useTransform(scrollYProgress, [0, 1], [0, -80]);
   const opacity = useTransform(scrollYProgress, [0, 0.75], [1, 0]);
+
+  const [go, setGo] = useState(() => sessionStorage.getItem("duarte_intro") === "1");
+
+  useEffect(() => {
+    if (go) return;
+    const start = () => setGo(true);
+    window.addEventListener("duarte:intro-done", start);
+    return () => window.removeEventListener("duarte:intro-done", start);
+  }, [go]);
 
   const mxRaw = useMotionValue(0);
   const myRaw = useMotionValue(0);
@@ -66,7 +75,7 @@ export default function Hero() {
     >
       <motion.div style={{ y: yCollage }} className="absolute inset-0" data-testid="hero-collage">
         {COLLAGE.map((c) => (
-          <CollageItem key={c.img} cfg={c} img={HERO_IMAGES[c.img]} mx={mx} my={my} />
+          <CollageItem key={c.img} cfg={c} img={HERO_IMAGES[c.img]} mx={mx} my={my} go={go} />
         ))}
       </motion.div>
 
@@ -74,10 +83,10 @@ export default function Hero() {
 
       <motion.div style={{ y: yTitle, opacity }} className="relative z-10 max-w-[1700px] mx-auto px-4 sm:px-8 lg:px-16 w-full">
         <div className="flex items-center justify-between font-mono text-[10px] sm:text-xs uppercase tracking-[0.25em] text-smoke">
-          <motion.span initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.3, duration: 0.8 }} data-testid="hero-location-label">
+          <motion.span initial={{ opacity: 0 }} animate={{ opacity: go ? 1 : 0 }} transition={{ delay: 1.3, duration: 0.8 }} data-testid="hero-location-label">
             {BRAND.location}
           </motion.span>
-          <motion.span initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.45, duration: 0.8 }} data-testid="hero-year-label">
+          <motion.span initial={{ opacity: 0 }} animate={{ opacity: go ? 1 : 0 }} transition={{ delay: 1.45, duration: 0.8 }} data-testid="hero-year-label">
             ©{BRAND.year}
           </motion.span>
         </div>
@@ -89,7 +98,7 @@ export default function Hero() {
                 <motion.span
                   className="block"
                   initial={{ y: "112%" }}
-                  animate={{ y: 0 }}
+                  animate={{ y: go ? 0 : "112%" }}
                   transition={{ duration: 1, delay: 0.35 + i * 0.12, ease: EASE }}
                   data-testid={`hero-line-${i}`}
                 >
@@ -104,7 +113,7 @@ export default function Hero() {
         <div className="mt-8 sm:mt-10 flex flex-col sm:flex-row sm:items-end justify-between gap-6">
           <motion.p
             initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
+            animate={{ opacity: go ? 1 : 0, y: go ? 0 : 20 }}
             transition={{ delay: 1.1, duration: 0.8, ease: EASE }}
             className="max-w-md text-sm sm:text-base text-smoke leading-relaxed"
             data-testid="hero-subtitle"
@@ -113,7 +122,7 @@ export default function Hero() {
           </motion.p>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
+            animate={{ opacity: go ? 1 : 0, y: go ? 0 : 20 }}
             transition={{ delay: 1.25, duration: 0.8, ease: EASE }}
             className="inline-flex items-center gap-2.5 font-mono text-xs uppercase tracking-[0.2em] text-ink"
             data-testid="hero-availability-pill"
