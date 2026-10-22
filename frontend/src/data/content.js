@@ -1,9 +1,10 @@
 export const BRAND = {
-  name: "DUARTE",
+  name: "HIMANSHU",
+  fullName: "Himanshu Nautiyal",
   tagline: "Creativity as a service",
-  location: "[ from brasil to everywhere ]",
+  location: "[ from india to everywhere ]",
   year: "2026",
-  email: "hello@duarte.studio",
+  email: "himanshun0011@gmail.com",
   role: "Art Direction · UI/UX · Motion",
 };
 

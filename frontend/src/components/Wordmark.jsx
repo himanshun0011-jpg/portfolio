@@ -35,7 +35,7 @@ export default function Wordmark() {
           className="whitespace-nowrap font-display font-black uppercase tracking-[-0.04em] leading-none text-[24vw] sm:text-[20vw] select-none"
           data-testid="wordmark-giant-text"
         >
-          <Letters text="DUARTE®" shown={shown} /> <Letters text="DUARTE®" shown={shown} base={0.35} className="text-outline" />
+          <Letters text="HIMANSHU®" shown={shown} /> <Letters text="HIMANSHU®" shown={shown} base={0.35} className="text-outline" />
         </motion.h2>
       </div>
       <p

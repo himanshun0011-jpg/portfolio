@@ -17,7 +17,7 @@ export default function Contact() {
     const tick = () =>
       setTime(
         new Intl.DateTimeFormat("en-GB", {
-          timeZone: "America/Sao_Paulo",
+          timeZone: "Asia/Kolkata",
           hour: "2-digit",
           minute: "2-digit",
           second: "2-digit",
@@ -102,7 +102,7 @@ export default function Contact() {
           <div>
             <div className="flex items-center gap-3">
               <LogoMark className="w-8 h-8" inverted />
-              <span className="font-display font-extrabold text-lg tracking-tight">{BRAND.name}®</span>
+              <span className="font-display font-extrabold text-lg tracking-tight">{BRAND.fullName}®</span>
             </div>
             <p className="mt-4 text-paper/50 text-sm max-w-xs">
               {BRAND.role}. {BRAND.location}
@@ -128,7 +128,7 @@ export default function Contact() {
               {BRAND.email}
             </a>
             <span className="text-paper/70" data-testid="footer-clock">
-              São Paulo — {time}
+              New Delhi — {time}
             </span>
             <span className="text-paper/70">©{BRAND.year} All rights looped</span>
           </div>
