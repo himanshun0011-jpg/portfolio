@@ -1,0 +1,36 @@
+import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
+import Hero from "@/components/Hero";
+import Services from "@/components/Services";
+import About from "@/components/About";
+import Wordmark from "@/components/Wordmark";
+import Work from "@/components/Work";
+import Clients from "@/components/Clients";
+import Contact from "@/components/Contact";
+import TransitionPage from "@/components/TransitionPage";
+
+export default function Home() {
+  const location = useLocation();
+
+  useEffect(() => {
+    const target = location.state?.scrollTo;
+    if (target) {
+      const t = setTimeout(() => window.__lenis?.scrollTo(target, { offset: -70, duration: 1.2 }), 750);
+      return () => clearTimeout(t);
+    }
+  }, [location.state]);
+
+  return (
+    <TransitionPage>
+      <main>
+        <Hero />
+        <Services />
+        <About />
+        <Wordmark />
+        <Work />
+        <Clients />
+        <Contact />
+      </main>
+    </TransitionPage>
+  );
+}

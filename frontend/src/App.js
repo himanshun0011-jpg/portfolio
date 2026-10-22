@@ -1,16 +1,25 @@
 import { useEffect } from "react";
 import "@/App.css";
+import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
+import { AnimatePresence } from "framer-motion";
 import Lenis from "lenis";
 import { Toaster } from "sonner";
 import Cursor from "@/components/Cursor";
 import Nav from "@/components/Nav";
-import Hero from "@/components/Hero";
-import Services from "@/components/Services";
-import About from "@/components/About";
-import Wordmark from "@/components/Wordmark";
-import Work from "@/components/Work";
-import Clients from "@/components/Clients";
-import Contact from "@/components/Contact";
+import Home from "@/pages/Home";
+import CasePage from "@/pages/CasePage";
+
+function AnimatedRoutes() {
+  const location = useLocation();
+  return (
+    <AnimatePresence mode="wait" onExitComplete={() => window.__lenis?.scrollTo(0, { immediate: true })}>
+      <Routes location={location} key={location.pathname}>
+        <Route path="/" element={<Home />} />
+        <Route path="/work/:id" element={<CasePage />} />
+      </Routes>
+    </AnimatePresence>
+  );
+}
 
 export default function App() {
   useEffect(() => {
@@ -32,17 +41,11 @@ export default function App() {
   return (
     <div className="grain bg-paper text-ink font-body antialiased overflow-x-clip" data-testid="app-root">
       <Toaster position="bottom-center" />
-      <Cursor />
-      <Nav />
-      <main>
-        <Hero />
-        <Services />
-        <About />
-        <Wordmark />
-        <Work />
-        <Clients />
-        <Contact />
-      </main>
+      <BrowserRouter>
+        <Cursor />
+        <Nav />
+        <AnimatedRoutes />
+      </BrowserRouter>
     </div>
   );
 }

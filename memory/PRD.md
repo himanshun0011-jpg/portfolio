@@ -39,6 +39,12 @@ Goal: recreate the Studio Loop-style portfolio structure and vibe as an original
 - Custom blend-mode cursor (desktop, fine pointers only) + nav hides on scroll down / shows on scroll up.
 - Verified via screenshots: hero, services hover state, about partial/full highlight, wordmark, work grid, clients marquee.
 
+## Floating collage hero + case-study pages (2026-07-22)
+- Hero strip replaced with free-floating collage: 6 images absolutely positioned around the headline, each with continuous drift/rotation loops, depth-based mouse parallax, staggered pop-in on load; frosted-glass zone keeps headline readable.
+- React Router added: `/` home and `/work/:id` case-study pages (masked word-by-word title, clip-path hero image reveal with scroll parallax, brief + facts grid, giant next-case footer link chaining all projects).
+- Curtain route transitions (ink panel wipe via AnimatePresence mode="wait"); nav is route-aware (navigates home then scrolls to section); project cards now navigate to case pages (modal removed).
+- Verified via screenshots: collage hero (1366 + 375), mid-transition curtain, case page, next-case chain (lumina → nova), back-to-home.
+
 ## Backlog
 - P0: Swap placeholder brand "DUARTE" for user's real name/brand; replace placeholder projects with user's real work; real email + social links (content.js).
 - P1: Individual case-study pages per project; contact form with email delivery (Resend); about page with story/process.

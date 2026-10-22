@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 import { motion, AnimatePresence, useScroll, useMotionValueEvent } from "framer-motion";
 import { Menu, X, ArrowUpRight } from "lucide-react";
 import LogoMark from "./LogoMark";
@@ -11,27 +12,33 @@ const LINKS = [
   { label: "Contact", href: "#contact" },
 ];
 
-const go = (e, href, after) => {
-  e.preventDefault();
-  after && after();
-  if (window.__lenis) {
-    window.__lenis.scrollTo(href, { offset: -70, duration: 1.4 });
-  } else {
-    document.querySelector(href)?.scrollIntoView({ behavior: "smooth" });
-  }
-};
-
 export default function Nav() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [hidden, setHidden] = useState(false);
   const { scrollY } = useScroll();
+  const location = useLocation();
+  const navigate = useNavigate();
 
   useMotionValueEvent(scrollY, "change", (latest) => {
     const prev = scrollY.getPrevious() ?? 0;
     setScrolled(latest > 40);
     setHidden(latest > prev && latest > 160 && !open);
   });
+
+  const go = (e, href, after) => {
+    e.preventDefault();
+    after && after();
+    if (location.pathname !== "/") {
+      navigate("/", { state: { scrollTo: href } });
+      return;
+    }
+    if (window.__lenis) {
+      window.__lenis.scrollTo(href, { offset: -70, duration: 1.4 });
+    } else {
+      document.querySelector(href)?.scrollIntoView({ behavior: "smooth" });
+    }
+  };
 
   return (
     <motion.header

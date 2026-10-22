@@ -1,6 +1,7 @@
 import { useState, useRef } from "react";
+import { useNavigate } from "react-router-dom";
 import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion";
-import { ArrowUpRight, X } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import { PROJECTS } from "../data/content";
 import { Reveal } from "./Reveal";
 
@@ -11,8 +12,9 @@ const FILTERS = [
   { id: "branding", label: "Branding" },
 ];
 
-const ProjectCard = ({ p, i, onOpen }) => {
+const ProjectCard = ({ p, i }) => {
   const ref = useRef(null);
+  const navigate = useNavigate();
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "end start"] });
   const y = useTransform(scrollYProgress, [0, 1], ["-7%", "7%"]);
 
@@ -26,7 +28,7 @@ const ProjectCard = ({ p, i, onOpen }) => {
       className="group cursor-pointer"
       data-testid={`project-card-${p.id}`}
       data-cursor
-      onClick={() => onOpen(p)}
+      onClick={() => navigate(`/work/${p.id}`)}
     >
       <div ref={ref} className="relative overflow-hidden aspect-[4/5] bg-paper2">
         <motion.img
@@ -55,7 +57,6 @@ const ProjectCard = ({ p, i, onOpen }) => {
 
 export default function Work() {
   const [filter, setFilter] = useState("all");
-  const [active, setActive] = useState(null);
   const visible = PROJECTS.filter((p) => filter === "all" || p.filter === filter);
 
   return (
@@ -83,66 +84,10 @@ export default function Work() {
       <motion.div layout className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
         <AnimatePresence mode="popLayout">
           {visible.map((p, i) => (
-            <ProjectCard key={p.id} p={p} i={i} onOpen={setActive} />
+            <ProjectCard key={p.id} p={p} i={i} />
           ))}
         </AnimatePresence>
       </motion.div>
-
-      <AnimatePresence>
-        {active && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 z-[90] bg-ink/60 backdrop-blur-md flex items-center justify-center p-4 sm:p-8"
-            onClick={() => setActive(null)}
-            data-testid="project-modal"
-          >
-            <motion.div
-              initial={{ y: 60, opacity: 0, scale: 0.98 }}
-              animate={{ y: 0, opacity: 1, scale: 1 }}
-              exit={{ y: 40, opacity: 0 }}
-              transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-              className="bg-paper max-w-4xl w-full max-h-[90vh] overflow-y-auto grid md:grid-cols-2"
-              onClick={(e) => e.stopPropagation()}
-            >
-              <div className="aspect-[4/5] md:aspect-auto md:min-h-[560px]">
-                <img src={active.image} alt={active.title} className="w-full h-full object-cover" />
-              </div>
-              <div className="p-6 sm:p-10 flex flex-col">
-                <div className="flex items-start justify-between gap-4">
-                  <span className="font-mono text-xs uppercase tracking-[0.2em] text-smoke">
-                    {active.category} — {active.year}
-                  </span>
-                  <button
-                    data-testid="project-modal-close"
-                    onClick={() => setActive(null)}
-                    className="w-9 h-9 rounded-full border border-ink/20 flex items-center justify-center hover:bg-ink hover:text-paper transition-colors shrink-0"
-                    aria-label="Close project"
-                  >
-                    <X className="w-4 h-4" />
-                  </button>
-                </div>
-                <h3
-                  className="mt-6 font-display font-extrabold uppercase tracking-tight text-3xl sm:text-4xl leading-[0.95]"
-                  data-testid="project-modal-title"
-                >
-                  {active.title}
-                </h3>
-                <p className="mt-3 font-mono text-xs uppercase tracking-[0.2em] text-vermilion">{active.client}</p>
-                <p className="mt-6 text-smoke leading-relaxed text-sm sm:text-base">{active.description}</p>
-                <div className="mt-auto pt-8 flex flex-wrap gap-2">
-                  {active.tags.map((t) => (
-                    <span key={t} className="font-mono text-[10px] uppercase tracking-[0.15em] border border-ink/20 rounded-full px-3 py-1.5">
-                      {t}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
     </section>
   );
 }
