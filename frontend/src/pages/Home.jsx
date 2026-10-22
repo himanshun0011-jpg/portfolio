@@ -6,6 +6,7 @@ import About from "@/components/About";
 import Wordmark from "@/components/Wordmark";
 import Work from "@/components/Work";
 import Clients from "@/components/Clients";
+import Testimonials from "@/components/Testimonials";
 import Contact from "@/components/Contact";
 import TransitionPage from "@/components/TransitionPage";
 
@@ -29,6 +30,7 @@ export default function Home() {
         <Wordmark />
         <Work />
         <Clients />
+        <Testimonials />
         <Contact />
       </main>
     </TransitionPage>

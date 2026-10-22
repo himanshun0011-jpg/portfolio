@@ -5,7 +5,7 @@ export const BRAND = {
   location: "[ from india to everywhere ]",
   year: "2026",
   email: "himanshun0011@gmail.com",
-  role: "Art Direction · UI/UX · Motion",
+  role: "Social Media · Content · Design",
 };
 
 export const HERO_IMAGES = [
@@ -38,43 +38,38 @@ export const HERO_IMAGES = [
 export const SERVICES = [
   {
     number: "01",
-    main: "Digital Art",
-    accent: "Direction",
+    main: "Social Media",
+    accent: "Management",
     image: HERO_IMAGES[0].url,
-    description:
-      "Setting visual direction, creative concepts, and high-impact design language for visionary brands across every digital touchpoint.",
+    description: "End-to-end management of your channels — content calendars, posting, community and growth.",
   },
   {
     number: "02",
-    main: "UI / UX",
-    accent: "Design",
+    main: "Content",
+    accent: "Creation",
     image: HERO_IMAGES[1].url,
-    description:
-      "Architecting friction-free digital products, complex web applications, and immersive websites with obsessive focus on micro-details.",
+    description: "Scroll-stopping posts, carousels and stories built around your brand voice.",
   },
   {
     number: "03",
-    main: "3D &",
-    accent: "Motion",
+    main: "Graphic",
+    accent: "Design",
     image: HERO_IMAGES[2].url,
-    description:
-      "Crafting kinetic visual identities, 3D product renders, and fluid web animations that turn passive viewers into engaged advocates.",
+    description: "Brand visuals, layouts and campaign graphics that look premium and read fast.",
   },
   {
     number: "04",
-    main: "Design",
-    accent: "Systems",
+    main: "Ad",
+    accent: "Creatives",
     image: HERO_IMAGES[3].url,
-    description:
-      "Building modular, scalable tokenized UI component libraries that keep structural integrity and brand rhythm intact at scale.",
+    description: "Performance-ready statics and videos engineered to convert, not just impress.",
   },
   {
     number: "05",
-    main: "Creative",
-    accent: "Technology",
+    main: "Reels & AI",
+    accent: "Video",
     image: HERO_IMAGES[4].url,
-    description:
-      "Blending WebGL, interactive canvas, and smooth scroll mechanics with modern frontend engineering for memorable digital experiences.",
+    description: "Short-form reels and AI-generated video ads at studio quality, delivered weekly.",
   },
 ];
 
@@ -212,13 +207,6 @@ export const CLIENTS = [
   "FIZZ & BLOOM",
   "VIVID LABS",
   "BEAUVOIR",
-  "PARAMOUNT",
-  "TIKTOK",
-  "SCHOOLHOUSE",
-  "SPOTIFY",
-  "NIKE LAB",
-  "KINETIX",
-  "AETHERIA",
 ];
 
 export const ABOUT_IMAGES = [

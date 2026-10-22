@@ -5,14 +5,16 @@ import { ABOUT_IMAGES } from "../data/content";
 import { Reveal } from "./Reveal";
 
 const STATEMENT =
-  "A multi-craft practice with one goal — being responsive to everyday creative needs. By merging audiovisual spheres in every delivery, creativity plus art become a powerful problem solver.";
+  "I'm Himanshu — founder of SocialFloe. I help small businesses, startups and D2C brands win attention with social media content, design and AI video that actually converts.";
 
 const Word = ({ progress, range, children }) => {
   const opacity = useTransform(progress, range, [0.12, 1]);
   return (
-    <motion.span style={{ opacity }} className="inline-block mr-[0.28em]">
-      {children}
-    </motion.span>
+    <>
+      <motion.span style={{ opacity }} className="inline-block">
+        {children}
+      </motion.span>{" "}
+    </>
   );
 };
 
@@ -58,13 +60,13 @@ export default function About() {
 
       <div className="max-w-[1700px] mx-auto px-4 sm:px-8 lg:px-16 py-20 sm:py-32 lg:py-40">
         <span className="font-mono text-xs uppercase tracking-[0.25em] text-paper/50" data-testid="about-label">
-          [ who we are ]
+          [ who i am ]
         </span>
         <h2 className="mt-8 font-display font-extrabold uppercase tracking-tight leading-[0.95] text-4xl sm:text-6xl lg:text-7xl max-w-5xl">
           <Reveal>One designer.</Reveal>
-          <Reveal delay={0.08}>Every craft</Reveal>
+          <Reveal delay={0.08}>Founder of</Reveal>
           <Reveal delay={0.16}>
-            <span className="font-serif italic normal-case font-normal text-acid">in the loop.</span>
+            <span className="font-serif italic normal-case font-normal text-acid">SocialFloe.</span>
           </Reveal>
         </h2>
 
@@ -75,7 +77,8 @@ export default function About() {
               className="font-display font-bold text-2xl sm:text-3xl lg:text-4xl leading-snug tracking-tight max-w-xl"
             />
             <p className="mt-8 text-paper/50 text-sm sm:text-base leading-relaxed max-w-md">
-              No hand-offs, no telephone game — the person you brief is the person who designs, animates and ships.
+              You brief me — I design, animate and ship. No hand-offs, no telephone game. Just work that makes people
+              stop scrolling.
             </p>
             <a
               href="#work"

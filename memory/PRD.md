@@ -58,7 +58,14 @@ Goal: recreate the Studio Loop-style portfolio structure and vibe as an original
 - First-visit-per-session preloader (sessionStorage flag `duarte_intro`): ink panel with masked tagline + wordmark reveal, giant 0→100 counter (framer-motion tween), acid progress hairline, scroll locked while loading; exits with an upward curtain lift that hands off to the hero reveal via a `duarte:intro-done` window event gating hero animations.
 - Verified: counter mid-run, lift, hero revealed after, scroll/Lenis resumed, repeat visit skips preloader.
 
-## Backlog
+## Content repositioning (2026-07-22, user-directed)
+- Hero: headline "SOCIAL CONTENT THAT SELLS.", audience line "[ for small businesses · startups · d2c brands ]", availability "Available now".
+- Capabilities replaced with real services: Social Media Management, Content Creation, Graphic Design, Ad Creatives, Reels & AI Video (1-line descriptions).
+- Client marquee: real names only (FIZZ & BLOOM, VIVID LABS, BEAUVOIR); placeholders removed.
+- About: first person — "[ who i am ]", "One designer. Founder of SocialFloe." + SocialFloe statement; fixed word-spacing bug in scroll-highlight text.
+- CTA: "LET'S MAKE SOMETHING WORTH SHARING." + Book a call (mailto fallback) + WhatsApp button (PLACEHOLDER link — needs real number); newsletter removed per user request.
+- New Proof section: Top Rated Plus on Upwork badge card (PLACEHOLDER upwork.com link — needs real profile URL) + 3 testimonial cards (PLACEHOLDER quotes — user to send real ones).
+- Verified via screenshots: hero (desktop+mobile), services, about, proof, contact.
 - P0: Swap placeholder brand "DUARTE" for user's real name/brand; replace placeholder projects with user's real work; real email + social links (content.js).
 - P1: Individual case-study pages per project; contact form with email delivery (Resend); about page with story/process.
 - P2: Dark/light toggle; custom cursor; page transitions; WebGL hero object; blog/notes section; SEO + OG images; analytics.

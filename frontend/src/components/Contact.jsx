@@ -1,16 +1,10 @@
 import { useEffect, useState } from "react";
-import axios from "axios";
-import { toast } from "sonner";
-import { ArrowUpRight, ArrowUp } from "lucide-react";
+import { ArrowUpRight, ArrowUp, MessageCircle } from "lucide-react";
 import { BRAND } from "../data/content";
 import { Reveal } from "./Reveal";
 import LogoMark from "./LogoMark";
 
-const API = `${process.env.REACT_APP_BACKEND_URL}/api`;
-
 export default function Contact() {
-  const [email, setEmail] = useState("");
-  const [loading, setLoading] = useState(false);
   const [time, setTime] = useState("");
 
   useEffect(() => {
@@ -28,84 +22,54 @@ export default function Contact() {
     return () => clearInterval(id);
   }, []);
 
-  const subscribe = async (e) => {
-    e.preventDefault();
-    if (!email) return;
-    setLoading(true);
-    try {
-      const { data } = await axios.post(`${API}/newsletter`, { email });
-      toast.success(data.message || "You're in the loop.");
-      setEmail("");
-    } catch (err) {
-      toast.error(err.response?.data?.detail || "Something went wrong. Try again.");
-    } finally {
-      setLoading(false);
-    }
-  };
-
   return (
     <footer id="contact" data-testid="contact-section" className="bg-ink text-paper">
       <div className="max-w-[1700px] mx-auto px-4 sm:px-8 lg:px-16 pt-20 sm:pt-32">
         <span className="font-mono text-xs uppercase tracking-[0.25em] text-paper/50">[ your move ]</span>
-        <h2 className="mt-8 font-display font-black uppercase tracking-[-0.02em] leading-[0.92] text-[13vw] sm:text-[10vw] lg:text-[8.5vw]">
+        <h2 className="mt-8 font-display font-black uppercase tracking-[-0.02em] leading-[0.92] text-[13vw] sm:text-[10vw] lg:text-[7.2vw]">
           <Reveal>Let&apos;s make</Reveal>
           <Reveal delay={0.08}>something</Reveal>
           <Reveal delay={0.16}>
-            <span className="inline-block bg-acid text-ink px-[0.15em] -rotate-1">worth</span>
-            <span className="text-vermilion">.</span>
+            <span className="inline-block bg-acid text-ink px-[0.15em] -rotate-1">
+              worth sharing<span className="text-vermilion">.</span>
+            </span>
           </Reveal>
         </h2>
 
-        <a
-          href={`mailto:${BRAND.email}`}
-          data-testid="cta-email-button"
-          className="mt-10 sm:mt-14 inline-flex items-center gap-3 bg-paper text-ink font-mono text-xs sm:text-sm uppercase tracking-[0.2em] px-8 py-4 rounded-full hover:bg-acid transition-colors duration-300 group"
-        >
-          Your next project starts here
-          <ArrowUpRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" />
-        </a>
-
-        <div
-          className="mt-16 sm:mt-24 border border-paper/15 rounded-2xl p-6 sm:p-10 grid lg:grid-cols-2 gap-8 items-center bg-white/[0.03]"
-          data-testid="newsletter-card"
-        >
-          <div>
-            <h3 className="font-display font-extrabold uppercase tracking-tight text-2xl sm:text-3xl leading-tight">
-              Get the best of the loop, weekly
-            </h3>
-            <p className="mt-3 text-paper/60 text-sm sm:text-base">
-              New work, process notes and internet oddities. No spam — unsubscribe anytime.
-            </p>
-          </div>
-          <form onSubmit={subscribe} className="flex flex-col sm:flex-row gap-3" data-testid="newsletter-form">
-            <input
-              type="email"
-              required
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              placeholder="your@email.com"
-              data-testid="newsletter-email-input"
-              className="flex-1 bg-transparent border border-paper/25 rounded-full px-6 py-4 font-mono text-sm placeholder:text-paper/35 focus:outline-none focus:border-acid transition-colors"
-            />
-            <button
-              type="submit"
-              disabled={loading}
-              data-testid="newsletter-submit-button"
-              className="bg-acid text-ink font-mono text-xs uppercase tracking-[0.2em] px-8 py-4 rounded-full hover:bg-paper transition-colors duration-300 disabled:opacity-50"
-            >
-              {loading ? "Joining…" : "Join the loop"}
-            </button>
-          </form>
+        <div className="mt-10 sm:mt-14 flex flex-wrap items-center gap-4">
+          <a
+            href={`mailto:${BRAND.email}?subject=Book%20a%20call`}
+            data-testid="cta-book-call-button"
+            className="group inline-flex items-center gap-3 bg-paper text-ink font-mono text-xs sm:text-sm uppercase tracking-[0.2em] px-8 py-4 rounded-full hover:bg-acid transition-colors duration-300"
+          >
+            Book a call
+            <ArrowUpRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" />
+          </a>
+          <a
+            href="#"
+            onClick={(e) => e.preventDefault()}
+            data-testid="cta-whatsapp-button"
+            className="group inline-flex items-center gap-3 border border-paper/30 text-paper font-mono text-xs sm:text-sm uppercase tracking-[0.2em] px-8 py-4 rounded-full hover:bg-[#25D366] hover:border-[#25D366] hover:text-ink transition-colors duration-300"
+          >
+            WhatsApp
+            <MessageCircle className="w-4 h-4 transition-transform duration-300 group-hover:scale-110" />
+          </a>
         </div>
+        <p className="mt-6 font-mono text-xs uppercase tracking-[0.2em] text-paper/50">
+          or write to{" "}
+          <a href={`mailto:${BRAND.email}`} data-testid="cta-email-button" className="u-link text-paper">
+            {BRAND.email}
+          </a>
+        </p>
 
-        <div className="mt-16 sm:mt-24 border-t border-paper/15 pt-10 grid md:grid-cols-3 gap-10">
+        <div className="mt-20 sm:mt-28 border-t border-paper/15 pt-10 grid md:grid-cols-3 gap-10">
           <div>
             <div className="flex items-center gap-3">
               <LogoMark className="w-8 h-8" inverted />
               <span className="font-display font-extrabold text-lg tracking-tight">{BRAND.fullName}®</span>
             </div>
             <p className="mt-4 text-paper/50 text-sm max-w-xs">
-              {BRAND.role}. {BRAND.location}
+              Founder, SocialFloe. {BRAND.role}. {BRAND.location}
             </p>
           </div>
           <div className="flex flex-col gap-3 font-mono text-xs uppercase tracking-[0.2em]">

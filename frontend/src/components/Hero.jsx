@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { motion, useMotionValue, useSpring, useScroll, useTransform } from "framer-motion";
 import { BRAND, HERO_IMAGES } from "../data/content";
 
-const LINES = ["CREATIVITY", "AS A", "SERVICE"];
+const LINES = ["SOCIAL", "CONTENT", "THAT SELLS."];
 const EASE = [0.16, 1, 0.3, 1];
 
 const COLLAGE = [
@@ -110,7 +110,16 @@ export default function Hero() {
           </h1>
         </motion.div>
 
-        <div className="mt-8 sm:mt-10 flex flex-col sm:flex-row sm:items-end justify-end gap-6">
+        <div className="mt-8 sm:mt-10 flex flex-col sm:flex-row sm:items-end justify-between gap-6">
+          <motion.span
+            initial={{ opacity: 0 }}
+            animate={{ opacity: go ? 1 : 0 }}
+            transition={{ delay: 1.1, duration: 0.8 }}
+            className="font-mono text-[10px] sm:text-xs uppercase tracking-[0.25em] text-smoke"
+            data-testid="hero-audience-label"
+          >
+            [ for small businesses · startups · d2c brands ]
+          </motion.span>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: go ? 1 : 0, y: go ? 0 : 20 }}
@@ -122,7 +131,7 @@ export default function Hero() {
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-acid opacity-90"></span>
               <span className="relative inline-flex rounded-full h-2 w-2 bg-acid border border-ink/25"></span>
             </span>
-            Available for Q3 {BRAND.year}
+            Available now
           </motion.div>
         </div>
       </motion.div>
