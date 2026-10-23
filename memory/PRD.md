@@ -75,6 +75,11 @@ Goal: recreate the Studio Loop-style portfolio structure and vibe as an original
 - Reference palette applied: cream #F7F6F0 paper, chocolate #2C180F ink, orange-red accent; Inter Tight + Instrument Serif typography; SVG logos recolored.
 - Verified via testing agent (iteration_1): body bg rgb(247,246,240), text rgb(44,24,15), nav/sections render correctly.
 
+## Work section → scroll-driven gallery (2026-07-23, user-directed, replaces IG grid)
+- IG-post grid replaced per user feedback with reference-video style: desktop = sticky full-screen scroll gallery (70vh per project) — left vertical title index (active title shifts right + turns vermilion, counter "0X — 09", titles clickable to jump via Lenis), right large media stage (76vh, rounded-2xl) with crossfade/scale/rise transitions between projects, category + year chips, hover "View case" pill → case page. Mobile = stacked large square posts. Videos supported in the stage.
+- Also re-cropped penandpark images to exact white card bounds (removed dark edge slivers).
+- Verified via screenshots: two scroll segments (active title + media switch correctly), mobile stack, clean card edges.
+
 ## Nav label change (2026-07-23, user-directed)
 - Header nav "Studio" renamed to "About" (still anchors to #studio section). Verified via screenshot + nav-link-about testid.
 
