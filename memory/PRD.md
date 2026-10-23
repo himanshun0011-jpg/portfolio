@@ -71,6 +71,14 @@ Goal: recreate the Studio Loop-style portfolio structure and vibe as an original
 - New "drop a brief" contact form (name/email/message) in Contact: posts to Formspree when `BRAND.formspree` endpoint is set in content.js, otherwise mailto compose fallback with prefilled subject/body; inline success state. Verified via form fill + submit.
 - /app/frontend/vercel.json handles SPA rewrites; deploys to Vercel as frontend-only (root dir `frontend`). Backend folder unused by the site.
 
+## Theme swap to Studio Loop palette (2026-07-22, user-directed)
+- Reference palette applied: cream #F7F6F0 paper, chocolate #2C180F ink, orange-red accent; Inter Tight + Instrument Serif typography; SVG logos recolored.
+- Verified via testing agent (iteration_1): body bg rgb(247,246,240), text rgb(44,24,15), nav/sections render correctly.
+
+## Upwork profile link fix (2026-07-22, user-reported bug)
+- Testimonials.jsx Upwork badge card (data-testid="upwork-badge-link") href changed from generic upwork.com to https://www.upwork.com/freelancers/himanshunautiyal?mp_source=share.
+- Verified via testing agent (iteration_1, 100% frontend pass): href exact match, testimonials section + theme intact.
+
 ## Backlog
 - P0: Swap placeholder brand "DUARTE" for user's real name/brand; replace placeholder projects with user's real work; real email + social links (content.js).
 - P1: Individual case-study pages per project; contact form with email delivery (Resend); about page with story/process.
