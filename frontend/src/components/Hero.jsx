@@ -5,19 +5,138 @@ import { BRAND } from "../data/content";
 const LINES = ["good", "design", "sells"];
 const EASE = [0.16, 1, 0.3, 1];
 
-const BLOBS = [
-  { pos: "left-[2%] top-[8%]", size: "w-72 h-72 sm:w-[26rem] sm:h-[26rem]", color: "#FF4000", op: 0.5, depth: 1.4, drift: 9, delay: 0.9 },
-  { pos: "right-[4%] top-[14%]", size: "w-80 h-80 sm:w-[30rem] sm:h-[30rem]", color: "#FF8A5C", op: 0.42, depth: 0.9, drift: 11, delay: 1.05 },
-  { pos: "left-[30%] bottom-[2%]", size: "w-64 h-64 sm:w-[24rem] sm:h-[24rem]", color: "#F7F6F0", op: 0.16, depth: 1.8, drift: 8, delay: 1.2 },
-  { pos: "right-[20%] bottom-[8%]", size: "w-56 h-56 sm:w-[20rem] sm:h-[20rem]", color: "#FFB199", op: 0.34, depth: 1.1, drift: 10, delay: 1.35 },
-  { pos: "left-[10%] bottom-[18%]", size: "w-52 h-52 sm:w-80 sm:h-80", color: "#E06300", op: 0.42, depth: 2.1, drift: 7.5, delay: 1.5 },
-  { pos: "right-[42%] top-[2%]", size: "w-44 h-44 sm:w-64 sm:h-64", color: "#FF4000", op: 0.34, depth: 1.6, drift: 12, delay: 1.65 },
+const GLOWS = [
+  { pos: "left-[6%] top-[22%]", size: "w-72 h-72 sm:w-96 sm:h-96", color: "#FF4000", op: 0.25, depth: 0.7, drift: 12, delay: 0.8 },
+  { pos: "right-[8%] bottom-[10%]", size: "w-80 h-80 sm:w-[28rem] sm:h-[28rem]", color: "#FF8A5C", op: 0.2, depth: 0.6, drift: 14, delay: 0.95 },
 ];
 
-const RINGS = [
-  { pos: "right-[8%] top-[32%]", size: "w-40 h-40 sm:w-64 sm:h-64", dur: 26, depth: 1.2, delay: 1.4 },
-  { pos: "left-[14%] top-[46%]", size: "w-32 h-32 sm:w-52 sm:h-52", dur: 34, depth: 0.8, delay: 1.6, reverse: true },
+const TOOL_ASSETS = [
+  { type: "character", pos: "right-[5%] top-[10%]", depth: 0.9, drift: 10, delay: 1.35, rot: 4 },
+  { type: "ease", pos: "left-[3%] bottom-[8%]", depth: 1.5, drift: 9, delay: 1.0, rot: -4 },
+  { type: "timeline", pos: "right-[3%] bottom-[6%]", depth: 1.1, drift: 11, delay: 1.2, rot: 3 },
+  { type: "path", pos: "left-[24%] top-[3%]", depth: 2.0, drift: 12, delay: 1.75, rot: -2 },
+  { type: "text", pos: "left-[8%] top-[13%]", depth: 1.8, drift: 8, delay: 1.5, rot: -6, mobile: true },
+  { type: "fx", pos: "right-[23%] top-[18%]", depth: 1.3, drift: 7.5, delay: 1.6, rot: 5, mobile: true },
 ];
+
+const panelCls = "rounded-xl border border-white/10 bg-[#1d100a]/90 backdrop-blur-md shadow-2xl p-3";
+
+const EasePanel = () => (
+  <div className={`${panelCls} w-44 sm:w-52`}>
+    <div className="flex items-center justify-between">
+      <div className="flex gap-1">
+        <span className="w-1.5 h-1.5 rounded-full bg-[#FF5F57]" />
+        <span className="w-1.5 h-1.5 rounded-full bg-[#F5C518]" />
+        <span className="w-1.5 h-1.5 rounded-full bg-[#3ECF8E]" />
+      </div>
+      <span className="font-mono text-[7px] uppercase tracking-[0.2em] text-white/40">ease · 1500 px/s</span>
+    </div>
+    <svg viewBox="0 0 120 56" className="mt-2 w-full">
+      {[24, 48, 72, 96].map((x) => (
+        <line key={x} x1={x} y1="4" x2={x} y2="52" stroke="rgba(247,246,240,0.07)" strokeWidth="1" />
+      ))}
+      <path
+        d="M4 50 C 26 50 26 8 48 8 C 70 8 70 50 92 50 L 116 50"
+        fill="none"
+        stroke="rgba(247,246,240,0.85)"
+        strokeWidth="1.5"
+      />
+      <rect x="2" y="48" width="5" height="5" fill="#F5C518" />
+      <rect x="45.5" y="5.5" width="5" height="5" fill="#F5C518" />
+      <rect x="89.5" y="48" width="5" height="5" fill="#F5C518" />
+      <motion.g animate={{ x: [0, 108, 0] }} transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}>
+        <line x1="6" y1="2" x2="6" y2="54" stroke="#3ECF8E" strokeWidth="1.5" />
+        <circle cx="6" cy="20" r="2.5" fill="#3ECF8E" />
+      </motion.g>
+    </svg>
+  </div>
+);
+
+const TimelinePanel = () => (
+  <div className={`${panelCls} relative w-48 sm:w-56`}>
+    <div className="flex justify-between font-mono text-[7px] text-white/40">
+      <span>0s</span>
+      <span>01s</span>
+      <span>02s</span>
+      <span>03s</span>
+    </div>
+    <div className="mt-2 flex flex-col gap-1.5">
+      <div className="h-2.5 rounded-sm bg-[#C586F0]/80 w-[78%]" />
+      <div className="h-2.5 rounded-sm bg-[#5B8DEF]/80 w-[55%] ml-[20%]" />
+      <div className="h-2.5 rounded-sm bg-[#FF4000]/70 w-[38%] ml-[8%]" />
+    </div>
+    <div className="mt-2 flex gap-3">
+      <span className="w-2 h-2 rotate-45 bg-[#F5C518]" />
+      <span className="w-2 h-2 rotate-45 bg-white/40 ml-[30%]" />
+      <span className="w-2 h-2 rotate-45 bg-white/40 ml-[18%]" />
+    </div>
+    <motion.div
+      className="absolute top-5 bottom-2 w-px bg-[#3ECF8E]"
+      animate={{ left: ["12%", "88%", "12%"] }}
+      transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+    />
+  </div>
+);
+
+const CharacterPanel = () => (
+  <div className={`${panelCls} w-40 sm:w-44`}>
+    <div className="flex items-center justify-between">
+      <span className="font-mono text-[8px] uppercase tracking-[0.2em] text-white/50">Character</span>
+      <span className="text-white/30 font-mono text-[8px]">≡</span>
+    </div>
+    <div className="mt-2 flex items-center justify-between rounded-md bg-white/5 px-2 py-1.5">
+      <span className="font-blob text-[11px] text-[#F7F6F0]">Felt Tip Roman</span>
+      <span className="w-2.5 h-2.5 rounded-sm bg-[#FF4000]" />
+    </div>
+    <div className="mt-2 flex items-center justify-between font-mono text-[8px] text-white/40">
+      <span>T&nbsp;&nbsp;220 pt</span>
+      <span>V/A&nbsp;&nbsp;Auto</span>
+    </div>
+    <div className="mt-2 flex gap-1.5">
+      {[0, 1, 2].map((i) => (
+        <span
+          key={i}
+          className={`w-6 h-6 rounded flex items-center justify-center font-display text-[10px] ${
+            i === 0 ? "bg-[#FF4000]/25 border border-[#FF4000] text-[#F7F6F0]" : "border border-white/10 text-white/40"
+          }`}
+        >
+          T
+        </span>
+      ))}
+    </div>
+  </div>
+);
+
+const TextChip = () => (
+  <div className={`${panelCls} w-11 h-11 flex items-center justify-center !p-0`}>
+    <span className="font-display font-medium text-[#F7F6F0] text-xl leading-none">
+      T<span className="text-[#FF4000] text-[10px] align-sub">,</span>
+    </span>
+  </div>
+);
+
+const FxChip = () => (
+  <div className="w-11 h-11 rounded-xl bg-[#FF4000] shadow-2xl flex items-center justify-center">
+    <span className="font-serif italic text-[#2C180F] text-lg leading-none">fx</span>
+  </div>
+);
+
+const MotionPath = () => (
+  <svg viewBox="0 0 160 60" className="w-36 sm:w-44 overflow-visible">
+    <motion.path
+      d="M6 52 L 70 12 L 154 30"
+      fill="none"
+      stroke="rgba(247,246,240,0.5)"
+      strokeWidth="1.5"
+      strokeDasharray="6 6"
+      animate={{ strokeDashoffset: [0, -48] }}
+      transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
+    />
+    <rect x="3" y="49" width="6" height="6" fill="#F7F6F0" />
+    <rect x="67" y="9" width="6" height="6" fill="none" stroke="#F7F6F0" strokeWidth="1.5" />
+    <rect x="151" y="27" width="6" height="6" fill="#FF4000" />
+  </svg>
+);
 
 const AmbientBlob = ({ cfg, mx, my, go, i }) => {
   const x = useTransform(mx, (v) => v * cfg.depth);
@@ -40,23 +159,31 @@ const AmbientBlob = ({ cfg, mx, my, go, i }) => {
   );
 };
 
-const AmbientRing = ({ cfg, mx, my, go, i }) => {
+const ToolAsset = ({ cfg, mx, my, go }) => {
   const x = useTransform(mx, (v) => v * cfg.depth);
   const y = useTransform(my, (v) => v * cfg.depth);
   return (
-    <motion.div style={{ x, y }} className={`absolute ${cfg.pos} z-0`} aria-hidden="true" data-testid={`hero-ring-${i}`}>
+    <motion.div
+      style={{ x, y }}
+      className={`absolute ${cfg.pos} z-0 ${cfg.mobile ? "" : "hidden sm:block"}`}
+      aria-hidden="true"
+      data-testid={`hero-tool-${cfg.type}`}
+    >
       <motion.div
-        initial={{ opacity: 0, scale: 0.6 }}
-        animate={go ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.6 }}
-        transition={{ delay: cfg.delay, duration: 1.2, ease: EASE }}
-        className={`relative ${cfg.size}`}
+        initial={{ opacity: 0, scale: 0.6, y: 40, rotate: cfg.rot - 6 }}
+        animate={go ? { opacity: 1, scale: 1, y: 0, rotate: cfg.rot } : { opacity: 0, scale: 0.6, y: 40 }}
+        transition={{ delay: cfg.delay, duration: 1, ease: EASE }}
       >
         <motion.div
-          animate={{ rotate: cfg.reverse ? -360 : 360 }}
-          transition={{ duration: cfg.dur, repeat: Infinity, ease: "linear" }}
-          className="absolute inset-0 rounded-full border border-dashed border-ink/20"
+          animate={{ y: [0, -12, 0], rotate: [0, cfg.rot > 0 ? 1.5 : -1.5, 0] }}
+          transition={{ duration: cfg.drift, repeat: Infinity, ease: "easeInOut" }}
         >
-          <span className="absolute -top-[3px] left-1/2 -ml-[3px] w-1.5 h-1.5 rounded-full bg-acid/70" />
+          {cfg.type === "ease" && <EasePanel />}
+          {cfg.type === "timeline" && <TimelinePanel />}
+          {cfg.type === "character" && <CharacterPanel />}
+          {cfg.type === "text" && <TextChip />}
+          {cfg.type === "fx" && <FxChip />}
+          {cfg.type === "path" && <MotionPath />}
         </motion.div>
       </motion.div>
     </motion.div>
@@ -101,11 +228,11 @@ export default function Hero() {
       className="relative min-h-[100svh] overflow-hidden flex flex-col justify-center pt-24 sm:pt-28 pb-12"
     >
       <motion.div style={{ y: yCollage }} className="absolute inset-0" data-testid="hero-ambient">
-        {BLOBS.map((b, i) => (
+        {GLOWS.map((b, i) => (
           <AmbientBlob key={i} cfg={b} i={i} mx={mx} my={my} go={go} />
         ))}
-        {RINGS.map((r, i) => (
-          <AmbientRing key={i} cfg={r} i={i} mx={mx} my={my} go={go} />
+        {TOOL_ASSETS.map((t) => (
+          <ToolAsset key={t.type} cfg={t} mx={mx} my={my} go={go} />
         ))}
       </motion.div>
 

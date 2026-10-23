@@ -75,6 +75,10 @@ Goal: recreate the Studio Loop-style portfolio structure and vibe as an original
 - Reference palette applied: cream #F7F6F0 paper, chocolate #2C180F ink, orange-red accent; Inter Tight + Instrument Serif typography; SVG logos recolored.
 - Verified via testing agent (iteration_1): body bg rgb(247,246,240), text rgb(44,24,15), nav/sections render correctly.
 
+## Hero ambient → design-tool assets (2026-07-23, user-directed)
+- Replaced glow-only backdrop with floating design-tool UI assets (from user's uploaded reference): easing curve editor panel (animated green playhead sweeping a bezier with yellow keyframe handles), timeline panel (purple/blue/orange layer bars, keyframe diamonds, sweeping playhead), character panel (Felt Tip Roman 220pt, orange swatch, T style boxes), T toolbar chip, orange fx badge, animated dashed motion path with anchor points. All dark glass (#1d100a) panels with white/10 borders, mouse-parallax depths, entrance pop, idle drift/rotation loops. Two soft vermilion glows retained for warmth. Panels hidden on mobile except T + fx chips.
+- Verified via screenshots: desktop + mobile; fx chip repositioned after initial overlap with STUDIO nav link.
+
 ## Section reorder (2026-07-23, user-directed)
 - About/Studio section moved directly below Hero, above Capabilities (Services). New page order: Hero → About → Services → Wordmark → Work → Clients → Testimonials → Contact. Verified via section offsets (studio:800 < services:2075) + screenshot.
 
