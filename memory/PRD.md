@@ -75,6 +75,12 @@ Goal: recreate the Studio Loop-style portfolio structure and vibe as an original
 - Reference palette applied: cream #F7F6F0 paper, chocolate #2C180F ink, orange-red accent; Inter Tight + Instrument Serif typography; SVG logos recolored.
 - Verified via testing agent (iteration_1): body bg rgb(247,246,240), text rgb(44,24,15), nav/sections render correctly.
 
+## About section → resume-style layout (2026-07-23, user-directed)
+- Restyled "Who I Am" section per user's reference image (editorial resume layout), keeping site theme (cream bg, chocolate text, vermilion italic serif accent headings, dashed dividers).
+- Real details from Himanshu's resume image: giant HIMANSHU NAUTIYAL name (Nautiyal outlined) + bio; Contact rows (email, +91 82643 42808, Upwork profile); Experience timeline (SEO Discover 2021-23, Click Sailors 2023-24, Upwork 2024-Present); Education (Chandigarh College of Engineering, Architectural Engineering 2016-19); Tools chips (Ps Ai Ae Pr Lr Fr); Skills chips (Multimedia Design, Creative Direction, etc.).
+- Data lives in content.js as ABOUT; old ScrollWords statement + parallax ABOUT_IMAGES removed.
+- Verified via screenshots: desktop top/bottom + mobile.
+
 ## Nav wordmark + boxless header (2026-07-23, user-directed)
 - Removed the "H" logo mark from nav; logo is now just "Himanshu" in Felt Tip Roman with hover tilt/grow. LogoMark still used in Preloader/Contact.
 - Header glass box removed entirely: always transparent, no bg/border on scroll. Nav colors now adapt via scroll-aware `onLight` state (dark text/pill over cream #studio and #contact sections, cream text over dark sections) after blend-mode approach failed due to transformed-header stacking context.

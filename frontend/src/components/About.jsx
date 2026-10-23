@@ -1,46 +1,19 @@
-import { useRef } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion } from "framer-motion";
 import { ArrowUpRight, Asterisk } from "lucide-react";
-import { ABOUT_IMAGES } from "../data/content";
+import { ABOUT } from "../data/content";
 import { Reveal } from "./Reveal";
 
-const STATEMENT =
-  "I'm Himanshu — founder of SocialFloe. I help small businesses, startups and D2C brands win attention with social media content, design and AI video that actually converts.";
-
-const Word = ({ progress, range, children }) => {
-  const opacity = useTransform(progress, range, [0.12, 1]);
-  return (
-    <>
-      <motion.span style={{ opacity }} className="inline-block">
-        {children}
-      </motion.span>{" "}
-    </>
-  );
-};
-
-const ScrollWords = ({ text, className }) => {
-  const ref = useRef(null);
-  const { scrollYProgress } = useScroll({ target: ref, offset: ["start 0.9", "start 0.3"] });
-  const words = text.split(" ");
-  return (
-    <p ref={ref} className={className} data-testid="about-paragraph">
-      {words.map((w, i) => (
-        <Word key={i} progress={scrollYProgress} range={[i / words.length, (i + 1) / words.length]}>
-          {w}
-        </Word>
-      ))}
-    </p>
-  );
-};
+const SectionTitle = ({ children, testid }) => (
+  <Reveal>
+    <h3 data-testid={testid} className="font-serif italic text-acid text-3xl sm:text-4xl tracking-tight">
+      {children}
+    </h3>
+  </Reveal>
+);
 
 export default function About() {
-  const ref = useRef(null);
-  const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "end start"] });
-  const y1 = useTransform(scrollYProgress, [0, 1], [50, -50]);
-  const y2 = useTransform(scrollYProgress, [0, 1], [110, -110]);
-
   return (
-    <section id="studio" ref={ref} data-testid="about-section" className="relative bg-ink text-paper overflow-hidden">
+    <section id="studio" data-testid="about-section" className="relative bg-ink text-paper overflow-hidden">
       <motion.div
         className="absolute top-24 right-[12%] text-vermilion/50"
         animate={{ rotate: 360, y: [0, -18, 0] }}
@@ -58,28 +31,27 @@ export default function About() {
         <Asterisk className="w-7 h-7" />
       </motion.div>
 
-      <div className="max-w-[1700px] mx-auto px-4 sm:px-8 lg:px-16 py-20 sm:py-32 lg:py-40">
+      <div className="max-w-[1700px] mx-auto px-4 sm:px-8 lg:px-16 py-20 sm:py-32">
         <span className="font-mono text-xs uppercase tracking-[0.25em] text-paper/50" data-testid="about-label">
           [ who i am ]
         </span>
-        <h2 className="mt-8 font-display font-medium uppercase tracking-tight leading-[0.95] text-4xl sm:text-6xl lg:text-7xl max-w-5xl">
-          <Reveal>One designer.</Reveal>
-          <Reveal delay={0.08}>Founder of</Reveal>
-          <Reveal delay={0.16}>
-            <span className="font-serif italic normal-case font-normal text-acid">SocialFloe.</span>
-          </Reveal>
-        </h2>
 
-        <div className="mt-14 sm:mt-20 grid lg:grid-cols-2 gap-12 lg:gap-20 items-start">
-          <div>
-            <ScrollWords
-              text={STATEMENT}
-              className="font-display font-medium text-2xl sm:text-3xl lg:text-4xl leading-snug tracking-tight max-w-xl"
-            />
-            <p className="mt-8 text-paper/50 text-sm sm:text-base leading-relaxed max-w-md">
-              You brief me — I design, animate and ship. No hand-offs, no telephone game. Just work that makes people
-              stop scrolling.
+        <div className="mt-10 sm:mt-14 grid lg:grid-cols-12 gap-14 lg:gap-20">
+          {/* Left — name, bio, contact */}
+          <div className="lg:col-span-5">
+            <h2
+              className="font-display font-medium uppercase tracking-tight leading-[0.9] text-5xl sm:text-7xl lg:text-[5.2vw]"
+              data-testid="about-name"
+            >
+              <Reveal>Himanshu</Reveal>
+              <Reveal delay={0.08}>
+                <span className="text-outline-paper">Nautiyal</span>
+              </Reveal>
+            </h2>
+            <p className="mt-8 text-paper/75 leading-relaxed max-w-md" data-testid="about-bio">
+              {ABOUT.bio}
             </p>
+            <p className="mt-5 text-paper/50 text-sm leading-relaxed max-w-md">{ABOUT.note}</p>
             <a
               href="#work"
               onClick={(e) => {
@@ -92,14 +64,92 @@ export default function About() {
               See the work
               <ArrowUpRight className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
             </a>
+
+            <div className="mt-14 sm:mt-16">
+              <SectionTitle testid="about-contact-title">Contact</SectionTitle>
+              <div className="mt-6 flex flex-col">
+                {ABOUT.contact.map((c) => (
+                  <div
+                    key={c.label}
+                    className="flex items-baseline gap-6 border-b border-dashed border-paper/20 py-4"
+                    data-testid={`about-contact-${c.label.toLowerCase()}`}
+                  >
+                    <span className="font-mono text-xs uppercase tracking-[0.2em] text-paper/50 w-20 shrink-0">{c.label}</span>
+                    <a
+                      href={c.href}
+                      target={c.href.startsWith("http") ? "_blank" : undefined}
+                      rel="noreferrer"
+                      className="u-link font-medium text-sm sm:text-base break-all"
+                    >
+                      {c.value}
+                    </a>
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
-          <div className="grid grid-cols-2 gap-4 sm:gap-6">
-            <motion.div style={{ y: y1 }} className="aspect-[3/4] overflow-hidden">
-              <img src={ABOUT_IMAGES[0].url} alt={ABOUT_IMAGES[0].description} loading="lazy" className="w-full h-full object-cover" />
-            </motion.div>
-            <motion.div style={{ y: y2 }} className="aspect-[3/4] overflow-hidden mt-10">
-              <img src={ABOUT_IMAGES[1].url} alt={ABOUT_IMAGES[1].description} loading="lazy" className="w-full h-full object-cover" />
-            </motion.div>
+
+          {/* Right — experience, education, tools, skills */}
+          <div className="lg:col-span-7 flex flex-col gap-14">
+            <div>
+              <SectionTitle testid="about-experience-title">Experience</SectionTitle>
+              <div className="mt-6 border-t border-dashed border-paper/20">
+                {ABOUT.experience.map((e, i) => (
+                  <div
+                    key={e.org}
+                    className="py-6 border-b border-dashed border-paper/20 grid sm:grid-cols-[140px_1fr] gap-2 sm:gap-6"
+                    data-testid={`experience-item-${i}`}
+                  >
+                    <span className="font-mono text-xs uppercase tracking-[0.15em] text-paper/50 pt-1.5">{e.years}</span>
+                    <div>
+                      <p className="font-display font-medium text-xl sm:text-2xl tracking-tight">
+                        {e.org} <span className="text-paper/50 font-normal text-base sm:text-lg">— {e.role}</span>
+                      </p>
+                      <p className="mt-2 text-sm text-paper/60 leading-relaxed max-w-xl">{e.desc}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="grid sm:grid-cols-2 gap-14">
+              <div>
+                <SectionTitle testid="about-education-title">Education</SectionTitle>
+                <div className="mt-6" data-testid="education-item">
+                  <span className="font-mono text-xs uppercase tracking-[0.15em] text-paper/50">{ABOUT.education.years}</span>
+                  <p className="mt-2 font-display font-medium text-xl tracking-tight">{ABOUT.education.school}</p>
+                  <p className="mt-1 text-sm text-paper/60">{ABOUT.education.degree}</p>
+                </div>
+              </div>
+              <div>
+                <SectionTitle testid="about-tools-title">Tools</SectionTitle>
+                <div className="mt-6 flex flex-wrap gap-2.5" data-testid="tools-list">
+                  {ABOUT.tools.map((t) => (
+                    <span
+                      key={t}
+                      data-testid={`tool-chip-${t.toLowerCase()}`}
+                      className="w-11 h-11 rounded-lg border border-paper/25 flex items-center justify-center font-mono text-sm hover:bg-acid hover:text-ink hover:border-acid transition-colors duration-300"
+                    >
+                      {t}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <SectionTitle testid="about-skills-title">Skills</SectionTitle>
+              <div className="mt-6 flex flex-wrap gap-2.5" data-testid="abilities-list">
+                {ABOUT.abilities.map((a) => (
+                  <span
+                    key={a}
+                    className="font-mono text-[11px] uppercase tracking-[0.12em] border border-paper/25 rounded-full px-4 py-2 text-paper/70"
+                  >
+                    {a}
+                  </span>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </div>

@@ -178,13 +178,46 @@ export const CLIENTS = [
   "BEAUVOIR",
 ];
 
-export const ABOUT_IMAGES = [
-  {
-    url: "https://customer-assets-gfyr7b9c.emergentagent.net/job_loop-studio-web/artifacts/02f534457ce7e529_%5BRESTRICTED%20FILE%20%E2%80%93%20SERIAL%20ACCESS%20ONLY%5DEngraved.%20Serialized.%20Finite.%20No%20restocks.%20No%20clones.%20No%20s.jpg",
-    description: "VIVID LABS Cyberkit engineering drop",
+export const ABOUT = {
+  bio: "I'm a Social Media Manager and Graphic Designer based in Chandigarh, India. Over 5+ years, I've crafted visually compelling designs that not only look great but communicate the message effectively — whether it's branding, social media, or marketing campaigns.",
+  note: "You brief me — I design, animate and ship. No hand-offs, no telephone game. Just work that makes people stop scrolling.",
+  experience: [
+    {
+      years: "2021 — 2023",
+      org: "SEO Discover",
+      role: "Social Media Marketing + Content Creator",
+      desc: "Built unified strategies for LinkedIn, YouTube and Instagram — planned content calendars, published content, tracked key metrics and optimized campaigns.",
+    },
+    {
+      years: "2023 — 2024",
+      org: "Click Sailors",
+      role: "Social Media Manager",
+      desc: "Led social media strategy and growth across Instagram, Facebook, LinkedIn and X. Designed engaging visuals, maintained consistent branding, managed posting, ads and analytics.",
+    },
+    {
+      years: "2024 — Present",
+      org: "Upwork",
+      role: "Freelance Social Media Manager · Graphic Designer",
+      desc: "Top Rated Plus freelancer — social content, ad creatives and brand visuals for clients worldwide.",
+    },
+  ],
+  education: {
+    years: "2016 — 2019",
+    school: "Chandigarh College of Engineering",
+    degree: "Architectural Engineering",
   },
-  {
-    url: "https://customer-assets-gfyr7b9c.emergentagent.net/job_loop-studio-web/artifacts/f978f80684460092_5.png",
-    description: "BEAUVOIR luxury editorial process",
-  },
-];
+  abilities: [
+    "Multimedia Design",
+    "Creative Direction",
+    "Digital Art & Illustration",
+    "Basic 3D & Motion Graphics",
+    "AI-Assisted Design",
+    "Creative & Strategic Thinking",
+  ],
+  tools: ["Ps", "Ai", "Ae", "Pr", "Lr", "Fr"],
+  contact: [
+    { label: "Email", value: "himanshun0011@gmail.com", href: "mailto:himanshun0011@gmail.com" },
+    { label: "Phone", value: "+91 82643 42808", href: "https://wa.me/918264342808" },
+    { label: "Upwork", value: "upwork.com/freelancers/himanshunautiyal", href: "https://www.upwork.com/freelancers/himanshunautiyal?mp_source=share" },
+  ],
+};
