@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import Hero from "@/components/Hero";
+import WaveDivider from "@/components/WaveDivider";
 import Services from "@/components/Services";
 import About from "@/components/About";
 import Wordmark from "@/components/Wordmark";
@@ -25,6 +26,7 @@ export default function Home() {
     <TransitionPage>
       <main>
         <Hero />
+        <WaveDivider className="-mb-8 sm:-mb-10 z-10" />
         <About />
         <Services />
         <Wordmark />
