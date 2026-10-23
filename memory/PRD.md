@@ -75,6 +75,9 @@ Goal: recreate the Studio Loop-style portfolio structure and vibe as an original
 - Reference palette applied: cream #F7F6F0 paper, chocolate #2C180F ink, orange-red accent; Inter Tight + Instrument Serif typography; SVG logos recolored.
 - Verified via testing agent (iteration_1): body bg rgb(247,246,240), text rgb(44,24,15), nav/sections render correctly.
 
+## Nav label change (2026-07-23, user-directed)
+- Header nav "Studio" renamed to "About" (still anchors to #studio section). Verified via screenshot + nav-link-about testid.
+
 ## Work section → IG post style (2026-07-23, user-directed)
 - "Selected Work" heading renamed to "Social Media Design".
 - All project cards restyled like the user's reference (Instagram posts on dark bg): square aspect images with a social action bar below (Heart — fills orange on hover, MessageCircle, Send left; Bookmark right), title + year beneath. Works for video cards too.
