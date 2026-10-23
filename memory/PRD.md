@@ -75,6 +75,9 @@ Goal: recreate the Studio Loop-style portfolio structure and vibe as an original
 - Reference palette applied: cream #F7F6F0 paper, chocolate #2C180F ink, orange-red accent; Inter Tight + Instrument Serif typography; SVG logos recolored.
 - Verified via testing agent (iteration_1): body bg rgb(247,246,240), text rgb(44,24,15), nav/sections render correctly.
 
+## Hero label cleanup (2026-07-23, user-directed)
+- Removed "[ from india to everywhere ]" location label and "[ for small businesses · startups · d2c brands ]" audience label from hero; year chip (©2026) moved right-aligned, availability pill stays centered below headline. Verified via screenshot: both gone, layout intact.
+
 ## Felt Tip Roman + bubble-in hero animation (2026-07-23, user-directed)
 - User-provided Felt Tip Roman Regular font (uploaded zip) installed at src/fonts/felt-tip-roman.ttf with @font-face; tailwind `blob` family now maps to it (Chicle removed).
 - Hero headline reveal rebuilt to match user's reference video (Studio Loop intro): each letter of "good design sells" bubbles in individually — springs from a point (scale 0, rotated, dropped) with elastic overshoot, staggered left-to-right (~60ms/letter), then every letter keeps a subtle continuous wiggle (rotate/y loop with per-letter phase). Gated on preloader completion as before.
