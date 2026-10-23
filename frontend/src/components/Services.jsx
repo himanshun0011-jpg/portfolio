@@ -7,6 +7,66 @@ import { Reveal } from "./Reveal";
 const OFFSETS = ["lg:pl-0", "lg:pl-[8%]", "lg:pl-[22%]", "lg:pl-[5%]", "lg:pl-[16%]"];
 const EASE = [0.16, 1, 0.3, 1];
 
+const ORB_COLORS = [
+  ["#FF4000", "#FFC7B0"],
+  ["#FF6A00", "#FFD9A8"],
+  ["#D63100", "#FF9E7F"],
+  ["#8A2B0E", "#FF6B3D"],
+  ["#E06300", "#FFCE8F"],
+];
+
+const OrbPreview = ({ index }) => {
+  const [a, b] = ORB_COLORS[index % ORB_COLORS.length];
+  return (
+    <div className="relative w-full h-full" style={{ perspective: 900 }}>
+      {/* ambient glow */}
+      <div className="absolute inset-[18%] rounded-full blur-3xl opacity-60" style={{ background: a }} />
+      {/* tilted orbit rings */}
+      <div className="absolute inset-[6%]" style={{ transform: "rotateX(68deg)" }}>
+        <motion.div
+          animate={{ rotate: 360 }}
+          transition={{ duration: 9, repeat: Infinity, ease: "linear" }}
+          className="absolute inset-0 rounded-full border border-dashed border-ink/30"
+        >
+          <span className="absolute -top-[3px] left-1/2 -ml-[3px] w-1.5 h-1.5 rounded-full" style={{ background: a }} />
+        </motion.div>
+      </div>
+      <div className="absolute inset-[16%]" style={{ transform: "rotateX(68deg) rotate(40deg)" }}>
+        <motion.div
+          animate={{ rotate: -360 }}
+          transition={{ duration: 14, repeat: Infinity, ease: "linear" }}
+          className="absolute inset-0 rounded-full border border-ink/15"
+        >
+          <span className="absolute -top-[2px] left-1/2 -ml-[2px] w-1 h-1 rounded-full bg-ink/50" />
+        </motion.div>
+      </div>
+      {/* floating 3D sphere */}
+      <motion.div
+        animate={{ y: [0, -10, 0] }}
+        transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+        className="absolute inset-[26%]"
+      >
+        <motion.div
+          animate={{ rotate: 360 }}
+          transition={{ duration: 18, repeat: Infinity, ease: "linear" }}
+          className="absolute inset-0 rounded-full"
+          style={{ background: `conic-gradient(from 200deg, ${a}, #2C180F 28%, ${a} 52%, ${b} 74%, ${a})` }}
+        />
+        <div
+          className="absolute inset-0 rounded-full"
+          style={{
+            background:
+              "radial-gradient(circle at 32% 26%, rgba(255,255,255,0.9), rgba(255,255,255,0) 40%), radial-gradient(circle at 68% 80%, rgba(44,24,15,0.55), rgba(44,24,15,0) 55%)",
+          }}
+        />
+      </motion.div>
+      <span className="absolute bottom-1 left-1/2 -translate-x-1/2 font-mono text-[10px] uppercase tracking-[0.3em] text-smoke">
+        ({SERVICES[index].number})
+      </span>
+    </div>
+  );
+};
+
 export default function Services() {
   const [open, setOpen] = useState(0);
   const [hovered, setHovered] = useState(-1);
@@ -102,17 +162,17 @@ export default function Services() {
       <motion.div style={{ x: spx, y: spy }} className="pointer-events-none fixed top-0 left-0 z-40 hidden lg:block" aria-hidden="true">
         <AnimatePresence>
           {hovered >= 0 && (
-            <motion.img
+            <motion.div
               key={hovered}
-              src={SERVICES[hovered].image}
-              alt=""
-              initial={{ opacity: 0, scale: 0.7, rotate: -8, x: "-50%", y: "-115%" }}
-              animate={{ opacity: 1, scale: 1, rotate: 3, x: "-50%", y: "-115%" }}
-              exit={{ opacity: 0, scale: 0.7, rotate: 8, x: "-50%", y: "-115%" }}
+              initial={{ opacity: 0, scale: 0.6, rotate: -10, x: "-50%", y: "-115%" }}
+              animate={{ opacity: 1, scale: 1, rotate: 0, x: "-50%", y: "-115%" }}
+              exit={{ opacity: 0, scale: 0.6, rotate: 10, x: "-50%", y: "-115%" }}
               transition={{ duration: 0.35, ease: EASE }}
-              className="w-64 aspect-[4/5] object-cover shadow-2xl"
+              className="w-64 aspect-square"
               data-testid="service-hover-preview"
-            />
+            >
+              <OrbPreview index={hovered} />
+            </motion.div>
           )}
         </AnimatePresence>
       </motion.div>
