@@ -25,8 +25,8 @@ export default function Home() {
     <TransitionPage>
       <main>
         <Hero />
-        <Services />
         <About />
+        <Services />
         <Wordmark />
         <Work />
         <Clients />
