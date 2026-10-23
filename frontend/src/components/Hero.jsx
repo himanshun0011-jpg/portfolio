@@ -92,20 +92,38 @@ export default function Hero() {
         </div>
 
         <motion.div style={{ x: titleX, y: titleY }}>
-          <h1 className="mt-8 sm:mt-12 font-blob text-center leading-[0.95] text-[16vw] sm:text-[14vw] lg:text-[12vw]">
-            {LINES.map((line, i) => (
-              <span key={line} className="block overflow-hidden pb-[0.08em] -mb-[0.08em]">
-                <motion.span
-                  className={`block ${i === 2 ? "text-acid" : ""}`}
-                  initial={{ y: "112%" }}
-                  animate={{ y: go ? 0 : "112%" }}
-                  transition={{ duration: 1, delay: 0.35 + i * 0.12, ease: EASE }}
-                  data-testid={`hero-line-${i}`}
-                >
-                  {line}
-                </motion.span>
-              </span>
-            ))}
+          <h1
+            className="mt-8 sm:mt-12 font-blob text-center leading-[1.05] text-[14vw] sm:text-[12.5vw] lg:text-[10vw]"
+            aria-label="good design sells"
+          >
+            {(() => {
+              let idx = 0;
+              return LINES.map((line, li) => (
+                <span key={line} className="block" data-testid={`hero-line-${li}`}>
+                  {line.split("").map((ch) => {
+                    const i = idx++;
+                    return (
+                      <motion.span
+                        key={i}
+                        className={`inline-block ${li === 2 ? "text-acid" : ""}`}
+                        style={{ transformOrigin: "50% 100%" }}
+                        initial={{ scale: 0, opacity: 0, y: 26, rotate: -12 }}
+                        animate={go ? { scale: 1, opacity: 1, y: 0, rotate: 0 } : {}}
+                        transition={{ type: "spring", stiffness: 320, damping: 12, mass: 0.7, delay: 0.15 + i * 0.06 }}
+                      >
+                        <motion.span
+                          className="inline-block"
+                          animate={{ rotate: [0, 2.4, -1.8, 0], y: [0, -4, 0] }}
+                          transition={{ duration: 3.6, repeat: Infinity, ease: "easeInOut", delay: 1.4 + i * 0.2 }}
+                        >
+                          {ch}
+                        </motion.span>
+                      </motion.span>
+                    );
+                  })}
+                </span>
+              ));
+            })()}
           </h1>
         </motion.div>
 

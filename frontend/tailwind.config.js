@@ -13,7 +13,7 @@ module.exports = {
         body: ["Inter Tight", "sans-serif"],
         mono: ["JetBrains Mono", "monospace"],
         serif: ["Instrument Serif", "serif"],
-        blob: ["Chicle", "cursive"]
+        blob: ["Felt Tip Roman", "cursive"]
       },
       colors: {
         paper: "#2C180F",

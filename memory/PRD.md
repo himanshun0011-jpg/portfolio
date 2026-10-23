@@ -75,6 +75,11 @@ Goal: recreate the Studio Loop-style portfolio structure and vibe as an original
 - Reference palette applied: cream #F7F6F0 paper, chocolate #2C180F ink, orange-red accent; Inter Tight + Instrument Serif typography; SVG logos recolored.
 - Verified via testing agent (iteration_1): body bg rgb(247,246,240), text rgb(44,24,15), nav/sections render correctly.
 
+## Felt Tip Roman + bubble-in hero animation (2026-07-23, user-directed)
+- User-provided Felt Tip Roman Regular font (uploaded zip) installed at src/fonts/felt-tip-roman.ttf with @font-face; tailwind `blob` family now maps to it (Chicle removed).
+- Hero headline reveal rebuilt to match user's reference video (Studio Loop intro): each letter of "good design sells" bubbles in individually — springs from a point (scale 0, rotated, dropped) with elastic overshoot, staggered left-to-right (~60ms/letter), then every letter keeps a subtle continuous wiggle (rotate/y loop with per-letter phase). Gated on preloader completion as before.
+- Verified via screenshots: mid-formation state captured (letters popping in sequence), settled desktop + mobile render correctly.
+
 ## Dark inversion + centered blobby hero (2026-07-22, user-directed)
 - Full palette inversion: paper ↔ ink swapped site-wide (paper #2C180F chocolate, ink #F7F6F0 cream), paper2 → #3A2318, smoke → #A99688 (light taupe for dark bg); index.css body/:root HSL vars/scrollbar/text-outline strokes swapped to match. Hero, work, services, about now dark; preloader, footer/contact now cream. LogoMark inverted-prop usages flipped (Nav inverted; Preloader/Contact default).
 - Hero rewritten: centered "good design sells" in Chicle (Google Font, bubbly style matching user's reference image), lowercase, "sells" in acid orange; meta labels moved to frosted chips (bg-paper/50 backdrop-blur) for readability over the floating collage; bottom row centered.
