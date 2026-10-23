@@ -9,33 +9,6 @@ export const BRAND = {
   formspree: "",
 };
 
-export const HERO_IMAGES = [
-  {
-    url: "https://customer-assets-gfyr7b9c.emergentagent.net/job_loop-studio-web/artifacts/02f534457ce7e529_%5BRESTRICTED%20FILE%20%E2%80%93%20SERIAL%20ACCESS%20ONLY%5DEngraved.%20Serialized.%20Finite.%20No%20restocks.%20No%20clones.%20No%20s.jpg",
-    alt: "VIVID LABS Cyberkit hardware engineering",
-  },
-  {
-    url: "https://customer-assets-gfyr7b9c.emergentagent.net/job_loop-studio-web/artifacts/27f054ecf6dabc9a_1.png",
-    alt: "BEAUVOIR luxury editorial campaign",
-  },
-  {
-    url: "https://customer-assets-gfyr7b9c.emergentagent.net/job_loop-studio-web/artifacts/43a28d87a5ac1ccd_%5BCLEARANCE%20SEQUENCE%20ACTIVE%20%E2%80%93%2075_%20COMPLETE%5D%20Containment%20breach%20in%20progress.%20Operatives%2C%20maintain%20.jpg",
-    alt: "Cybernetic blueprint schematic 75%",
-  },
-  {
-    url: "https://customer-assets-gfyr7b9c.emergentagent.net/job_loop-studio-web/artifacts/f978f80684460092_5.png",
-    alt: "BEAUVOIR hair extension editorial typography",
-  },
-  {
-    url: "https://customer-assets-gfyr7b9c.emergentagent.net/job_loop-studio-web/artifacts/2d3c99ed645cd86d_%5BFILE%20DROP%20002-%20CLASSIFIED%5D%20Unauthorized%20schematics%20detected.%20Encryption%20status-%2072_%20decrypted%E2%80%A6%20.jpg",
-    alt: "Classified top secret wireframe drop",
-  },
-  {
-    url: "https://customer-assets-gfyr7b9c.emergentagent.net/job_loop-studio-web/artifacts/e5a75d367b24b64e_Untitled%20-%20February%2027%2C%202026%20at%2012.35.40-4.png",
-    alt: "FIZZ & BLOOM lavender lemon campaign portrait",
-  },
-];
-
 export const SERVICES = [
   {
     number: "01",

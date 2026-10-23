@@ -1,35 +1,62 @@
 import { useEffect, useRef, useState } from "react";
 import { motion, useMotionValue, useSpring, useScroll, useTransform } from "framer-motion";
-import { BRAND, HERO_IMAGES } from "../data/content";
+import { BRAND } from "../data/content";
 
 const LINES = ["good", "design", "sells"];
 const EASE = [0.16, 1, 0.3, 1];
 
-const COLLAGE = [
-  { img: 0, pos: "left-[2%] top-[14%] w-28 sm:w-48 lg:w-60", depth: 1.4, drift: 7, delay: 1.0 },
-  { img: 1, pos: "right-[3%] top-[9%] w-32 sm:w-52 lg:w-64", depth: 0.9, drift: 9, delay: 1.15 },
-  { img: 2, pos: "left-[36%] bottom-[3%] w-24 sm:w-40 lg:w-52", depth: 1.8, drift: 6, delay: 1.3 },
-  { img: 3, pos: "right-[24%] bottom-[10%] w-28 sm:w-44 lg:w-56", depth: 1.1, drift: 8, delay: 1.45 },
-  { img: 4, pos: "left-[7%] bottom-[16%] w-20 sm:w-36 lg:w-44", depth: 2.1, drift: 5.5, delay: 1.6 },
-  { img: 5, pos: "right-[45%] top-[4%] w-20 sm:w-32 lg:w-40", depth: 1.6, drift: 7.5, delay: 1.75 },
+const BLOBS = [
+  { pos: "left-[2%] top-[8%]", size: "w-72 h-72 sm:w-[26rem] sm:h-[26rem]", color: "#FF4000", op: 0.5, depth: 1.4, drift: 9, delay: 0.9 },
+  { pos: "right-[4%] top-[14%]", size: "w-80 h-80 sm:w-[30rem] sm:h-[30rem]", color: "#FF8A5C", op: 0.42, depth: 0.9, drift: 11, delay: 1.05 },
+  { pos: "left-[30%] bottom-[2%]", size: "w-64 h-64 sm:w-[24rem] sm:h-[24rem]", color: "#F7F6F0", op: 0.16, depth: 1.8, drift: 8, delay: 1.2 },
+  { pos: "right-[20%] bottom-[8%]", size: "w-56 h-56 sm:w-[20rem] sm:h-[20rem]", color: "#FFB199", op: 0.34, depth: 1.1, drift: 10, delay: 1.35 },
+  { pos: "left-[10%] bottom-[18%]", size: "w-52 h-52 sm:w-80 sm:h-80", color: "#E06300", op: 0.42, depth: 2.1, drift: 7.5, delay: 1.5 },
+  { pos: "right-[42%] top-[2%]", size: "w-44 h-44 sm:w-64 sm:h-64", color: "#FF4000", op: 0.34, depth: 1.6, drift: 12, delay: 1.65 },
 ];
 
-const CollageItem = ({ cfg, img, mx, my, go }) => {
+const RINGS = [
+  { pos: "right-[8%] top-[32%]", size: "w-40 h-40 sm:w-64 sm:h-64", dur: 26, depth: 1.2, delay: 1.4 },
+  { pos: "left-[14%] top-[46%]", size: "w-32 h-32 sm:w-52 sm:h-52", dur: 34, depth: 0.8, delay: 1.6, reverse: true },
+];
+
+const AmbientBlob = ({ cfg, mx, my, go, i }) => {
   const x = useTransform(mx, (v) => v * cfg.depth);
   const y = useTransform(my, (v) => v * cfg.depth);
   return (
-    <motion.div style={{ x, y }} className={`absolute ${cfg.pos} z-0`} aria-hidden="true" data-testid={`hero-collage-item-${cfg.img}`}>
+    <motion.div style={{ x, y }} className={`absolute ${cfg.pos} z-0`} aria-hidden="true" data-testid={`hero-blob-${i}`}>
       <motion.div
-        initial={{ opacity: 0, scale: 0.6, y: 60 }}
-        animate={go ? { opacity: 1, scale: 1, y: 0 } : { opacity: 0, scale: 0.6, y: 60 }}
-        transition={{ delay: cfg.delay, duration: 1, ease: EASE }}
+        initial={{ opacity: 0, scale: 0.5 }}
+        animate={go ? { opacity: cfg.op, scale: 1 } : { opacity: 0, scale: 0.5 }}
+        transition={{ delay: cfg.delay, duration: 1.4, ease: EASE }}
       >
         <motion.div
-          animate={{ y: [0, -16, 0], x: [0, 8, 0], rotate: [-1.6, 1.6, -1.6] }}
+          animate={{ y: [0, -18, 0], x: [0, 10, 0], scale: [1, 1.08, 1] }}
           transition={{ duration: cfg.drift, repeat: Infinity, ease: "easeInOut" }}
-          className="aspect-[4/5] overflow-hidden shadow-2xl"
+          className={`${cfg.size} rounded-full blur-3xl`}
+          style={{ background: `radial-gradient(circle at 38% 32%, ${cfg.color}, transparent 70%)` }}
+        />
+      </motion.div>
+    </motion.div>
+  );
+};
+
+const AmbientRing = ({ cfg, mx, my, go, i }) => {
+  const x = useTransform(mx, (v) => v * cfg.depth);
+  const y = useTransform(my, (v) => v * cfg.depth);
+  return (
+    <motion.div style={{ x, y }} className={`absolute ${cfg.pos} z-0`} aria-hidden="true" data-testid={`hero-ring-${i}`}>
+      <motion.div
+        initial={{ opacity: 0, scale: 0.6 }}
+        animate={go ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.6 }}
+        transition={{ delay: cfg.delay, duration: 1.2, ease: EASE }}
+        className={`relative ${cfg.size}`}
+      >
+        <motion.div
+          animate={{ rotate: cfg.reverse ? -360 : 360 }}
+          transition={{ duration: cfg.dur, repeat: Infinity, ease: "linear" }}
+          className="absolute inset-0 rounded-full border border-dashed border-ink/20"
         >
-          <img src={img.url} alt="" className="w-full h-full object-cover" loading="eager" />
+          <span className="absolute -top-[3px] left-1/2 -ml-[3px] w-1.5 h-1.5 rounded-full bg-acid/70" />
         </motion.div>
       </motion.div>
     </motion.div>
@@ -73,9 +100,12 @@ export default function Hero() {
       data-testid="hero-section"
       className="relative min-h-[100svh] overflow-hidden flex flex-col justify-center pt-24 sm:pt-28 pb-12"
     >
-      <motion.div style={{ y: yCollage }} className="absolute inset-0" data-testid="hero-collage">
-        {COLLAGE.map((c) => (
-          <CollageItem key={c.img} cfg={c} img={HERO_IMAGES[c.img]} mx={mx} my={my} go={go} />
+      <motion.div style={{ y: yCollage }} className="absolute inset-0" data-testid="hero-ambient">
+        {BLOBS.map((b, i) => (
+          <AmbientBlob key={i} cfg={b} i={i} mx={mx} my={my} go={go} />
+        ))}
+        {RINGS.map((r, i) => (
+          <AmbientRing key={i} cfg={r} i={i} mx={mx} my={my} go={go} />
         ))}
       </motion.div>
 

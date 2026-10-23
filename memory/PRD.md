@@ -75,6 +75,10 @@ Goal: recreate the Studio Loop-style portfolio structure and vibe as an original
 - Reference palette applied: cream #F7F6F0 paper, chocolate #2C180F ink, orange-red accent; Inter Tight + Instrument Serif typography; SVG logos recolored.
 - Verified via testing agent (iteration_1): body bg rgb(247,246,240), text rgb(44,24,15), nav/sections render correctly.
 
+## Hero collage → ambient glow field (2026-07-23, user-directed)
+- Removed the floating project-image collage behind the hero (user found it cluttered). Replaced with an ambient animated backdrop: 6 soft radial-gradient glow orbs (vermilion/peach/cream, heavily blurred) drifting on independent loops with depth-based mouse parallax and scroll parallax, plus 2 rotating dashed rings with orbiting accent dots. HERO_IMAGES export removed from content.js (now unused).
+- Verified via screenshots: desktop + mobile show warm glow field, headline crisp and centered, no image clutter.
+
 ## Hero label cleanup (2026-07-23, user-directed)
 - Removed "[ from india to everywhere ]" location label and "[ for small businesses · startups · d2c brands ]" audience label from hero; year chip (©2026) moved right-aligned, availability pill stays centered below headline. Verified via screenshot: both gone, layout intact.
 
