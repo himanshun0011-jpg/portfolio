@@ -75,6 +75,11 @@ Goal: recreate the Studio Loop-style portfolio structure and vibe as an original
 - Reference palette applied: cream #F7F6F0 paper, chocolate #2C180F ink, orange-red accent; Inter Tight + Instrument Serif typography; SVG logos recolored.
 - Verified via testing agent (iteration_1): body bg rgb(247,246,240), text rgb(44,24,15), nav/sections render correctly.
 
+## Work section → IG post style (2026-07-23, user-directed)
+- "Selected Work" heading renamed to "Social Media Design".
+- All project cards restyled like the user's reference (Instagram posts on dark bg): square aspect images with a social action bar below (Heart — fills orange on hover, MessageCircle, Send left; Bookmark right), title + year beneath. Works for video cards too.
+- Verified via screenshots: full grid in IG-post presentation.
+
 ## New project: PEN & PARK DECOR (2026-07-23, user-uploaded)
 - User uploaded Artboard 4.png (3-post furniture social carousel). Cropped into 3 clean post images (penandpark-1/2/3.jpg, chair/table/sofa) served from /public/media.
 - Added as first project in Selected Work: filter "branding", category "Social Media / Content Design", 3-artifact gallery; added "PEN & PARK DECOR" to client marquee.

@@ -1,7 +1,7 @@
 import { useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, Heart, MessageCircle, Send, Bookmark } from "lucide-react";
 import { PROJECTS } from "../data/content";
 import { Reveal } from "./Reveal";
 
@@ -32,7 +32,7 @@ const ProjectCard = ({ p, i }) => {
       data-cursor
       onClick={() => navigate(`/work/${p.id}`)}
     >
-      <div ref={ref} className="relative overflow-hidden aspect-[4/5] bg-paper2">
+      <div ref={ref} className="relative overflow-hidden aspect-square bg-paper2">
         {isVideo(p.image) ? (
           <motion.video
             src={p.image}
@@ -62,7 +62,15 @@ const ProjectCard = ({ p, i }) => {
           {p.category}
         </span>
       </div>
-      <div className="mt-4 flex items-start justify-between gap-4">
+      <div className="mt-3 flex items-center justify-between text-ink" data-testid={`post-actions-${p.id}`}>
+        <div className="flex items-center gap-4">
+          <Heart className="w-5 h-5 transition-all duration-300 group-hover:fill-acid group-hover:text-acid group-hover:scale-110" />
+          <MessageCircle className="w-5 h-5 transition-transform duration-300 group-hover:scale-110" />
+          <Send className="w-5 h-5 transition-transform duration-300 group-hover:scale-110" />
+        </div>
+        <Bookmark className="w-5 h-5 transition-transform duration-300 group-hover:scale-110" />
+      </div>
+      <div className="mt-3 flex items-start justify-between gap-4">
         <h3 className="font-display font-medium text-xl sm:text-2xl tracking-tight leading-tight">{p.title}</h3>
         <span className="font-mono text-xs text-smoke mt-1.5 shrink-0">{p.year}</span>
       </div>
@@ -78,7 +86,7 @@ export default function Work() {
     <section id="work" data-testid="work-section" className="max-w-[1700px] mx-auto px-4 sm:px-8 lg:px-16 py-20 sm:py-32">
       <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10 sm:mb-14">
         <Reveal>
-          <h2 className="font-display font-medium uppercase tracking-tight text-3xl sm:text-5xl lg:text-6xl">Selected Work</h2>
+          <h2 className="font-display font-medium uppercase tracking-tight text-3xl sm:text-5xl lg:text-6xl">Social Media Design</h2>
         </Reveal>
         <div className="flex flex-wrap gap-2" data-testid="work-filters">
           {FILTERS.map((f) => (
