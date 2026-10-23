@@ -75,6 +75,11 @@ Goal: recreate the Studio Loop-style portfolio structure and vibe as an original
 - Reference palette applied: cream #F7F6F0 paper, chocolate #2C180F ink, orange-red accent; Inter Tight + Instrument Serif typography; SVG logos recolored.
 - Verified via testing agent (iteration_1): body bg rgb(247,246,240), text rgb(44,24,15), nav/sections render correctly.
 
+## New project: PEN & PARK DECOR (2026-07-23, user-uploaded)
+- User uploaded Artboard 4.png (3-post furniture social carousel). Cropped into 3 clean post images (penandpark-1/2/3.jpg, chair/table/sofa) served from /public/media.
+- Added as first project in Selected Work: filter "branding", category "Social Media / Content Design", 3-artifact gallery; added "PEN & PARK DECOR" to client marquee.
+- Verified via screenshots: work grid card, case page hero + artifacts gallery.
+
 ## Wavy section divider (2026-07-23, user-directed, v2 after feedback)
 - New WaveDivider component at the hero→About seam (the boundary the user marked): single continuous hand-drawn vermilion wave, 480px wavelength (~1/3 screen), 36px amplitude, thick 4.5px marker stroke, gliding right-to-left in a 30s seamless loop (.animate-wave). One 1440px SVG pattern (3 periods, matched horizontal tangents at joints) duplicated 2x with -50% translate — no tile gaps. Straddles the dark/cream seam (-mb-16/-mb-20).
 - v1 (small 180px tiles) rejected by user as choppy; v2 verified via frames 2s apart: continuous unbroken line visibly gliding, desktop + mobile.

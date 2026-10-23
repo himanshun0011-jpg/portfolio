@@ -44,6 +44,19 @@ export const SERVICES = [
 
 export const PROJECTS = [
   {
+    id: "pen-and-park",
+    title: "PEN & PARK DECOR",
+    category: "Social Media / Content Design",
+    filter: "branding",
+    year: "2026",
+    client: "Pen and Park Decor",
+    description:
+      "A minimalist social media series for a premium furniture label — product-led post designs pairing sleek typography with signature scribble motifs across a launch carousel.",
+    image: "/media/penandpark-3.jpg",
+    gallery: ["/media/penandpark-3.jpg", "/media/penandpark-1.jpg", "/media/penandpark-2.jpg"],
+    tags: ["Social Media Design", "Furniture", "Art Direction", "Content Series"],
+  },
+  {
     id: "ai-motion-ads",
     title: "AI Motion Ads",
     category: "AI Video / Motion",
@@ -173,6 +186,7 @@ export const PROJECTS = [
 ];
 
 export const CLIENTS = [
+  "PEN & PARK DECOR",
   "FIZZ & BLOOM",
   "VIVID LABS",
   "BEAUVOIR",
