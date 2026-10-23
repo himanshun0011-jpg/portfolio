@@ -72,7 +72,7 @@ html.lenis, html.lenis body { height: auto; }
     from { transform: translateX(0); }
     to { transform: translateX(-50%); }
 }
-.animate-wave { animation: wave-scroll 26s linear infinite; }
+.animate-wave { animation: wave-scroll 30s linear infinite; }
 
 /* Ambient float for hero imagery */
 @keyframes bob {

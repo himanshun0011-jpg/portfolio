@@ -26,7 +26,7 @@ export default function Home() {
     <TransitionPage>
       <main>
         <Hero />
-        <WaveDivider className="-mb-8 sm:-mb-10 z-10" />
+        <WaveDivider className="-mb-16 sm:-mb-20 z-10" />
         <About />
         <Services />
         <Wordmark />

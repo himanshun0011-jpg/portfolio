@@ -75,9 +75,9 @@ Goal: recreate the Studio Loop-style portfolio structure and vibe as an original
 - Reference palette applied: cream #F7F6F0 paper, chocolate #2C180F ink, orange-red accent; Inter Tight + Instrument Serif typography; SVG logos recolored.
 - Verified via testing agent (iteration_1): body bg rgb(247,246,240), text rgb(44,24,15), nav/sections render correctly.
 
-## Wavy section divider (2026-07-23, user-directed)
-- New WaveDivider component at the hero→About seam (the boundary the user marked): hand-drawn vermilion wave line (double-stroke ghost for sketchy feel), seamless sine tile (180px period, matched tangents) scrolling right-to-left in a 26s loop via .animate-wave in index.css. Straddles the dark/cream seam with negative margin.
-- Verified via two frames 1.8s apart: wave visibly translating, no tile gaps after path redesign.
+## Wavy section divider (2026-07-23, user-directed, v2 after feedback)
+- New WaveDivider component at the hero→About seam (the boundary the user marked): single continuous hand-drawn vermilion wave, 480px wavelength (~1/3 screen), 36px amplitude, thick 4.5px marker stroke, gliding right-to-left in a 30s seamless loop (.animate-wave). One 1440px SVG pattern (3 periods, matched horizontal tangents at joints) duplicated 2x with -50% translate — no tile gaps. Straddles the dark/cream seam (-mb-16/-mb-20).
+- v1 (small 180px tiles) rejected by user as choppy; v2 verified via frames 2s apart: continuous unbroken line visibly gliding, desktop + mobile.
 
 ## Hero ambient → design-tool assets (2026-07-23, user-directed)
 - Replaced glow-only backdrop with floating design-tool UI assets (from user's uploaded reference): easing curve editor panel (animated green playhead sweeping a bezier with yellow keyframe handles), timeline panel (purple/blue/orange layer bars, keyframe diamonds, sweeping playhead), character panel (Felt Tip Roman 220pt, orange swatch, T style boxes), T toolbar chip, orange fx badge, animated dashed motion path with anchor points. All dark glass (#1d100a) panels with white/10 borders, mouse-parallax depths, entrance pop, idle drift/rotation loops. Two soft vermilion glows retained for warmth. Panels hidden on mobile except T + fx chips.
