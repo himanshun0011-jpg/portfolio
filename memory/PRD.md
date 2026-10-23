@@ -78,6 +78,7 @@ Goal: recreate the Studio Loop-style portfolio structure and vibe as an original
 ## Work section → IG post style (2026-07-23, user-directed)
 - "Selected Work" heading renamed to "Social Media Design".
 - All project cards restyled like the user's reference (Instagram posts on dark bg): square aspect images with a social action bar below (Heart — fills orange on hover, MessageCircle, Send left; Bookmark right), title + year beneath. Works for video cards too.
+- Filter pills (All / UI-UX / Motion & 3D / Branding) removed per user request; grid always shows all projects. FILTERS/AnimatePresence code removed.
 - Verified via screenshots: full grid in IG-post presentation.
 
 ## New project: PEN & PARK DECOR (2026-07-23, user-uploaded)

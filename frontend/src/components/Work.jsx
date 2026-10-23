@@ -1,16 +1,9 @@
-import { useState, useRef } from "react";
+import { useRef } from "react";
 import { useNavigate } from "react-router-dom";
-import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { ArrowUpRight, Heart, MessageCircle, Send, Bookmark } from "lucide-react";
 import { PROJECTS } from "../data/content";
 import { Reveal } from "./Reveal";
-
-const FILTERS = [
-  { id: "all", label: "All" },
-  { id: "uiux", label: "UI/UX" },
-  { id: "motion", label: "Motion & 3D" },
-  { id: "branding", label: "Branding" },
-];
 
 const isVideo = (url) => url.endsWith(".mp4");
 
@@ -79,38 +72,19 @@ const ProjectCard = ({ p, i }) => {
 };
 
 export default function Work() {
-  const [filter, setFilter] = useState("all");
-  const visible = PROJECTS.filter((p) => filter === "all" || p.filter === filter);
-
   return (
     <section id="work" data-testid="work-section" className="max-w-[1700px] mx-auto px-4 sm:px-8 lg:px-16 py-20 sm:py-32">
-      <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10 sm:mb-14">
+      <div className="mb-10 sm:mb-14">
         <Reveal>
           <h2 className="font-display font-medium uppercase tracking-tight text-3xl sm:text-5xl lg:text-6xl">Social Media Design</h2>
         </Reveal>
-        <div className="flex flex-wrap gap-2" data-testid="work-filters">
-          {FILTERS.map((f) => (
-            <button
-              key={f.id}
-              data-testid={`work-filter-${f.id}`}
-              onClick={() => setFilter(f.id)}
-              className={`font-mono text-xs uppercase tracking-[0.15em] px-4 py-2 rounded-full border transition-colors duration-300 ${
-                filter === f.id ? "bg-ink text-paper border-ink" : "border-ink/20 text-smoke hover:border-ink hover:text-ink"
-              }`}
-            >
-              {f.label}
-            </button>
-          ))}
-        </div>
       </div>
 
-      <motion.div layout className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-        <AnimatePresence mode="popLayout">
-          {visible.map((p, i) => (
-            <ProjectCard key={p.id} p={p} i={i} />
-          ))}
-        </AnimatePresence>
-      </motion.div>
+      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8" data-testid="work-grid">
+        {PROJECTS.map((p, i) => (
+          <ProjectCard key={p.id} p={p} i={i} />
+        ))}
+      </div>
     </section>
   );
 }
