@@ -35,15 +35,15 @@ export default function Work() {
 
   return (
     <section id="work" data-testid="work-section">
-      {/* Desktop — scroll-driven sticky gallery */}
-      <div ref={targetRef} className="relative hidden lg:block" style={{ height: `${n * 70}vh` }}>
+      {/* Desktop & tablet — scroll-driven sticky gallery */}
+      <div ref={targetRef} className="relative hidden md:block" style={{ height: `${n * 55}vh` }}>
         <div className="sticky top-0 h-screen overflow-hidden flex items-center">
           {/* left — vertical title index */}
-          <div className="w-[30%] shrink-0 pl-16 flex flex-col justify-center h-full">
+          <div className="w-[34%] lg:w-[30%] shrink-0 pl-8 xl:pl-16 flex flex-col justify-center h-full">
             <span className="font-mono text-xs uppercase tracking-[0.25em] text-smoke" data-testid="work-label">
               [ social media design ]
             </span>
-            <div className="mt-8 flex flex-col gap-3.5">
+            <div className="mt-8 flex flex-col gap-3 lg:gap-3.5">
               {PROJECTS.map((proj, i) => (
                 <button
                   key={proj.id}
@@ -57,7 +57,7 @@ export default function Work() {
                     0{i + 1}
                   </span>
                   <span
-                    className={`font-display font-medium uppercase tracking-tight text-xl xl:text-2xl transition-colors duration-300 ${
+                    className={`font-display font-medium uppercase tracking-tight text-lg lg:text-xl xl:text-2xl transition-colors duration-300 ${
                       active === i ? "text-acid" : "text-ink"
                     }`}
                   >
@@ -72,7 +72,7 @@ export default function Work() {
           </div>
 
           {/* right — media stage */}
-          <div className="relative flex-1 h-[76vh] mr-16">
+          <div className="relative flex-1 h-[68vh] lg:h-[76vh] mr-8 xl:mr-16">
             {PROJECTS.map((proj, i) => (
               <motion.div
                 key={proj.id}
@@ -108,7 +108,7 @@ export default function Work() {
       </div>
 
       {/* Mobile — stacked large posts */}
-      <div className="lg:hidden px-4 sm:px-8 py-20">
+      <div className="md:hidden px-4 sm:px-8 py-20">
         <span className="font-mono text-xs uppercase tracking-[0.25em] text-smoke">[ social media design ]</span>
         <div className="mt-8 flex flex-col gap-10">
           {PROJECTS.map((proj) => (

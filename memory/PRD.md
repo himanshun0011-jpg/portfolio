@@ -75,6 +75,12 @@ Goal: recreate the Studio Loop-style portfolio structure and vibe as an original
 - Reference palette applied: cream #F7F6F0 paper, chocolate #2C180F ink, orange-red accent; Inter Tight + Instrument Serif typography; SVG logos recolored.
 - Verified via testing agent (iteration_1): body bg rgb(247,246,240), text rgb(44,24,15), nav/sections render correctly.
 
+## Gallery breakpoint fix + project reorder (2026-07-23, user-reported)
+- User's ~1000px window was getting the mobile stacked fallback (no scroll cycling). Gallery breakpoint lowered lg→md (768px+); tighter paddings/text for 768-1024px range; mobile stack now only <768px.
+- Cycle speed increased: 70vh → 55vh per project so scrolling advances faster like the reference video.
+- PROJECTS reordered: vivid-labs first, beauvoir-hair second, then pen-and-park, ai-motion-ads, fizz-bloom, placeholders last.
+- Verified at 1000px + 1366px: title index renders, scroll advances projects (01→04), VIVID LABS first.
+
 ## Work section → scroll-driven gallery (2026-07-23, user-directed, replaces IG grid)
 - IG-post grid replaced per user feedback with reference-video style: desktop = sticky full-screen scroll gallery (70vh per project) — left vertical title index (active title shifts right + turns vermilion, counter "0X — 09", titles clickable to jump via Lenis), right large media stage (76vh, rounded-2xl) with crossfade/scale/rise transitions between projects, category + year chips, hover "View case" pill → case page. Mobile = stacked large square posts. Videos supported in the stage.
 - Also re-cropped penandpark images to exact white card bounds (removed dark edge slivers).
