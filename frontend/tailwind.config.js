@@ -12,13 +12,14 @@ module.exports = {
         display: ["Inter Tight", "sans-serif"],
         body: ["Inter Tight", "sans-serif"],
         mono: ["JetBrains Mono", "monospace"],
-        serif: ["Instrument Serif", "serif"]
+        serif: ["Instrument Serif", "serif"],
+        blob: ["Chicle", "cursive"]
       },
       colors: {
-        paper: "#F7F6F0",
-        paper2: "#ECE8DE",
-        ink: "#2C180F",
-        smoke: "#63544B",
+        paper: "#2C180F",
+        paper2: "#3A2318",
+        ink: "#F7F6F0",
+        smoke: "#A99688",
         acid: "#FF4000",
         vermilion: "#FF4000",
         background: 'hsl(var(--background))',

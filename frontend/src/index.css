@@ -7,31 +7,31 @@ body {
     font-family: "Inter Tight", sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    background: #F7F6F0;
-    color: #2C180F;
+    background: #2C180F;
+    color: #F7F6F0;
 }
 
 @layer base {
     :root {
-        --background: 48 21% 95%;
-        --foreground: 21 48% 11%;
-        --card: 0 0% 100%;
-        --card-foreground: 21 48% 11%;
-        --popover: 0 0% 100%;
-        --popover-foreground: 21 48% 11%;
-        --primary: 21 48% 11%;
-        --primary-foreground: 48 21% 95%;
-        --secondary: 42 16% 90%;
-        --secondary-foreground: 21 48% 11%;
-        --muted: 42 16% 90%;
-        --muted-foreground: 24 15% 42%;
+        --background: 21 48% 11%;
+        --foreground: 48 21% 95%;
+        --card: 21 48% 11%;
+        --card-foreground: 48 21% 95%;
+        --popover: 21 48% 11%;
+        --popover-foreground: 48 21% 95%;
+        --primary: 48 21% 95%;
+        --primary-foreground: 21 48% 11%;
+        --secondary: 24 30% 16%;
+        --secondary-foreground: 48 21% 95%;
+        --muted: 24 30% 16%;
+        --muted-foreground: 26 18% 68%;
         --accent: 14 100% 50%;
-        --accent-foreground: 21 48% 11%;
+        --accent-foreground: 48 21% 95%;
         --destructive: 14 100% 50%;
         --destructive-foreground: 48 21% 95%;
-        --border: 21 48% 11%;
-        --input: 42 12% 85%;
-        --ring: 21 48% 11%;
+        --border: 48 21% 95%;
+        --input: 24 30% 22%;
+        --ring: 48 21% 95%;
         --radius: 0.5rem;
     }
 }
@@ -93,20 +93,20 @@ html.lenis, html.lenis body { height: auto; }
 
 /* Outlined display text */
 .text-outline {
-    -webkit-text-stroke: 1.5px rgba(44, 24, 15, 0.85);
+    -webkit-text-stroke: 1.5px rgba(247, 246, 240, 0.85);
     color: transparent;
 }
 .text-outline-paper {
-    -webkit-text-stroke: 1.5px rgba(247, 246, 240, 0.85);
+    -webkit-text-stroke: 1.5px rgba(44, 24, 15, 0.85);
     color: transparent;
 }
 
 /* Selection + scrollbar */
 ::selection { background: #FF4000; color: #F7F6F0; }
-html { scrollbar-width: thin; scrollbar-color: #2C180F #F7F6F0; }
+html { scrollbar-width: thin; scrollbar-color: #F7F6F0 #2C180F; }
 ::-webkit-scrollbar { width: 8px; }
-::-webkit-scrollbar-track { background: #F7F6F0; }
-::-webkit-scrollbar-thumb { background: #2C180F; border-radius: 99px; }
+::-webkit-scrollbar-track { background: #2C180F; }
+::-webkit-scrollbar-thumb { background: #F7F6F0; border-radius: 99px; }
 
 /* Film grain overlay */
 .grain::after {

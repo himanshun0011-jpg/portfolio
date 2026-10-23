@@ -75,6 +75,11 @@ Goal: recreate the Studio Loop-style portfolio structure and vibe as an original
 - Reference palette applied: cream #F7F6F0 paper, chocolate #2C180F ink, orange-red accent; Inter Tight + Instrument Serif typography; SVG logos recolored.
 - Verified via testing agent (iteration_1): body bg rgb(247,246,240), text rgb(44,24,15), nav/sections render correctly.
 
+## Dark inversion + centered blobby hero (2026-07-22, user-directed)
+- Full palette inversion: paper ↔ ink swapped site-wide (paper #2C180F chocolate, ink #F7F6F0 cream), paper2 → #3A2318, smoke → #A99688 (light taupe for dark bg); index.css body/:root HSL vars/scrollbar/text-outline strokes swapped to match. Hero, work, services, about now dark; preloader, footer/contact now cream. LogoMark inverted-prop usages flipped (Nav inverted; Preloader/Contact default).
+- Hero rewritten: centered "good design sells" in Chicle (Google Font, bubbly style matching user's reference image), lowercase, "sells" in acid orange; meta labels moved to frosted chips (bg-paper/50 backdrop-blur) for readability over the floating collage; bottom row centered.
+- Verified via screenshots at 1366/768/375: hero centered + blob font, dark sections, cream footer, chips legible.
+
 ## Footer + orb tweaks (2026-07-22, user-directed)
 - Footer "Socials" column (placeholder Instagram/LinkedIn/Behance links) removed; footer grid now 2 columns.
 - WhatsApp CTA wired to real number: https://wa.me/918264342808 with prefilled project-brief greeting.

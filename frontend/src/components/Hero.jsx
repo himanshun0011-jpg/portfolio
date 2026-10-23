@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { motion, useMotionValue, useSpring, useScroll, useTransform } from "framer-motion";
 import { BRAND, HERO_IMAGES } from "../data/content";
 
-const LINES = ["SOCIAL", "CONTENT", "THAT SELLS."];
+const LINES = ["good", "design", "sells"];
 const EASE = [0.16, 1, 0.3, 1];
 
 const COLLAGE = [
@@ -83,39 +83,38 @@ export default function Hero() {
 
       <motion.div style={{ y: yTitle, opacity }} className="relative z-10 max-w-[1700px] mx-auto px-4 sm:px-8 lg:px-16 w-full">
         <div className="flex items-center justify-between font-mono text-[10px] sm:text-xs uppercase tracking-[0.25em] text-smoke">
-          <motion.span initial={{ opacity: 0 }} animate={{ opacity: go ? 1 : 0 }} transition={{ delay: 1.3, duration: 0.8 }} data-testid="hero-location-label">
+          <motion.span initial={{ opacity: 0 }} animate={{ opacity: go ? 1 : 0 }} transition={{ delay: 1.3, duration: 0.8 }} data-testid="hero-location-label" className="bg-paper/50 backdrop-blur-md rounded-full px-4 py-2">
             {BRAND.location}
           </motion.span>
-          <motion.span initial={{ opacity: 0 }} animate={{ opacity: go ? 1 : 0 }} transition={{ delay: 1.45, duration: 0.8 }} data-testid="hero-year-label">
+          <motion.span initial={{ opacity: 0 }} animate={{ opacity: go ? 1 : 0 }} transition={{ delay: 1.45, duration: 0.8 }} data-testid="hero-year-label" className="bg-paper/50 backdrop-blur-md rounded-full px-4 py-2">
             ©{BRAND.year}
           </motion.span>
         </div>
 
         <motion.div style={{ x: titleX, y: titleY }}>
-          <h1 className="mt-8 sm:mt-12 font-display font-medium uppercase leading-[0.88] tracking-[-0.03em] text-[8.8vw] sm:text-[9.5vw] lg:text-[8.8vw] xl:text-[8.2vw]">
+          <h1 className="mt-8 sm:mt-12 font-blob text-center leading-[0.95] text-[16vw] sm:text-[14vw] lg:text-[12vw]">
             {LINES.map((line, i) => (
               <span key={line} className="block overflow-hidden pb-[0.08em] -mb-[0.08em]">
                 <motion.span
-                  className="block"
+                  className={`block ${i === 2 ? "text-acid" : ""}`}
                   initial={{ y: "112%" }}
                   animate={{ y: go ? 0 : "112%" }}
                   transition={{ duration: 1, delay: 0.35 + i * 0.12, ease: EASE }}
                   data-testid={`hero-line-${i}`}
                 >
                   {line}
-                  {i === 2 && <span className="text-vermilion">.</span>}
                 </motion.span>
               </span>
             ))}
           </h1>
         </motion.div>
 
-        <div className="mt-8 sm:mt-10 flex flex-col sm:flex-row sm:items-end justify-between gap-6">
+        <div className="mt-8 sm:mt-10 flex flex-col items-center justify-center gap-5 text-center">
           <motion.span
             initial={{ opacity: 0 }}
             animate={{ opacity: go ? 1 : 0 }}
             transition={{ delay: 1.1, duration: 0.8 }}
-            className="font-mono text-[10px] sm:text-xs uppercase tracking-[0.25em] text-smoke"
+            className="font-mono text-[10px] sm:text-xs uppercase tracking-[0.25em] text-smoke bg-paper/50 backdrop-blur-md rounded-full px-4 py-2"
             data-testid="hero-audience-label"
           >
             [ for small businesses · startups · d2c brands ]
@@ -124,7 +123,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: go ? 1 : 0, y: go ? 0 : 20 }}
             transition={{ delay: 1.25, duration: 0.8, ease: EASE }}
-            className="inline-flex items-center gap-2.5 font-mono text-xs uppercase tracking-[0.2em] text-ink"
+            className="inline-flex items-center gap-2.5 font-mono text-xs uppercase tracking-[0.2em] text-ink bg-paper/50 backdrop-blur-md rounded-full px-4 py-2"
             data-testid="hero-availability-pill"
           >
             <span className="relative flex h-2 w-2">

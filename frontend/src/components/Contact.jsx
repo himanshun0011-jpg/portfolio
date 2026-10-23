@@ -136,7 +136,7 @@ export default function Contact() {
         <div className="mt-20 sm:mt-28 border-t border-paper/15 pt-10 grid md:grid-cols-2 gap-10">
           <div>
             <div className="flex items-center gap-3">
-              <LogoMark className="w-8 h-8" inverted />
+              <LogoMark className="w-8 h-8" />
               <span className="font-display font-medium text-lg tracking-tight">{BRAND.fullName}®</span>
             </div>
             <p className="mt-4 text-paper/50 text-sm max-w-xs">

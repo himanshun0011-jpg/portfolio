@@ -51,7 +51,7 @@ export default function Nav() {
     >
       <nav className="max-w-[1700px] mx-auto px-4 sm:px-8 lg:px-16 h-16 sm:h-20 flex items-center justify-between">
         <a href="#top" onClick={(e) => go(e, "#top")} data-testid="nav-logo-link" className="flex items-center gap-3 group">
-          <LogoMark className="w-7 h-7 transition-transform duration-700 group-hover:rotate-[360deg]" />
+          <LogoMark className="w-7 h-7 transition-transform duration-700 group-hover:rotate-[360deg]" inverted />
           <span className="font-display font-medium tracking-tight text-lg">
             {BRAND.name}
             <sup className="text-[10px] align-super">®</sup>

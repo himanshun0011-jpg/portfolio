@@ -33,7 +33,7 @@ export default function Preloader({ onDone }) {
     >
       <div className="flex items-center justify-between px-6 sm:px-10 pt-6 sm:pt-8">
         <div className="flex items-center gap-3" data-testid="preloader-logo">
-          <LogoMark className="w-7 h-7" inverted />
+          <LogoMark className="w-7 h-7" />
           <span className="font-display font-medium tracking-tight">{BRAND.name}®</span>
         </div>
         <span className="font-mono text-[10px] sm:text-xs uppercase tracking-[0.25em] text-paper/50">
