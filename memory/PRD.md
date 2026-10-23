@@ -75,6 +75,9 @@ Goal: recreate the Studio Loop-style portfolio structure and vibe as an original
 - Reference palette applied: cream #F7F6F0 paper, chocolate #2C180F ink, orange-red accent; Inter Tight + Instrument Serif typography; SVG logos recolored.
 - Verified via testing agent (iteration_1): body bg rgb(247,246,240), text rgb(44,24,15), nav/sections render correctly.
 
+## Placeholder projects removed (2026-07-23, user-directed)
+- PROJECTS trimmed to the 5 real ones: vivid-labs, beauvoir-hair, pen-and-park, ai-motion-ads, fizz-bloom. Removed aetheria, kinetix, cereal, vortex. Gallery counter now 01 — 05. Verified via screenshot.
+
 ## Gallery breakpoint fix + project reorder (2026-07-23, user-reported)
 - User's ~1000px window was getting the mobile stacked fallback (no scroll cycling). Gallery breakpoint lowered lg→md (768px+); tighter paddings/text for 768-1024px range; mobile stack now only <768px.
 - Cycle speed increased: 70vh → 55vh per project so scrolling advances faster like the reference video.
