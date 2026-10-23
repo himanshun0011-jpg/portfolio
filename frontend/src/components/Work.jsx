@@ -63,7 +63,7 @@ const ProjectCard = ({ p, i }) => {
         </span>
       </div>
       <div className="mt-4 flex items-start justify-between gap-4">
-        <h3 className="font-display font-bold text-xl sm:text-2xl tracking-tight leading-tight">{p.title}</h3>
+        <h3 className="font-display font-medium text-xl sm:text-2xl tracking-tight leading-tight">{p.title}</h3>
         <span className="font-mono text-xs text-smoke mt-1.5 shrink-0">{p.year}</span>
       </div>
     </motion.article>
@@ -78,7 +78,7 @@ export default function Work() {
     <section id="work" data-testid="work-section" className="max-w-[1700px] mx-auto px-4 sm:px-8 lg:px-16 py-20 sm:py-32">
       <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10 sm:mb-14">
         <Reveal>
-          <h2 className="font-display font-extrabold uppercase tracking-tight text-3xl sm:text-5xl lg:text-6xl">Selected Work</h2>
+          <h2 className="font-display font-medium uppercase tracking-tight text-3xl sm:text-5xl lg:text-6xl">Selected Work</h2>
         </Reveal>
         <div className="flex flex-wrap gap-2" data-testid="work-filters">
           {FILTERS.map((f) => (

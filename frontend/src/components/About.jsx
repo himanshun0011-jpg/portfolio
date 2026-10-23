@@ -62,7 +62,7 @@ export default function About() {
         <span className="font-mono text-xs uppercase tracking-[0.25em] text-paper/50" data-testid="about-label">
           [ who i am ]
         </span>
-        <h2 className="mt-8 font-display font-extrabold uppercase tracking-tight leading-[0.95] text-4xl sm:text-6xl lg:text-7xl max-w-5xl">
+        <h2 className="mt-8 font-display font-medium uppercase tracking-tight leading-[0.95] text-4xl sm:text-6xl lg:text-7xl max-w-5xl">
           <Reveal>One designer.</Reveal>
           <Reveal delay={0.08}>Founder of</Reveal>
           <Reveal delay={0.16}>
@@ -74,7 +74,7 @@ export default function About() {
           <div>
             <ScrollWords
               text={STATEMENT}
-              className="font-display font-bold text-2xl sm:text-3xl lg:text-4xl leading-snug tracking-tight max-w-xl"
+              className="font-display font-medium text-2xl sm:text-3xl lg:text-4xl leading-snug tracking-tight max-w-xl"
             />
             <p className="mt-8 text-paper/50 text-sm sm:text-base leading-relaxed max-w-md">
               You brief me — I design, animate and ship. No hand-offs, no telephone game. Just work that makes people

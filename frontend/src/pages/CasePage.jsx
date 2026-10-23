@@ -26,7 +26,7 @@ export default function CasePage() {
     return (
       <TransitionPage>
         <div className="min-h-screen flex flex-col items-center justify-center gap-6 px-6 text-center">
-          <h1 className="font-display font-extrabold uppercase tracking-tight text-4xl">Case not found</h1>
+          <h1 className="font-display font-medium uppercase tracking-tight text-4xl">Case not found</h1>
           <Link to="/" data-testid="case-not-found-home-link" className="u-link font-mono text-xs uppercase tracking-[0.2em] text-smoke">
             Back to all work
           </Link>
@@ -57,7 +57,7 @@ export default function CasePage() {
           </div>
 
           <h1
-            className="mt-6 font-display font-black uppercase tracking-[-0.03em] leading-[0.9] text-[11vw] sm:text-[9vw] lg:text-[7.5vw]"
+            className="mt-6 font-display font-medium uppercase tracking-[-0.03em] leading-[0.9] text-[11vw] sm:text-[9vw] lg:text-[7.5vw]"
             data-testid="case-title"
           >
             {words.map((w, i) => (
@@ -94,7 +94,7 @@ export default function CasePage() {
         <div className="max-w-[1700px] mx-auto px-4 sm:px-8 lg:px-16 py-16 sm:py-24 grid lg:grid-cols-[1.4fr_1fr] gap-12">
           <div>
             <span className="font-mono text-xs uppercase tracking-[0.25em] text-smoke">[ the brief ]</span>
-            <p className="mt-6 font-display font-bold text-2xl sm:text-3xl lg:text-4xl leading-snug tracking-tight max-w-3xl" data-testid="case-description">
+            <p className="mt-6 font-display font-medium text-2xl sm:text-3xl lg:text-4xl leading-snug tracking-tight max-w-3xl" data-testid="case-description">
               {p.description}
             </p>
           </div>
@@ -106,7 +106,7 @@ export default function CasePage() {
             ].map(([k, v]) => (
               <div key={k} className="border-t border-dashed border-ink/25 pt-4">
                 <span className="font-mono text-[10px] uppercase tracking-[0.25em] text-smoke">{k}</span>
-                <p className="mt-1 font-display font-bold text-lg">{v}</p>
+                <p className="mt-1 font-display font-medium text-lg">{v}</p>
               </div>
             ))}
             <div className="border-t border-dashed border-ink/25 pt-4">
@@ -151,7 +151,7 @@ export default function CasePage() {
           <div className="max-w-[1700px] mx-auto px-4 sm:px-8 lg:px-16 py-16 sm:py-24">
             <span className="font-mono text-xs uppercase tracking-[0.25em] opacity-60">Next case</span>
             <div className="mt-4 flex items-center justify-between gap-6">
-              <span className="font-display font-black uppercase tracking-[-0.02em] leading-[0.95] text-[9vw] sm:text-[7vw] lg:text-[5.5vw]">
+              <span className="font-display font-medium uppercase tracking-[-0.02em] leading-[0.95] text-[9vw] sm:text-[7vw] lg:text-[5.5vw]">
                 {next.title}
               </span>
               <ArrowRight className="w-8 h-8 sm:w-12 sm:h-12 shrink-0 transition-transform duration-500 group-hover:translate-x-3" />

@@ -52,7 +52,7 @@ export default function Contact() {
     <footer id="contact" data-testid="contact-section" className="bg-ink text-paper">
       <div className="max-w-[1700px] mx-auto px-4 sm:px-8 lg:px-16 pt-20 sm:pt-32">
         <span className="font-mono text-xs uppercase tracking-[0.25em] text-paper/50">[ your move ]</span>
-        <h2 className="mt-8 font-display font-black uppercase tracking-[-0.02em] leading-[0.92] text-[13vw] sm:text-[10vw] lg:text-[7.2vw]">
+        <h2 className="mt-8 font-display font-medium uppercase tracking-[-0.02em] leading-[0.92] text-[13vw] sm:text-[10vw] lg:text-[7.2vw]">
           <Reveal>Let&apos;s make</Reveal>
           <Reveal delay={0.08}>something</Reveal>
           <Reveal delay={0.16}>
@@ -91,7 +91,7 @@ export default function Contact() {
         <div className="mt-14 sm:mt-20 border border-paper/15 rounded-2xl p-6 sm:p-10 bg-white/[0.03]" data-testid="contact-form-card">
           <span className="font-mono text-xs uppercase tracking-[0.25em] text-paper/50">[ or drop a brief ]</span>
           {sent ? (
-            <p className="mt-6 font-display font-bold text-2xl sm:text-3xl tracking-tight" data-testid="contact-form-status">
+            <p className="mt-6 font-display font-medium text-2xl sm:text-3xl tracking-tight" data-testid="contact-form-status">
               Brief received. I reply within 24 hours.
             </p>
           ) : (
@@ -136,7 +136,7 @@ export default function Contact() {
           <div>
             <div className="flex items-center gap-3">
               <LogoMark className="w-8 h-8" inverted />
-              <span className="font-display font-extrabold text-lg tracking-tight">{BRAND.fullName}®</span>
+              <span className="font-display font-medium text-lg tracking-tight">{BRAND.fullName}®</span>
             </div>
             <p className="mt-4 text-paper/50 text-sm max-w-xs">
               Founder, SocialFloe. {BRAND.role}. {BRAND.location}

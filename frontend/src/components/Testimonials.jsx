@@ -24,14 +24,14 @@ export default function Testimonials() {
     <section id="proof" data-testid="testimonials-section" className="max-w-[1700px] mx-auto px-4 sm:px-8 lg:px-16 py-20 sm:py-32">
       <span className="font-mono text-xs uppercase tracking-[0.25em] text-smoke">[ receipts ]</span>
       <Reveal>
-        <h2 className="mt-6 font-display font-extrabold uppercase tracking-tight text-3xl sm:text-5xl lg:text-6xl">
+        <h2 className="mt-6 font-display font-medium uppercase tracking-tight text-3xl sm:text-5xl lg:text-6xl">
           Proof, not <span className="font-serif italic normal-case font-normal text-vermilion">promises.</span>
         </h2>
       </Reveal>
 
       <div className="mt-12 grid md:grid-cols-2 xl:grid-cols-4 gap-6">
         <a
-          href="https://www.upwork.com/"
+          href="https://www.upwork.com/freelancers/himanshunautiyal?mp_source=share"
           target="_blank"
           rel="noreferrer"
           data-testid="upwork-badge-link"
@@ -47,7 +47,7 @@ export default function Testimonials() {
                 <Star key={i} className="w-4 h-4 fill-acid text-acid group-hover:fill-ink group-hover:text-ink transition-colors duration-500" />
               ))}
             </div>
-            <p className="mt-4 font-display font-extrabold uppercase tracking-tight text-3xl leading-none">Top Rated Plus</p>
+            <p className="mt-4 font-display font-medium uppercase tracking-tight text-3xl leading-none">Top Rated Plus</p>
             <p className="mt-3 font-mono text-xs uppercase tracking-[0.2em] text-paper/60 group-hover:text-ink/70 transition-colors duration-500">
               on Upwork — view profile
             </p>
@@ -60,7 +60,7 @@ export default function Testimonials() {
             data-testid={`testimonial-card-${i}`}
             className="border border-ink/15 rounded-2xl p-8 flex flex-col justify-between min-h-[280px] bg-paper2/60 hover:border-ink transition-colors duration-500"
           >
-            <blockquote className="font-display font-bold text-xl sm:text-2xl leading-snug tracking-tight">
+            <blockquote className="font-display font-medium text-xl sm:text-2xl leading-snug tracking-tight">
               &ldquo;{t.quote}&rdquo;
             </blockquote>
             <figcaption className="mt-8 font-mono text-xs uppercase tracking-[0.2em] text-smoke">

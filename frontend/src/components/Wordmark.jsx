@@ -32,7 +32,7 @@ export default function Wordmark() {
       <div ref={viewRef}>
         <motion.h2
           style={{ x }}
-          className="whitespace-nowrap font-display font-black uppercase tracking-[-0.04em] leading-none text-[24vw] sm:text-[20vw] select-none"
+          className="whitespace-nowrap font-display font-medium uppercase tracking-[-0.04em] leading-none text-[24vw] sm:text-[20vw] select-none"
           data-testid="wordmark-giant-text"
         >
           <Letters text="HIMANSHU®" shown={shown} /> <Letters text="HIMANSHU®" shown={shown} base={0.35} className="text-outline" />

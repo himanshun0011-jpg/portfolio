@@ -9,18 +9,18 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        display: ["Syne", "sans-serif"],
-        body: ["Plus Jakarta Sans", "sans-serif"],
+        display: ["Inter Tight", "sans-serif"],
+        body: ["Inter Tight", "sans-serif"],
         mono: ["JetBrains Mono", "monospace"],
         serif: ["Instrument Serif", "serif"]
       },
       colors: {
-        paper: "#F6F5F2",
-        paper2: "#EFECE6",
-        ink: "#121212",
-        smoke: "#5A5A58",
-        acid: "#CCFF00",
-        vermilion: "#E63946",
+        paper: "#F7F6F0",
+        paper2: "#ECE8DE",
+        ink: "#2C180F",
+        smoke: "#63544B",
+        acid: "#FF4000",
+        vermilion: "#FF4000",
         background: 'hsl(var(--background))',
         foreground: 'hsl(var(--foreground))',
         card: {

@@ -13,7 +13,7 @@ export default function Clients() {
         <VelocityMarquee baseVelocity={1.1} rowClassName="items-center">
           {row.map((c, i) => (
             <span key={i} className="flex items-center gap-8 sm:gap-12 pr-8 sm:pr-12 shrink-0">
-              <span className="font-display font-extrabold uppercase tracking-tight text-2xl sm:text-4xl text-ink/80">{c}</span>
+              <span className="font-display font-medium uppercase tracking-tight text-2xl sm:text-4xl text-ink/80">{c}</span>
               <Asterisk className="w-5 h-5 sm:w-7 sm:h-7 text-vermilion" />
             </span>
           ))}

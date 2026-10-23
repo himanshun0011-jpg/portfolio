@@ -34,7 +34,7 @@ export default function Preloader({ onDone }) {
       <div className="flex items-center justify-between px-6 sm:px-10 pt-6 sm:pt-8">
         <div className="flex items-center gap-3" data-testid="preloader-logo">
           <LogoMark className="w-7 h-7" inverted />
-          <span className="font-display font-extrabold tracking-tight">{BRAND.name}®</span>
+          <span className="font-display font-medium tracking-tight">{BRAND.name}®</span>
         </div>
         <span className="font-mono text-[10px] sm:text-xs uppercase tracking-[0.25em] text-paper/50">
           portfolio ©{BRAND.year}
@@ -57,7 +57,7 @@ export default function Preloader({ onDone }) {
             initial={{ y: "110%" }}
             animate={{ y: 0 }}
             transition={{ duration: 0.9, delay: 0.35, ease: [0.16, 1, 0.3, 1] }}
-            className="block font-display font-black uppercase tracking-[-0.03em] leading-[0.9] text-[12vw] sm:text-[9vw]"
+            className="block font-display font-medium uppercase tracking-[-0.03em] leading-[0.9] text-[12vw] sm:text-[9vw]"
           >
             {BRAND.name}
             <span className="text-vermilion">®</span>
@@ -70,7 +70,7 @@ export default function Preloader({ onDone }) {
           [ loading the loop ]
         </span>
         <span
-          className="font-display font-black leading-none tracking-[-0.04em] text-[22vw] sm:text-[14vw] text-paper/90 select-none"
+          className="font-display font-medium leading-none tracking-[-0.04em] text-[22vw] sm:text-[14vw] text-paper/90 select-none"
           data-testid="preloader-counter"
         >
           {count}

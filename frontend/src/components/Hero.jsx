@@ -92,7 +92,7 @@ export default function Hero() {
         </div>
 
         <motion.div style={{ x: titleX, y: titleY }}>
-          <h1 className="mt-8 sm:mt-12 font-display font-black uppercase leading-[0.88] tracking-[-0.03em] text-[8.8vw] sm:text-[9.5vw] lg:text-[8.8vw] xl:text-[8.2vw]">
+          <h1 className="mt-8 sm:mt-12 font-display font-medium uppercase leading-[0.88] tracking-[-0.03em] text-[8.8vw] sm:text-[9.5vw] lg:text-[8.8vw] xl:text-[8.2vw]">
             {LINES.map((line, i) => (
               <span key={line} className="block overflow-hidden pb-[0.08em] -mb-[0.08em]">
                 <motion.span

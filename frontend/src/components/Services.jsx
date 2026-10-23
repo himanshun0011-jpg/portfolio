@@ -27,7 +27,7 @@ export default function Services() {
     >
       <div className="flex items-end justify-between mb-10 sm:mb-16">
         <Reveal>
-          <h2 className="font-display font-extrabold uppercase tracking-tight text-3xl sm:text-5xl lg:text-6xl">Capabilities</h2>
+          <h2 className="font-display font-medium uppercase tracking-tight text-3xl sm:text-5xl lg:text-6xl">Capabilities</h2>
         </Reveal>
         <span className="font-mono text-xs uppercase tracking-[0.25em] text-smoke hidden sm:block" data-testid="services-count-label">
           ( 01 — 05 )
@@ -57,7 +57,7 @@ export default function Services() {
                   ({s.number})
                 </span>
                 <span
-                  className={`font-display font-bold uppercase tracking-tight text-2xl sm:text-4xl lg:text-5xl transition-transform duration-500 ${
+                  className={`font-display font-medium uppercase tracking-tight text-2xl sm:text-4xl lg:text-5xl transition-transform duration-500 ${
                     isOpen ? "translate-x-2 sm:translate-x-4" : "group-hover:translate-x-2 sm:group-hover:translate-x-4"
                   }`}
                 >

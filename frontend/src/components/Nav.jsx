@@ -52,7 +52,7 @@ export default function Nav() {
       <nav className="max-w-[1700px] mx-auto px-4 sm:px-8 lg:px-16 h-16 sm:h-20 flex items-center justify-between">
         <a href="#top" onClick={(e) => go(e, "#top")} data-testid="nav-logo-link" className="flex items-center gap-3 group">
           <LogoMark className="w-7 h-7 transition-transform duration-700 group-hover:rotate-[360deg]" />
-          <span className="font-display font-extrabold tracking-tight text-lg">
+          <span className="font-display font-medium tracking-tight text-lg">
             {BRAND.name}
             <sup className="text-[10px] align-super">®</sup>
           </span>
@@ -108,7 +108,7 @@ export default function Nav() {
                   initial={{ opacity: 0, x: -24 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: 0.08 + i * 0.06, duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-                  className="font-display font-bold uppercase tracking-tight text-3xl"
+                  className="font-display font-medium uppercase tracking-tight text-3xl"
                 >
                   {l.label}
                 </motion.a>
