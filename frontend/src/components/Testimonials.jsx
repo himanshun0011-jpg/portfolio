@@ -35,7 +35,7 @@ export default function Testimonials() {
           target="_blank"
           rel="noreferrer"
           data-testid="upwork-badge-link"
-          className="group bg-ink text-paper rounded-2xl p-8 flex flex-col justify-between min-h-[280px] hover:bg-[#14a800] transition-colors duration-500"
+          className="group bg-[#2C180F] text-[#F7F6F0] rounded-2xl p-8 flex flex-col justify-between min-h-[280px] hover:bg-[#14a800] transition-colors duration-500"
         >
           <div className="flex items-start justify-between">
             <BadgeCheck className="w-9 h-9 text-acid group-hover:text-ink transition-colors duration-500" />
@@ -48,7 +48,7 @@ export default function Testimonials() {
               ))}
             </div>
             <p className="mt-4 font-display font-medium uppercase tracking-tight text-3xl leading-none">Top Rated Plus</p>
-            <p className="mt-3 font-mono text-xs uppercase tracking-[0.2em] text-paper/60 group-hover:text-ink/70 transition-colors duration-500">
+            <p className="mt-3 font-mono text-xs uppercase tracking-[0.2em] text-[#F7F6F0]/60 group-hover:text-[#2C180F]/70 transition-colors duration-500">
               on Upwork — view profile
             </p>
           </div>

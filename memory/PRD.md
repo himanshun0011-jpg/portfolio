@@ -75,6 +75,12 @@ Goal: recreate the Studio Loop-style portfolio structure and vibe as an original
 - Reference palette applied: cream #F7F6F0 paper, chocolate #2C180F ink, orange-red accent; Inter Tight + Instrument Serif typography; SVG logos recolored.
 - Verified via testing agent (iteration_1): body bg rgb(247,246,240), text rgb(44,24,15), nav/sections render correctly.
 
+## Nav wordmark + boxless header (2026-07-23, user-directed)
+- Removed the "H" logo mark from nav; logo is now just "Himanshu" in Felt Tip Roman with hover tilt/grow. LogoMark still used in Preloader/Contact.
+- Header glass box removed entirely: always transparent, no bg/border on scroll. Nav colors now adapt via scroll-aware `onLight` state (dark text/pill over cream #studio and #contact sections, cream text over dark sections) after blend-mode approach failed due to transformed-header stacking context.
+- Fixed swap side-effects: Upwork badge card hardcoded back to dark (#2C180F) with cream text (bg-ink had become cream), Work card hover overlay darkened explicitly.
+- Verified via screenshots: logo/link/pill legible over dark hero, cream studio, cream footer; no header box on scroll-up.
+
 ## Hero collage → ambient glow field (2026-07-23, user-directed)
 - Removed the floating project-image collage behind the hero (user found it cluttered). Replaced with an ambient animated backdrop: 6 soft radial-gradient glow orbs (vermilion/peach/cream, heavily blurred) drifting on independent loops with depth-based mouse parallax and scroll parallax, plus 2 rotating dashed rings with orbiting accent dots. HERO_IMAGES export removed from content.js (now unused).
 - Verified via screenshots: desktop + mobile show warm glow field, headline crisp and centered, no image clutter.

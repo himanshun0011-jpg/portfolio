@@ -2,8 +2,6 @@ import { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { motion, AnimatePresence, useScroll, useMotionValueEvent } from "framer-motion";
 import { Menu, X, ArrowUpRight } from "lucide-react";
-import LogoMark from "./LogoMark";
-import { BRAND } from "../data/content";
 
 const LINKS = [
   { label: "Work", href: "#work" },
@@ -14,16 +12,21 @@ const LINKS = [
 
 export default function Nav() {
   const [open, setOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
   const [hidden, setHidden] = useState(false);
+  const [onLight, setOnLight] = useState(false);
   const { scrollY } = useScroll();
   const location = useLocation();
   const navigate = useNavigate();
 
   useMotionValueEvent(scrollY, "change", (latest) => {
     const prev = scrollY.getPrevious() ?? 0;
-    setScrolled(latest > 40);
     setHidden(latest > prev && latest > 160 && !open);
+    const y = latest + 90;
+    const light = ["studio", "contact"].some((id) => {
+      const el = document.getElementById(id);
+      return el && y > el.offsetTop && y < el.offsetTop + el.offsetHeight;
+    });
+    setOnLight(light);
   });
 
   const go = (e, href, after) => {
@@ -45,16 +48,16 @@ export default function Nav() {
       data-testid="site-nav"
       animate={{ y: hidden ? "-100%" : "0%" }}
       transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-[background-color,border-color] duration-500 ${
-        scrolled ? "bg-paper/85 backdrop-blur-xl border-b border-ink/10" : "bg-transparent border-b border-transparent"
-      }`}
+      className="fixed top-0 left-0 right-0 z-50"
     >
       <nav className="max-w-[1700px] mx-auto px-4 sm:px-8 lg:px-16 h-16 sm:h-20 flex items-center justify-between">
-        <a href="#top" onClick={(e) => go(e, "#top")} data-testid="nav-logo-link" className="flex items-center gap-3 group">
-          <LogoMark className="w-7 h-7 transition-transform duration-700 group-hover:rotate-[360deg]" inverted />
-          <span className="font-display font-medium tracking-tight text-lg">
-            {BRAND.name}
-            <sup className="text-[10px] align-super">®</sup>
+        <a href="#top" onClick={(e) => go(e, "#top")} data-testid="nav-logo-link" className="flex items-center group">
+          <span
+            className={`font-blob inline-block text-2xl leading-none transition-[color,transform] duration-500 group-hover:-rotate-3 group-hover:scale-110 ${
+              onLight ? "text-[#2C180F]" : "text-[#F7F6F0]"
+            }`}
+          >
+            Himanshu
           </span>
         </a>
         <div className="hidden md:flex items-center gap-8">
@@ -64,7 +67,9 @@ export default function Nav() {
               href={l.href}
               onClick={(e) => go(e, l.href)}
               data-testid={`nav-link-${l.label.toLowerCase()}`}
-              className="u-link font-mono text-xs uppercase tracking-[0.2em] text-smoke hover:text-ink transition-colors duration-300"
+              className={`u-link font-mono text-xs uppercase tracking-[0.2em] transition-colors duration-300 ${
+                onLight ? "text-[#63544B] hover:text-[#2C180F]" : "text-smoke hover:text-ink"
+              }`}
             >
               {l.label}
             </a>
@@ -73,7 +78,9 @@ export default function Nav() {
             href="#contact"
             onClick={(e) => go(e, "#contact")}
             data-testid="nav-cta-button"
-            className="group inline-flex items-center gap-2 bg-ink text-paper font-mono text-xs uppercase tracking-[0.15em] px-5 py-2.5 rounded-full hover:bg-acid hover:text-ink transition-colors duration-300"
+            className={`group inline-flex items-center gap-2 font-mono text-xs uppercase tracking-[0.15em] px-5 py-2.5 rounded-full transition-colors duration-300 ${
+              onLight ? "bg-[#2C180F] text-[#F7F6F0] hover:bg-acid" : "bg-ink text-paper hover:bg-acid hover:text-ink"
+            }`}
           >
             Start a project
             <ArrowUpRight className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
@@ -81,7 +88,7 @@ export default function Nav() {
         </div>
         <button
           data-testid="nav-menu-toggle"
-          className="md:hidden p-2"
+          className={`md:hidden p-2 transition-colors duration-300 ${onLight ? "text-[#2C180F]" : "text-[#F7F6F0]"}`}
           onClick={() => setOpen(!open)}
           aria-label="Toggle menu"
         >

@@ -53,7 +53,7 @@ const ProjectCard = ({ p, i }) => {
             className="w-full h-[116%] object-cover scale-105 transition-transform duration-700 ease-out group-hover:scale-110"
           />
         )}
-        <div className="absolute inset-0 bg-ink/0 group-hover:bg-ink/35 transition-colors duration-500 flex items-center justify-center">
+        <div className="absolute inset-0 bg-[#2C180F]/0 group-hover:bg-[#2C180F]/35 transition-colors duration-500 flex items-center justify-center">
           <span className="opacity-0 group-hover:opacity-100 translate-y-3 group-hover:translate-y-0 transition-all duration-500 bg-acid text-ink font-mono text-xs uppercase tracking-[0.2em] px-5 py-2.5 rounded-full inline-flex items-center gap-2">
             View case <ArrowUpRight className="w-3.5 h-3.5" />
           </span>
