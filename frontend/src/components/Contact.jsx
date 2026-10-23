@@ -52,12 +52,12 @@ export default function Contact() {
     <footer id="contact" data-testid="contact-section" className="bg-ink text-paper">
       <div className="max-w-[1700px] mx-auto px-4 sm:px-8 lg:px-16 pt-20 sm:pt-32">
         <span className="font-mono text-xs uppercase tracking-[0.25em] text-paper/50">[ your move ]</span>
-        <h2 className="mt-8 font-display font-medium uppercase tracking-[-0.02em] leading-[0.92] text-[13vw] sm:text-[10vw] lg:text-[7.2vw]">
-          <Reveal>Let&apos;s make</Reveal>
+        <h2 className="mt-8 font-blob normal-case tracking-normal leading-[1.05] text-[11vw] sm:text-[9vw] lg:text-[6vw]">
+          <Reveal>let&apos;s make</Reveal>
           <Reveal delay={0.08}>something</Reveal>
           <Reveal delay={0.16}>
-            <span className="inline-block bg-acid text-ink px-[0.15em] -rotate-1">
-              worth sharing<span className="text-vermilion">.</span>
+            <span className="inline-block bg-acid text-[#2C180F] px-[0.18em] rounded-md -rotate-1">
+              worth sharing<span className="text-[#F7F6F0]">.</span>
             </span>
           </Reveal>
         </h2>

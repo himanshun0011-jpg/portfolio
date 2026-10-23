@@ -75,6 +75,12 @@ Goal: recreate the Studio Loop-style portfolio structure and vibe as an original
 - Reference palette applied: cream #F7F6F0 paper, chocolate #2C180F ink, orange-red accent; Inter Tight + Instrument Serif typography; SVG logos recolored.
 - Verified via testing agent (iteration_1): body bg rgb(247,246,240), text rgb(44,24,15), nav/sections render correctly.
 
+## Adobe tool icons + About mobile contact + footer font (2026-07-23, user-directed)
+- Tools chips restyled as Adobe product icons: dark product-color tiles with colored two-letter marks (Ps/Ai/Ae/Pr/Lr/Fr with official-style bg+fg color pairs), hover lift/tilt, full product names in tooltips.
+- About grid restructured: Contact block moved out of the left column into its own grid cell (right column gets lg:row-span-2) so on mobile it renders last (after Skills); desktop layout unchanged.
+- Footer headline "let's make something worth sharing." switched to Felt Tip Roman, lowercase, orange highlight block with dark text + cream period.
+- Verified via screenshots: desktop tools/footer, mobile contact-at-bottom.
+
 ## Placeholder projects removed (2026-07-23, user-directed)
 - PROJECTS trimmed to the 5 real ones: vivid-labs, beauvoir-hair, pen-and-park, ai-motion-ads, fizz-bloom. Removed aetheria, kinetix, cereal, vortex. Gallery counter now 01 — 05. Verified via screenshot.
 

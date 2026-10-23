@@ -11,6 +11,25 @@ const SectionTitle = ({ children, testid }) => (
   </Reveal>
 );
 
+// Adobe product icon colors: [tile background, letter color]
+const TOOL_STYLES = {
+  Ps: ["#001E36", "#31A8FF"],
+  Ai: ["#330000", "#FF9A00"],
+  Ae: ["#00005B", "#9999FF"],
+  Pr: ["#2B0A30", "#EA77FF"],
+  Lr: ["#0A2A41", "#31A8FF"],
+  Fr: ["#2B1500", "#FFB13D"],
+};
+
+const TOOL_NAMES = {
+  Ps: "Photoshop",
+  Ai: "Illustrator",
+  Ae: "After Effects",
+  Pr: "Premiere Pro",
+  Lr: "Lightroom",
+  Fr: "Fresco",
+};
+
 export default function About() {
   return (
     <section id="studio" data-testid="about-section" className="relative bg-ink text-paper overflow-hidden">
@@ -64,33 +83,10 @@ export default function About() {
               See the work
               <ArrowUpRight className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
             </a>
-
-            <div className="mt-14 sm:mt-16">
-              <SectionTitle testid="about-contact-title">Contact</SectionTitle>
-              <div className="mt-6 flex flex-col">
-                {ABOUT.contact.map((c) => (
-                  <div
-                    key={c.label}
-                    className="flex items-baseline gap-6 border-b border-dashed border-paper/20 py-4"
-                    data-testid={`about-contact-${c.label.toLowerCase()}`}
-                  >
-                    <span className="font-mono text-xs uppercase tracking-[0.2em] text-paper/50 w-20 shrink-0">{c.label}</span>
-                    <a
-                      href={c.href}
-                      target={c.href.startsWith("http") ? "_blank" : undefined}
-                      rel="noreferrer"
-                      className="u-link font-medium text-sm sm:text-base break-all"
-                    >
-                      {c.value}
-                    </a>
-                  </div>
-                ))}
-              </div>
-            </div>
           </div>
 
           {/* Right — experience, education, tools, skills */}
-          <div className="lg:col-span-7 flex flex-col gap-14">
+          <div className="lg:col-span-7 lg:row-span-2 flex flex-col gap-14">
             <div>
               <SectionTitle testid="about-experience-title">Experience</SectionTitle>
               <div className="mt-6 border-t border-dashed border-paper/20">
@@ -123,12 +119,14 @@ export default function About() {
               </div>
               <div>
                 <SectionTitle testid="about-tools-title">Tools</SectionTitle>
-                <div className="mt-6 flex flex-wrap gap-2.5" data-testid="tools-list">
+                <div className="mt-6 flex flex-wrap gap-3" data-testid="tools-list">
                   {ABOUT.tools.map((t) => (
                     <span
                       key={t}
                       data-testid={`tool-chip-${t.toLowerCase()}`}
-                      className="w-11 h-11 rounded-lg border border-paper/25 flex items-center justify-center font-mono text-sm hover:bg-acid hover:text-ink hover:border-acid transition-colors duration-300"
+                      title={TOOL_NAMES[t]}
+                      className="w-12 h-12 rounded-xl flex items-center justify-center font-display font-semibold text-lg transition-transform duration-300 hover:-translate-y-1 hover:rotate-3"
+                      style={{ background: TOOL_STYLES[t][0], color: TOOL_STYLES[t][1], boxShadow: "0 8px 20px rgba(0,0,0,0.22)" }}
                     >
                       {t}
                     </span>
@@ -149,6 +147,30 @@ export default function About() {
                   </span>
                 ))}
               </div>
+            </div>
+          </div>
+
+          {/* Contact — bottom on mobile, left column on desktop */}
+          <div className="lg:col-span-5 mt-14 lg:mt-0">
+            <SectionTitle testid="about-contact-title">Contact</SectionTitle>
+            <div className="mt-6 flex flex-col">
+              {ABOUT.contact.map((c) => (
+                <div
+                  key={c.label}
+                  className="flex items-baseline gap-6 border-b border-dashed border-paper/20 py-4"
+                  data-testid={`about-contact-${c.label.toLowerCase()}`}
+                >
+                  <span className="font-mono text-xs uppercase tracking-[0.2em] text-paper/50 w-20 shrink-0">{c.label}</span>
+                  <a
+                    href={c.href}
+                    target={c.href.startsWith("http") ? "_blank" : undefined}
+                    rel="noreferrer"
+                    className="u-link font-medium text-sm sm:text-base break-all"
+                  >
+                    {c.value}
+                  </a>
+                </div>
+              ))}
             </div>
           </div>
         </div>
