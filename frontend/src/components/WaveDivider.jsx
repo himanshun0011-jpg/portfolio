@@ -20,7 +20,7 @@ export default function WaveDivider({ className = "" }) {
       aria-hidden="true"
       className={`relative h-32 sm:h-40 overflow-hidden pointer-events-none ${className}`}
     >
-      <div className="flex w-max h-full animate-wave">
+      <div className="flex w-max h-full">
         <WaveStrip />
         <WaveStrip />
       </div>
