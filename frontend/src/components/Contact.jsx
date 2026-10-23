@@ -72,8 +72,9 @@ export default function Contact() {
             <ArrowUpRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" />
           </a>
           <a
-            href="#"
-            onClick={(e) => e.preventDefault()}
+            href="https://wa.me/918264342808?text=Hi%20Himanshu%2C%20I%20saw%20your%20portfolio%20and%20want%20to%20discuss%20a%20project."
+            target="_blank"
+            rel="noreferrer"
             data-testid="cta-whatsapp-button"
             className="group inline-flex items-center gap-3 border border-paper/30 text-paper font-mono text-xs sm:text-sm uppercase tracking-[0.2em] px-8 py-4 rounded-full hover:bg-[#25D366] hover:border-[#25D366] hover:text-ink transition-colors duration-300"
           >
@@ -132,7 +133,7 @@ export default function Contact() {
           )}
         </div>
 
-        <div className="mt-20 sm:mt-28 border-t border-paper/15 pt-10 grid md:grid-cols-3 gap-10">
+        <div className="mt-20 sm:mt-28 border-t border-paper/15 pt-10 grid md:grid-cols-2 gap-10">
           <div>
             <div className="flex items-center gap-3">
               <LogoMark className="w-8 h-8" inverted />
@@ -141,20 +142,6 @@ export default function Contact() {
             <p className="mt-4 text-paper/50 text-sm max-w-xs">
               Founder, SocialFloe. {BRAND.role}. {BRAND.location}
             </p>
-          </div>
-          <div className="flex flex-col gap-3 font-mono text-xs uppercase tracking-[0.2em]">
-            <span className="text-paper/40 mb-1">Socials</span>
-            {["Instagram", "LinkedIn", "Behance"].map((s) => (
-              <a
-                key={s}
-                href="#"
-                onClick={(e) => e.preventDefault()}
-                data-testid={`social-link-${s.toLowerCase()}`}
-                className="text-paper/70 hover:text-acid transition-colors inline-flex items-center gap-2 w-fit"
-              >
-                {s} <ArrowUpRight className="w-3 h-3" />
-              </a>
-            ))}
           </div>
           <div className="flex flex-col gap-3 font-mono text-xs uppercase tracking-[0.2em]">
             <span className="text-paper/40 mb-1">Studio</span>

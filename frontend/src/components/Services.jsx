@@ -168,7 +168,7 @@ export default function Services() {
               animate={{ opacity: 1, scale: 1, rotate: 0, x: "-50%", y: "-115%" }}
               exit={{ opacity: 0, scale: 0.6, rotate: 10, x: "-50%", y: "-115%" }}
               transition={{ duration: 0.35, ease: EASE }}
-              className="w-64 aspect-square"
+              className="w-44 aspect-square"
               data-testid="service-hover-preview"
             >
               <OrbPreview index={hovered} />

@@ -75,6 +75,12 @@ Goal: recreate the Studio Loop-style portfolio structure and vibe as an original
 - Reference palette applied: cream #F7F6F0 paper, chocolate #2C180F ink, orange-red accent; Inter Tight + Instrument Serif typography; SVG logos recolored.
 - Verified via testing agent (iteration_1): body bg rgb(247,246,240), text rgb(44,24,15), nav/sections render correctly.
 
+## Footer + orb tweaks (2026-07-22, user-directed)
+- Footer "Socials" column (placeholder Instagram/LinkedIn/Behance links) removed; footer grid now 2 columns.
+- WhatsApp CTA wired to real number: https://wa.me/918264342808 with prefilled project-brief greeting.
+- Services hover orb reduced from w-64 (256px) to w-44 (176px).
+- Verified via screenshot: social links gone (count 0), whatsapp href correct, smaller orb renders on hover.
+
 ## Services hover preview → 3D orb effect (2026-07-22, user-directed)
 - Replaced cursor-following project image on service-row hover with an animated holographic orb: floating 3D sphere (rotating conic gradient + radial highlight/shadow shading), two tilted dashed orbit rings with satellite dots, ambient color glow, per-service warm hue variations, service number label. Pure CSS/framer-motion, no images.
 - Removed now-unused SERVICES[].image field from content.js.
