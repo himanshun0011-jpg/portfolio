@@ -11,12 +11,12 @@ const GLOWS = [
 ];
 
 const TOOL_ASSETS = [
-  { type: "character", pos: "right-[5%] top-[10%]", depth: 0.9, drift: 10, delay: 1.35, rot: 4 },
-  { type: "ease", pos: "left-[3%] bottom-[8%]", depth: 1.5, drift: 9, delay: 1.0, rot: -4 },
-  { type: "timeline", pos: "right-[3%] bottom-[6%]", depth: 1.1, drift: 11, delay: 1.2, rot: 3 },
-  { type: "path", pos: "left-[24%] top-[3%]", depth: 2.0, drift: 12, delay: 1.75, rot: -2 },
-  { type: "text", pos: "left-[8%] top-[13%]", depth: 1.8, drift: 8, delay: 1.5, rot: -6, mobile: true },
-  { type: "fx", pos: "right-[23%] top-[18%]", depth: 1.3, drift: 7.5, delay: 1.6, rot: 5, mobile: true },
+  { type: "character", pos: "right-[4%] top-[9%] sm:right-[5%] sm:top-[10%]", depth: 0.9, drift: 10, delay: 1.35, rot: 4 },
+  { type: "ease", pos: "left-[3%] bottom-[9%] sm:bottom-[8%]", depth: 1.5, drift: 9, delay: 1.0, rot: -4 },
+  { type: "timeline", pos: "right-[2%] bottom-[5%] sm:right-[3%] sm:bottom-[6%]", depth: 1.1, drift: 11, delay: 1.2, rot: 3 },
+  { type: "path", pos: "left-[32%] top-[7%] sm:left-[24%] sm:top-[3%]", depth: 2.0, drift: 12, delay: 1.75, rot: -2 },
+  { type: "text", pos: "left-[8%] top-[13%]", depth: 1.8, drift: 8, delay: 1.5, rot: -6 },
+  { type: "fx", pos: "right-[23%] top-[18%]", depth: 1.3, drift: 7.5, delay: 1.6, rot: 5 },
 ];
 
 const panelCls = "rounded-xl border border-white/10 bg-[#1d100a]/90 backdrop-blur-md shadow-2xl p-3";
@@ -165,7 +165,7 @@ const ToolAsset = ({ cfg, mx, my, go }) => {
   return (
     <motion.div
       style={{ x, y }}
-      className={`absolute ${cfg.pos} z-0 ${cfg.mobile ? "" : "hidden sm:block"}`}
+      className={`absolute ${cfg.pos} z-0`}
       aria-hidden="true"
       data-testid={`hero-tool-${cfg.type}`}
     >
@@ -178,12 +178,14 @@ const ToolAsset = ({ cfg, mx, my, go }) => {
           animate={{ y: [0, -12, 0], rotate: [0, cfg.rot > 0 ? 1.5 : -1.5, 0] }}
           transition={{ duration: cfg.drift, repeat: Infinity, ease: "easeInOut" }}
         >
-          {cfg.type === "ease" && <EasePanel />}
-          {cfg.type === "timeline" && <TimelinePanel />}
-          {cfg.type === "character" && <CharacterPanel />}
-          {cfg.type === "text" && <TextChip />}
-          {cfg.type === "fx" && <FxChip />}
-          {cfg.type === "path" && <MotionPath />}
+          <div className="scale-[0.62] sm:scale-90 lg:scale-100">
+            {cfg.type === "ease" && <EasePanel />}
+            {cfg.type === "timeline" && <TimelinePanel />}
+            {cfg.type === "character" && <CharacterPanel />}
+            {cfg.type === "text" && <TextChip />}
+            {cfg.type === "fx" && <FxChip />}
+            {cfg.type === "path" && <MotionPath />}
+          </div>
         </motion.div>
       </motion.div>
     </motion.div>
