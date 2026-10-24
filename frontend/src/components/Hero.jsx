@@ -14,7 +14,7 @@ const TOOL_ASSETS = [
   { type: "character", pos: "right-[4%] top-[9%] sm:right-[5%] sm:top-[10%]", depth: 0.9, drift: 10, delay: 1.35, rot: 4 },
   { type: "ease", pos: "left-[3%] bottom-[9%] sm:bottom-[8%]", depth: 1.5, drift: 9, delay: 1.0, rot: -4 },
   { type: "timeline", pos: "right-[2%] bottom-[5%] sm:right-[3%] sm:bottom-[6%]", depth: 1.1, drift: 11, delay: 1.2, rot: 3 },
-  { type: "path", pos: "left-[32%] top-[7%] sm:left-[24%] sm:top-[3%]", depth: 2.0, drift: 12, delay: 1.75, rot: -2 },
+  { type: "path", pos: "left-[38%] top-[5%] sm:left-[24%] sm:top-[3%]", depth: 2.0, drift: 12, delay: 1.75, rot: -2 },
   { type: "text", pos: "left-[8%] top-[13%]", depth: 1.8, drift: 8, delay: 1.5, rot: -6 },
   { type: "fx", pos: "right-[23%] top-[18%]", depth: 1.3, drift: 7.5, delay: 1.6, rot: 5 },
 ];

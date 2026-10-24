@@ -1,0 +1,21 @@
+{
+  "summary": "Verified mobile bug fix: all six floating hero tool assets now render and are visible on mobile (375x760) with opacity=1 and display=block after preloader. Desktop regression (1366x800) passes — all six panels visible at full scale, no overlap with nav or headline. Headline 'good design sells' intact on both viewports with 'sells' in orange.",
+  "backend_issues": {"critical": [], "minor": []},
+  "frontend_issues": {
+    "ui_bugs": [],
+    "integration_issues": [],
+    "design_issues": [
+      {"screen": "Hero mobile 375x760", "issues": ["Minor: hero-tool-path (x=120, y=53, w=144) and hero-tool-character (x=200, y=68) occupy same top band and visually touch/overlap; acceptable as a layered design decoration but worth noting."]}
+    ]
+  },
+  "test_report_links": [],
+  "action_items": [],
+  "critical_code_review_comments": [],
+  "updated_files": [],
+  "success_rate": {"backend": "N/A", "frontend": "100%"},
+  "seed_data_creation": "none",
+  "retest_needed": false,
+  "should_main_agent_self_test": false,
+  "context_for_next_testing_agent": "Mobile hero animation bug fix confirmed working. All 6 testids (hero-tool-character/ease/timeline/path/text/fx) render visible on mobile and desktop after ~9s wait (preloader + entrance delays). Panels are correctly positioned around the centered headline without blocking the Himanshu logo or hamburger menu.",
+  "rca of the issue": "Original bug: panels used `hidden sm:block` so they were display:none below sm. Fix removed the hidden class and added responsive scale (scale-[0.62] sm:scale-90 lg:scale-100) + mobile-adjusted top/left positions. Verified via computed display=block and opacity=1 at 375px width."
+}

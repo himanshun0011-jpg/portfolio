@@ -75,6 +75,10 @@ Goal: recreate the Studio Loop-style portfolio structure and vibe as an original
 - Reference palette applied: cream #F7F6F0 paper, chocolate #2C180F ink, orange-red accent; Inter Tight + Instrument Serif typography; SVG logos recolored.
 - Verified via testing agent (iteration_1): body bg rgb(247,246,240), text rgb(44,24,15), nav/sections render correctly.
 
+## Mobile hero panels fix (2026-07-23, user-reported bug)
+- Bug: design-tool panels were hidden below sm breakpoint (hidden sm:block) — only 2 chips showed on mobile. Fix: all 6 tool assets render at every viewport, scaled scale-[0.62]/sm:90/lg:100 with mobile-adjusted positions (path at left-[38%] top-[5%] mobile to clear nav logo + character panel).
+- Verified by testing agent (iteration_2, 100%): all 6 hero-tool-* testids visible at 375px and 1366px, no overlap with headline/nav; final screenshot after path nudge.
+
 ## Liquid text effect on hero headline (2026-07-23, user-directed)
 - "good design sells" now has a continuous liquid displacement effect (per user's PANTER|VISION reference video): SVG filter with feTurbulence (baseFrequency animated via SMIL, 9s seamless loop) + feDisplacementMap scale 16 applied to the h1 — letters gently ripple/warp like fluid.
 - Removed the per-letter wiggle loop (liquid effect replaces it as the continuous motion); bubble-in entrance kept.
