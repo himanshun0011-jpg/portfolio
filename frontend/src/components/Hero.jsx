@@ -239,6 +239,23 @@ export default function Hero() {
       <div className="absolute inset-x-0 top-1/2 -translate-y-1/2 h-[72%] bg-paper/60 blur-[80px] z-[1] pointer-events-none" aria-hidden="true" />
 
       <motion.div style={{ y: yTitle, opacity }} className="relative z-10 max-w-[1700px] mx-auto px-4 sm:px-8 lg:px-16 w-full">
+        {/* liquid displacement filter for the headline (animated turbulence = continuous ripple) */}
+        <svg aria-hidden="true" className="absolute w-0 h-0">
+          <defs>
+            <filter id="liquid-text">
+              <feTurbulence type="fractalNoise" baseFrequency="0.012 0.035" numOctaves="2" seed="4" result="noise">
+                <animate
+                  attributeName="baseFrequency"
+                  values="0.012 0.035; 0.02 0.05; 0.012 0.035"
+                  dur="9s"
+                  repeatCount="indefinite"
+                />
+              </feTurbulence>
+              <feDisplacementMap in="SourceGraphic" in2="noise" scale="16" xChannelSelector="R" yChannelSelector="G" />
+            </filter>
+          </defs>
+        </svg>
+
         <div className="flex items-center justify-end font-mono text-[10px] sm:text-xs uppercase tracking-[0.25em] text-smoke">
           <motion.span initial={{ opacity: 0 }} animate={{ opacity: go ? 1 : 0 }} transition={{ delay: 1.45, duration: 0.8 }} data-testid="hero-year-label" className="bg-paper/50 backdrop-blur-md rounded-full px-4 py-2">
             ©{BRAND.year}
@@ -248,6 +265,7 @@ export default function Hero() {
         <motion.div style={{ x: titleX, y: titleY }}>
           <h1
             className="mt-8 sm:mt-12 font-blob text-center leading-[1.05] text-[14vw] sm:text-[12.5vw] lg:text-[10vw]"
+            style={{ filter: "url(#liquid-text)" }}
             aria-label="good design sells"
           >
             {(() => {
@@ -265,13 +283,7 @@ export default function Hero() {
                         animate={go ? { scale: 1, opacity: 1, y: 0, rotate: 0 } : {}}
                         transition={{ type: "spring", stiffness: 320, damping: 12, mass: 0.7, delay: 0.15 + i * 0.06 }}
                       >
-                        <motion.span
-                          className="inline-block"
-                          animate={{ rotate: [0, 2.4, -1.8, 0], y: [0, -4, 0] }}
-                          transition={{ duration: 3.6, repeat: Infinity, ease: "easeInOut", delay: 1.4 + i * 0.2 }}
-                        >
-                          {ch}
-                        </motion.span>
+                        {ch}
                       </motion.span>
                     );
                   })}
